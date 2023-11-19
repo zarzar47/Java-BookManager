@@ -1,6 +1,8 @@
 package DataStructures;
 import Books.Book;
 
+import java.util.*;
+
 public class BST
 {
     Node root;
@@ -8,6 +10,10 @@ public class BST
     // Constructor
     public BST() {
         root = null;
+    }
+
+    public Node getRoot(){
+        return this.root;
     }
 
     // Methods
@@ -53,5 +59,36 @@ public class BST
                 return null;
         }
         return temp;
+    }
+
+    //Only works with initial substring
+    public void searchAll(ArrayList arr, Node node, String s){
+        //Go the left subtree and add all matching strings there
+        if (node.left != null) searchAll(arr, node.left, s);
+
+        //If first substring matches, then add to list
+        if (node.getPointer().getName().toUpperCase().startsWith(s.toUpperCase())) {
+            arr.add(node.getPointer());
+        }
+
+        //Go to right subtree and add all matching strings there
+        if (node.right != null) searchAll(arr, node.right, s);
+    }
+
+    public void lnr(Node node)
+    {
+        if (node != null)
+        {
+            lnr(node.left);
+            System.out.println(node.getPointer());
+            lnr(node.right);
+        }
+    }
+
+    @Override
+    public String toString()
+    {
+        lnr(root);
+        return "";
     }
 }

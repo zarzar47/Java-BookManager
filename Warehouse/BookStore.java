@@ -3,6 +3,7 @@ package Warehouse;
 import Books.Book;
 import DataStructures.BST;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class BookStore
@@ -33,7 +34,7 @@ public class BookStore
 
         char name = book.getName().toUpperCase().charAt(0);
 
-        if (!(name >= 61 && name <= 122))
+        if (!(name >= 'A' && name <= 'Z'))  //Not an alphabet, so insert in a completely different tree
         {
             if (alphabet[26] == null)
                 alphabet[26] = new BST();
@@ -41,9 +42,9 @@ public class BookStore
         }
         else
         {
-            if (alphabet[name - 65] == null)
-                alphabet[name - 65] = new BST();
-            alphabet[name - 65].insert(book);
+            if (alphabet[name - 'A'] == null)
+                alphabet[name - 'A'] = new BST();
+            alphabet[name - 'A'].insert(book);
         }
     }
 
@@ -55,16 +56,39 @@ public class BookStore
     {
         char n = name.toUpperCase().charAt(0);
 
-        if (!(n >= 61 && n <= 122))
+        if (!(n >= 'A' && n <= 'Z'))
         {
             if (alphabet[26] == null)
                 return null;
             return alphabet[26].findName(name).getPointer();
         }
         else
-            if (alphabet[n - 65] == null)
+            if (alphabet[n - 'A'] == null)
                 return null;
-            return alphabet[n - 65].findName(name).getPointer();
+            return alphabet[n - 'A'].findName(name).getPointer();
+    }
+
+    public ArrayList<Book> getBooks(String name){
+        char n = name.toUpperCase().charAt(0);
+        ArrayList<Book> books = new ArrayList<>();
+
+        if (!(n >= 'A' && n <= 'Z')){
+            if (alphabet[26] == null)
+                return null;
+            alphabet[26].searchAll(books, alphabet[26].getRoot(), name);
+        }
+        else
+        if (alphabet[n - 'A'] == null)
+            return null;
+        alphabet[n - 'A'].searchAll(books, alphabet[n - 'A'].getRoot(), name);
+        //System.out.println(books.size());
+        return books;
+    }
+
+    public void listBooks()
+    {
+        for (int i = 0; i < alphabet.length; i++)
+            System.out.println(alphabet[i]);
     }
 
 
