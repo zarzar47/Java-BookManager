@@ -6,7 +6,6 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Frame extends JFrame {
-
     public static int WIDTH = 500;
     public static int HEIGHT = 600;
     public static void main(String[] args) {
