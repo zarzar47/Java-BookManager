@@ -47,25 +47,40 @@ public class BookStore
         }
     }
 
-    public Book getBook(int ISBN) {
+    public Book getBookbyISBN(int ISBN) {
         return booklist.get(ISBN);
     }
 
     public Book getBookByName(String name)
     {
+        // Bruh what?
+//        char n = name.toUpperCase().charAt(0);
+//
+//        if (!(n >= 61 && n <= 122))
+//        {
+//            if (alphabet[26] == null)
+//                return null;
+//            return alphabet[26].findName(name).getPointer();
+//        }
+//        else
+//            if (alphabet[n - 65] == null)
+//                return null;
+//            return alphabet[n - 65].findName(name).getPointer();
         char n = name.toUpperCase().charAt(0);
 
-        if (!(n >= 61 && n <= 122))
+        if (n >= 65 && n <= 90)
         {
-            if (alphabet[26] == null)
-                return null;
-            return alphabet[26].findName(name).getPointer();
-        }
-        else
             if (alphabet[n - 65] == null)
                 return null;
             return alphabet[n - 65].findName(name).getPointer();
+        }
+        System.out.println("bruh it didn't work");
+        return null;
     }
 
-
+    public void listBooks()
+    {
+        for (int i = 0; i < alphabet.length; i++)
+            System.out.println(alphabet[i]);
+    }
 }

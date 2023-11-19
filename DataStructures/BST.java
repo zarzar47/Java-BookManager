@@ -54,4 +54,21 @@ public class BST
         }
         return temp;
     }
+
+    public void lnr(Node node)
+    {
+        if (node != null)
+        {
+            lnr(node.left);
+            System.out.println(node.getPointer());
+            lnr(node.right);
+        }
+    }
+
+    @Override
+    public String toString()
+    {
+        lnr(root);
+        return "";
+    }
 }
