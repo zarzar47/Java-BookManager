@@ -1,13 +1,20 @@
-public class BST {
+package DataStructures;
+import Books.Book;
+
+public class BST
+{
     Node root;
+
+    // Constructor
     public BST() {
         root = null;
     }
 
-    public void insert(Book book) {
-
-
-        if (root == null) {
+    // Methods
+    public void insert(Book book)
+    {
+        if (root == null)
+        {
             root = new Node(book);
             return;
         }
@@ -15,13 +22,13 @@ public class BST {
         Node temp = root;
         Node prev = temp;
 
-        while (temp != null) {
+        while (temp != null)
+        {
             prev = temp;
-            if (book.compareTo(temp.pointer) < 0) {
+            if (book.compareTo(temp.pointer) < 0)
                 temp = temp.left;
-            } else {
+            else
                 temp = temp.right;
-            }
         }
 
         if (book.compareTo(prev.pointer) < 0)
@@ -31,14 +38,16 @@ public class BST {
 
     }
 
-    public Node findName(String name) {
+    public Node findName(String name)
+    {
         Node temp = root;
-        while (temp.pointer.name.compareTo(name) != 0) {
-            if (name.compareTo(temp.pointer.name) < 0) {
+
+        while (temp.pointer.getName().compareTo(name) != 0)
+        {
+            if (name.compareTo(temp.pointer.getName()) < 0)
                 temp = temp.left;
-            } else {
+            else
                 temp = temp.right;
-            }
 
             if (temp == null)
                 return null;

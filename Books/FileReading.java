@@ -1,26 +1,32 @@
+package Books;
+import Warehouse.BookStore;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.io.IOException;
 import java.util.Scanner;
 
-public class FileReading {
+public class FileReading
+{
     public FileReading(){
         ReadFile();
     }
 
-    public void ReadFile(){
-
-        File book_file = new File("books.csv");
+    public void ReadFile()
+    {
+        File book_file = new File("Books/books.csv");
         FileReader fileReader;
-        try {
+
+        try
+        {
             fileReader = new FileReader(book_file);
 
             BookStore bookStore = BookStore.getInstance();
             Scanner scaninput = new Scanner(fileReader);
             scaninput.nextLine();
 
-            while (scaninput.hasNext()) {
+            while (scaninput.hasNext())
+            {
                 String string = scaninput.nextLine().replaceAll(", ","-");
                 String[] s =string.split(",");
 
@@ -38,7 +44,9 @@ public class FileReading {
 
             }
 
-        } catch (FileNotFoundException e) {
+        }
+        catch (FileNotFoundException e)
+        {
             System.out.println("There was an error reading the file.");
             throw new RuntimeException(e);
         }
