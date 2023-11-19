@@ -13,7 +13,7 @@ public class Panel extends java.awt.Panel {
 
     JTextField text_field;
     JButton searchButton;
-    JPanel scrollPanel;
+    JPanel container;
     JScrollPane scrollPane;
     public Panel () {
         Initiation();
@@ -29,12 +29,12 @@ public class Panel extends java.awt.Panel {
     }
 
     public void Initiation(){
-        scrollPanel = new JPanel();
-        scrollPanel.setVisible(true);
-        scrollPanel.setFocusable(true);
-        scrollPanel.setLayout(new GridLayout(0,3,5,10));
+        container = new JPanel();
+        container.setVisible(true);
+        container.setFocusable(true);
+        container.setLayout(new BoxLayout(container,BoxLayout.Y_AXIS));
 
-        scrollPane = new JScrollPane(scrollPanel);
+        scrollPane = new JScrollPane(container);
         scrollPane.setWheelScrollingEnabled(true);
         scrollPane.setPreferredSize(new Dimension(Frame.WIDTH-100,Frame.HEIGHT-100));
         scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
@@ -43,6 +43,7 @@ public class Panel extends java.awt.Panel {
         text_field = new JTextField();
         text_field.setPreferredSize(new Dimension(300,20));
         text_field.setName("Enter Book Name");
+
         searchButton =new JButton();
         searchButton.setText("Search");
         searchButton.setPreferredSize(new Dimension(100,20));
@@ -58,12 +59,12 @@ public class Panel extends java.awt.Panel {
         String bookName = text_field.getText();
         BookStore bookStore = BookStore.getInstance();
         ArrayList<Book> bookArrayList = bookStore.getBooks(bookName);
-        scrollPanel.removeAll();
+        container.removeAll();
         for (Book item:
              bookArrayList) {
             BookContainer bookContainer = new BookContainer(item);
             System.out.println(bookContainer.book);
-            scrollPanel.add(bookContainer);
+            container.add(bookContainer);
         }
 
         revalidate();

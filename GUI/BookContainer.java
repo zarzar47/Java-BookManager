@@ -28,12 +28,13 @@ public class BookContainer extends JTextArea implements MouseListener {
         this.setLineWrap(true);
         this.setWrapStyleWord(true);
         this.addMouseListener(this);
-        this.defaultColor = Color.WHITE;
+        this.defaultColor = new Color(232, 241, 241);
+        this.setBackground(defaultColor);
         this.setBorder(new EmptyBorder(5, 10, 5, 10));
-        this.setPreferredSize(new Dimension(100, 150));
-        this.setFont(new Font("book Font", 10, 10));
-        this.setText("\""+book.getName()+"\"" + "\n\n" + "Author: " + book.getAuthor()+"\nPrice ($): "+book.getPrice());
-        highlight = new Color(122, 138, 153);
+        this.setPreferredSize(new Dimension(100, 100));
+        this.setFont(new Font("book Font", Font.BOLD, 13));
+        this.setText("\""+book.getName()+"\"" + "\n" + "Author: " + book.getAuthor()+"\nPrice ($): "+book.getPrice());
+        highlight = new Color(125, 129, 130);
         lightHighlight = new Color(184, 207, 229);
         actionListeners = new ArrayList<>();
         this.addActionListener(new BookClickListener());
@@ -46,6 +47,7 @@ public class BookContainer extends JTextArea implements MouseListener {
 
     @Override
     public void mouseClicked(MouseEvent e) {
+        setBackground(highlight);
     }
 
     @Override
@@ -60,7 +62,6 @@ public class BookContainer extends JTextArea implements MouseListener {
         for (ActionListener l : actionListeners) {
             l.actionPerformed(new ActionEvent(this, ActionEvent.ACTION_PERFORMED, this.getText()));
         }
-        setBackground(defaultColor);
         state = BtnState.NORMAL;
         repaint();
     }
