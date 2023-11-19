@@ -1,4 +1,4 @@
-ISBN,Book-Title,Book-Author,Year-Of-Publication,Publisher,Genre,Price,Items in Stock
+ISBN,Books.Book-Title,Books.Book-Author,Year-Of-Publication,Publisher,Genre,Price,Items in Stock
 1,Classical Mythology,Mark P. O. Morford,2002,Oxford University Press,Self-help,17,4
 2,Clara Callan,Richard Bruce Wright,2001,HarperFlamingo Canada,Mystery,56,3
 3,Decision in Normandy,Carlo D'Este,1991,HarperPerennial,Young Adult,18,1
@@ -74,14 +74,14 @@ ISBN,Book-Title,Book-Author,Year-Of-Publication,Publisher,Genre,Price,Items in S
 73,The Accidental Virgin,Valerie Frankel,2003,Avon Trade,Horror,12,7
 74,The Tao of Pooh,Benjamin Hoff,1983,Penguin Books,Mystery,42,3
 75,Seabiscuit,LAURA HILLENBRAND,2003,Ballantine Books,Fantasy,12,2
-76,The Prince,Niccolo Machiavelli,1952,Signet Book,Young Adult,14,8
-77,Life's Little Instruction Book (Life's Little Instruction Books (Paperback)),H. Jackson Brown,1991,Thomas Nelson,Thriller,51,3
+76,The Prince,Niccolo Machiavelli,1952,Signet Books.Book,Young Adult,14,8
+77,Life's Little Instruction Books.Book (Life's Little Instruction Books (Paperback)),H. Jackson Brown,1991,Thomas Nelson,Thriller,51,3
 78,Starship Troopers,Robert A. Heinlein,1987,Ace Books,Romance,45,8
-79,"The Ruby in the Smoke (Sally Lockhart Trilogy, Book 1)",PHILIP PULLMAN,1988,Laurel Leaf,Fantasy,36,3
+79,"The Ruby in the Smoke (Sally Lockhart Trilogy, Books.Book 1)",PHILIP PULLMAN,1988,Laurel Leaf,Fantasy,36,3
 80,Black Beauty (Illustrated Classics),Anna Sewell,1995,Landoll,Science Fiction,27,6
 81,Anil's Ghost,MICHAEL ONDAATJE,2000,Knopf,Fantasy,50,9
 82,Prescription for Terror,Sandra Levy Ceren,1999,Andrew Scott Publishers,Young Adult,48,1
-83,Modern Manners: An Etiquette Book for Rude People,P.J. O'Rourke,1990,Atlantic Monthly Press,Thriller,44,10
+83,Modern Manners: An Etiquette Books.Book for Rude People,P.J. O'Rourke,1990,Atlantic Monthly Press,Thriller,44,10
 84,Turning Thirty,Mike Gayle,2000,Hodder &amp; Stoughton General Division,Science Fiction,22,4
 85,Decipher,Stel Pavlou,2002,Simon &amp; Schuster (Trade Division),Science Fiction,13,3
 86,"My First Cousin Once Removed: Money, Madness, and the Family of Robert Lowell",Sarah Payne Stuart,1999,Perennial,Biography,16,7
@@ -101,7 +101,7 @@ ISBN,Book-Title,Book-Author,Year-Of-Publication,Publisher,Genre,Price,Items in S
 100,The Gospel of Judas: A Novel,Simon Mawer,2002,Back Bay Books,Romance,10,9
 101,"Prize Stories, 1987: The O'Henry Awards",William Abrahams,1987,Doubleday Books,Young Adult,50,9
 102,"Rich Dad, Poor Dad: What the Rich Teach Their Kids About Money--That the Poor and Middle Class Do Not!",Robert T. Kiyosaki,2000,Warner Books,Historical Fiction,49,1
-103,The Pillars of the Earth,Ken Follett,1996,Signet Book,Fantasy,36,9
+103,The Pillars of the Earth,Ken Follett,1996,Signet Books.Book,Fantasy,36,9
 104,McDonald's: Behind the Arches,John F. Love,1995,Bantam,Self-help,53,6
 105,Creating Wealth : Retire in Ten Years Using Allen's Seven Principles of Wealth!,Robert G. Allen,1986,Fireside,Young Adult,27,10
 106,Corelli's Mandolin : A Novel,LOUIS DE BERNIERES,1995,Vintage,Science Fiction,55,3
@@ -110,12 +110,12 @@ ISBN,Book-Title,Book-Author,Year-Of-Publication,Publisher,Genre,Price,Items in S
 109,Tu Nombre Escrito En El Agua (La Sonrisa Vertical),Irene Gonzalez Frei,2002,Tusquets,Thriller,32,3
 110,Relics (Star Trek: The Next Generation),Michael Jan Friedman,1992,Star Trek,Horror,32,2
 111,Bless The Beasts And Children : Bless The Beasts And Children,Glendon Swarthout,1995,Pocket,Young Adult,53,4
-112,"The Touch of Your Shadow, the Whisper of Your Name (Babylon 5, Book 5)",Neal Barrett Jr.,1996,Dell,Thriller,59,5
+112,"The Touch of Your Shadow, the Whisper of Your Name (Babylon 5, Books.Book 5)",Neal Barrett Jr.,1996,Dell,Thriller,59,5
 113,Blood Oath,David Morrell,1994,St. Martin's Press,Young Adult,56,7
 114,The Alibi,Sandra Brown,2000,Warner Books,Mystery,22,2
 115,The Beach House,James Patterson,2003,Warner Books,Science Fiction,36,3
 116,A Kiss Remembered,Sandra Brown,2003,Warner Books,Biography,35,10
-117,The Short Forever,Stuart Woods,2003,Signet Book,Romance,52,2
+117,The Short Forever,Stuart Woods,2003,Signet Books.Book,Romance,52,2
 118,Dead Aim,IRIS JOHANSEN,2004,Bantam Books,Fantasy,23,7
 119,Angels &amp; Demons,Dan Brown,2001,Pocket Star,Science Fiction,58,10
 120,The Deal,Joe Hutsko,2000,Tor Books (Mm),Thriller,14,2
@@ -127,11 +127,11 @@ ISBN,Book-Title,Book-Author,Year-Of-Publication,Publisher,Genre,Price,Items in S
 126,"Goodbye, My Little Ones: The True Story of a Murderous Mother and Five Innocent Victims",Charles Hickey,1996,Onyx Books,Romance,39,8
 127,The Girl Who Loved Tom Gordon,Stephen King,2000,Pocket,Young Adult,10,10
 128,Bringing Down the House: The Inside Story of Six M.I.T. Students Who Took Vegas for Millions,Ben Mezrich,2003,Free Press,Science Fiction,53,7
-129,"The Oneprince (The Redaemian Chronicles, Book 1)",Bill Hand,1992,Thomas Nelson Inc,Romance,24,4
+129,"The Oneprince (The Redaemian Chronicles, Books.Book 1)",Bill Hand,1992,Thomas Nelson Inc,Romance,24,4
 130,The Sum of All Fears,Tom Clancy,2002,Berkley Publishing Group,Science Fiction,42,9
 131,Care Packages : Letters to Christopher Reeve from Strangers and Other Friends,DANA REEVE,1999,Random House,Young Adult,28,8
 132,O Deus Das Pequenas Coisas,Roy,1998,Edicoes Asa,Self-help,14,3
-133,Lady in Green/Minor Indiscretions (Signet Regency Romance),Barbara Metzger,2002,Signet Book,Biography,42,10
+133,Lady in Green/Minor Indiscretions (Signet Regency Romance),Barbara Metzger,2002,Signet Books.Book,Biography,42,10
 134,One Hundred Years of Solitude,Gabriel Garcia Marquez,1998,Perennial,Historical Fiction,33,2
 135,Little Altars Everywhere: A Novel,Rebecca Wells,1996,Perennial,Self-help,57,7
 136,Coyote Waits (Joe Leaphorn/Jim Chee Novels),Tony Hillerman,1992,HarperTorch,Science Fiction,54,6
@@ -146,9 +146,9 @@ ISBN,Book-Title,Book-Author,Year-Of-Publication,Publisher,Genre,Price,Items in S
 145,Hush,Anne Frasier,2002,Onyx Books,Biography,33,10
 146,"Whisper of Evil (Hooper, Kay. Evil Trilogy.)",Kay Hooper,2002,Bantam Books,Young Adult,22,7
 147,Temor y Temblor,Soren Kierkegaard,2001,Alianza,Biography,24,2
-148,Estudios sobre el amor,Jose Ortega Y Gaset,2001,Downtown Book Center,Mystery,33,5
+148,Estudios sobre el amor,Jose Ortega Y Gaset,2001,Downtown Books.Book Center,Mystery,33,5
 149,Rebecca,Daphne Du Maurier,1994,Avon,Historical Fiction,58,2
-150,Scarlet Letter,Nathaniel Hawthorne,1993,Signet Book,Fantasy,52,8
+150,Scarlet Letter,Nathaniel Hawthorne,1993,Signet Books.Book,Fantasy,52,8
 151,Keep It Simple: And Get More Out of Life,Nick Page,1999,Trafalgar Square,Science Fiction,47,5
 152,Diary of a Mad Mom-To-Be,Laura Wolf,2003,Delta,Romance,50,10
 153,Locked in Time (Laurel Leaf Books),LOIS DUNCAN,1986,Laure Leaf,Young Adult,23,3
@@ -162,9 +162,9 @@ ISBN,Book-Title,Book-Author,Year-Of-Publication,Publisher,Genre,Price,Items in S
 161,Snow Angels,Stewart O'Nan,1995,Penguin Books,Fantasy,42,5
 162,Wish You Well,David Baldacci,2000,Warner Books,Fantasy,51,5
 163,The Hitchhiker's Guide to the Galaxy,Douglas Adams,1982,Pocket,Horror,59,4
-164,Crow Lake (Today Show Book Club #7),Mary Lawson,2003,Delta,Self-help,24,10
+164,Crow Lake (Today Show Books.Book Club #7),Mary Lawson,2003,Delta,Self-help,24,10
 165,My Antonia,Willa Cather,1995,Mariner Books,Horror,31,2
-166,Pen Pals,Olivia Goldsmith,2002,Signet Book,Mystery,55,7
+166,Pen Pals,Olivia Goldsmith,2002,Signet Books.Book,Mystery,55,7
 167,Bridget Jones's Diary,Helen Fielding,1997,Picador (UK),Fantasy,50,5
 168,Pride and Prejudice (Dover Thrift Editions),Jane Austen,1995,Dover Publications,Historical Fiction,29,6
 169,EYE ON CRIME: HARDY BOYS #153,Franklin W. Dixon,1998,Aladdin,Historical Fiction,50,1
@@ -213,7 +213,7 @@ ISBN,Book-Title,Book-Author,Year-Of-Publication,Publisher,Genre,Price,Items in S
 212,Plainsong (Vintage Contemporaries),KENT HARUF,2000,Vintage,Horror,38,2
 213,Body of Evidence (Kay Scarpetta Mysteries (Paperback)),Patricia D. Cornwell,1992,Avon,Romance,10,3
 214,All That Remains (Kay Scarpetta Mysteries (Paperback)),Patricia D. Cornwell,1993,Avon,Young Adult,33,4
-215,The Case of the Lost Look-Alike (An Avon Camelot Book),Carol J. Farley,1988,Avon Books,Thriller,14,4
+215,The Case of the Lost Look-Alike (An Avon Camelot Books.Book),Carol J. Farley,1988,Avon Books,Thriller,14,4
 216,Petals on the River,Kathleen E. Woodiwiss,1997,Avon Trade,Thriller,25,3
 217,The Elusive Flame,Kathleen E. Woodiwiss,1999,Avon,Fantasy,58,9
 218,Legacy of Silence,Belva Plain,1998,Bantam Dell Pub Group,Science Fiction,24,4
@@ -228,8 +228,8 @@ ISBN,Book-Title,Book-Author,Year-Of-Publication,Publisher,Genre,Price,Items in S
 227,The Rescue,Nicholas Sparks,2001,Warner Books,Young Adult,47,9
 228,Manhattan Hunt Club,JOHN SAUL,2002,Ballantine Books,Fantasy,44,3
 229,Patty Jane's House of Curl (Ballantine Reader's Circle),LORNA LANDVIK,1996,Ballantine Books,Horror,57,6
-230,Pet Sematary,Stephen King,1994,Signet Book,Romance,31,4
-231,Silent Snow,Steve Thayer,2000,Signet Book,Historical Fiction,27,1
+230,Pet Sematary,Stephen King,1994,Signet Books.Book,Romance,31,4
+231,Silent Snow,Steve Thayer,2000,Signet Books.Book,Historical Fiction,27,1
 232,Girl with a Pearl Earring,Tracy Chevalier,2001,Plume Books,Self-help,32,3
 233,Summer of Storms,Judith Kelman,2002,Jove Books,Fantasy,56,9
 234,The Patient,Michael Palmer,2001,Bantam Books,Biography,18,10
@@ -255,7 +255,7 @@ ISBN,Book-Title,Book-Author,Year-Of-Publication,Publisher,Genre,Price,Items in S
 254,Moving Pictures (Discworld Novels (Paperback)),Terry Pratchett,2002,HarperTorch,Thriller,14,5
 255,Night Watch,Terry Pratchett,2002,HarperCollins,Historical Fiction,52,3
 256,Thief of Time,Terry Pratchett,2001,HarperCollins Publishers,Science Fiction,28,4
-257,Charlotte's Web Book and Charm (Charming Classics),E. B. White,2003,HarperFestival,Young Adult,20,8
+257,Charlotte's Web Books.Book and Charm (Charming Classics),E. B. White,2003,HarperFestival,Young Adult,20,8
 258,Peter Pan: The Original Story (Peter Pan),J. M. Barrie,2003,HarperFestival,Historical Fiction,18,5
 259,My Friend Flicka,Mary O'Hara,1988,Perennial,Mystery,18,3
 260,The Last Hero : A Discworld Fable (Discworld Novels (Hardcover)),Terry Pratchett,2001,HarperCollins,Romance,11,6
@@ -272,9 +272,9 @@ ISBN,Book-Title,Book-Author,Year-Of-Publication,Publisher,Genre,Price,Items in S
 271,The Picture of Dorian Gray (Modern Library (Paperback)),OSCAR WILDE,1998,Modern Library,Historical Fiction,21,9
 272,The Iron Giant,Ted Hughes,1999,Knopf Books for Young Readers,Mystery,53,1
 273,James and the Giant Peach,ROALD DAHL,2002,Knopf Books for Young Readers,Young Adult,44,9
-274,"The Amber Spyglass (His Dark Materials, Book 3)",PHILIP PULLMAN,2002,Knopf Books for Young Readers,Fantasy,32,5
-275,"The Golden Compass (His Dark Materials, Book 1)",PHILIP PULLMAN,2002,Knopf Books for Young Readers,Science Fiction,14,8
-276,"The Subtle Knife (His Dark Materials, Book 2)",PHILIP PULLMAN,2002,Knopf Books for Young Readers,Fantasy,26,8
+274,"The Amber Spyglass (His Dark Materials, Books.Book 3)",PHILIP PULLMAN,2002,Knopf Books for Young Readers,Fantasy,32,5
+275,"The Golden Compass (His Dark Materials, Books.Book 1)",PHILIP PULLMAN,2002,Knopf Books for Young Readers,Science Fiction,14,8
+276,"The Subtle Knife (His Dark Materials, Books.Book 2)",PHILIP PULLMAN,2002,Knopf Books for Young Readers,Fantasy,26,8
 277,"The Adrian Mole Diaries : The Secret Diary of Adrian Mole, Aged 13 3/4 : The Growing Pains of Adrian Mole",Sue Townsend,1997,Perennial,Young Adult,51,1
 278,Martian Chronicles,Ray Bradbury,1997,William Morrow,Fantasy,37,7
 279,The Great God Pan,Donna Jo Napoli,2003,Wendy Lamb Books,Romance,11,4
@@ -297,7 +297,7 @@ ISBN,Book-Title,Book-Author,Year-Of-Publication,Publisher,Genre,Price,Items in S
 296,The Folk of the Faraway Tree,Enid Blyton,2002,Egmont Childrens Books,Young Adult,26,2
 297,Angels and Visitations: A Miscellany,Neil Gaiman,1993,Dreamhaven Books,Historical Fiction,29,9
 298,"League of Extraordinary Gentlemen, Vol. 2 (Comic)",Alan Moore,2003,DC Comics,Thriller,47,4
-299,"Preludes and Nocturnes (Sandman, Book 1)",Neil Gaiman,1998,DC Comics,Biography,20,10
+299,"Preludes and Nocturnes (Sandman, Books.Book 1)",Neil Gaiman,1998,DC Comics,Biography,20,10
 300,"The League of Extraordinary Gentlemen, Vol. 1",Alan Moore,2002,DC Comics,Young Adult,18,7
 301,Harlequin Valentine,Neil Gaiman,2002,Dark Horse Comics,Young Adult,21,5
 302,Alpha Teach Yourself American Sign Language in 24 Hours (Alpha Teach Yourself in 24 Hours),Trudy Suggs,2003,Alpha Books,Science Fiction,17,8
@@ -313,7 +313,7 @@ ISBN,Book-Title,Book-Author,Year-Of-Publication,Publisher,Genre,Price,Items in S
 312,The Postman (Bantam Classics),David Brin,1990,Spectra Books,Biography,22,4
 313,The Tortilla Curtain,T. Coraghessan Boyle,1995,Viking Books,Mystery,17,8
 314,Symposium,Paul Woodruff,1989,Hackett Pub Co Inc,Mystery,37,10
-315,The What's Happening to My Body? Book for Boys: A Growing Up Guide for Parents and Sons,Lynda Madaras,1987,W W Norton &amp; Co,Mystery,11,4
+315,The What's Happening to My Body? Books.Book for Boys: A Growing Up Guide for Parents and Sons,Lynda Madaras,1987,W W Norton &amp; Co,Mystery,11,4
 316,OBJECT AFFECTION,Stephen McCauley,1988,Washington Square Press,Horror,55,1
 317,The Journey Home,Isabelle Holland,1993,Scholastic Paperbacks (Mm),Horror,10,6
 318,Taking the Ferry Home,Pam Conrad,1990,Harpercollins Juvenile Books,Self-help,32,3
@@ -336,7 +336,7 @@ ISBN,Book-Title,Book-Author,Year-Of-Publication,Publisher,Genre,Price,Items in S
 335,What Shall I Be (Barbie Carryalong),Rita Chapman Works,1999,Reader's Digest,Thriller,44,9
 336,ALL THAT REMAINS,Patricia Cornwell,1992,Scribner,Fantasy,46,4
 337,Last Chance to See,Douglas Adams,1992,Ballantine Books,Fantasy,53,9
-338,Vinegar Hill (Oprah's Book Club (Paperback)),A. Manette Ansay,1998,Perennial,Fantasy,45,10
+338,Vinegar Hill (Oprah's Books.Book Club (Paperback)),A. Manette Ansay,1998,Perennial,Fantasy,45,10
 339,Affinity,Sarah Waters,2002,Riverhead Books,Self-help,60,5
 340,Diario de Ana Frank,Anne Frank,2000,"Editores Mexicanos Unidos, S.A.",Thriller,25,10
 341,Desert Notes/River Notes,Barry Lopez,1990,Quill (HarperCollins),Biography,51,8
@@ -347,7 +347,7 @@ ISBN,Book-Title,Book-Author,Year-Of-Publication,Publisher,Genre,Price,Items in S
 346,El Palacio de La Luna,Paul Auster,1996,Anagrama,Romance,59,10
 347,Mientras Escribo,Stephen King,2002,Distribooks,Biography,20,9
 348,Killer Market (Deborah Knott Mysteries (Paperback)),Margaret Maron,1999,Warner Books,Biography,25,5
-349,Remembering Peter Gzowski : A Book of Tributes,EDNA BARKER,2002,Douglas Gibson Books,Thriller,46,9
+349,Remembering Peter Gzowski : A Books.Book of Tributes,EDNA BARKER,2002,Douglas Gibson Books,Thriller,46,9
 350,The Best Canadian Animal Stories: Classic Tales by Master Storytellers,Muriel Whitaker,1997,McClelland &amp; Stewart,Self-help,24,3
 351,Trying to Save Piggy Sneed,John Irving,1996,Arcade Publishing,Thriller,17,7
 352,"Herr Der Fliegen (Fiction, Poetry and Drama)",Golding,0,Fischer Taschenbuch Verlag GmbH,Biography,37,7
@@ -369,8 +369,8 @@ ISBN,Book-Title,Book-Author,Year-Of-Publication,Publisher,Genre,Price,Items in S
 368,Proof,Dick Francis,1990,Fawcett Books,Horror,33,8
 369,Heart of the Sea (Irish Trilogy),Nora Roberts,2000,Jove Books,Horror,40,6
 370,Mostly Harmless,Douglas Adams,1992,Random House Inc,Thriller,17,1
-371,I Spy: A Book of Picture Riddles,Jean Marzollo,1992,Scholastic,Historical Fiction,34,2
-372,I Spy Spooky Night: A Book of Picture Riddles (I Spy Books),Walter Wick,1996,Scholastic,Science Fiction,17,10
+371,I Spy: A Books.Book of Picture Riddles,Jean Marzollo,1992,Scholastic,Historical Fiction,34,2
+372,I Spy Spooky Night: A Books.Book of Picture Riddles (I Spy Books),Walter Wick,1996,Scholastic,Science Fiction,17,10
 373,Lake News,Barbara Delinsky,2000,Pocket,Horror,57,3
 374,The SKULL BENEATH THE SKIN,P. D. James,1982,Scribner,Thriller,20,6
 375,NEW SHOE,Arthur William Upfield,1983,Scribner Paper Fiction,Mystery,39,5
@@ -379,8 +379,8 @@ ISBN,Book-Title,Book-Author,Year-Of-Publication,Publisher,Genre,Price,Items in S
 378,The Doorbell Rang (The Best Mysteries of All Time),Rex Stout,2000,Readers Digest Assn,Romance,56,2
 379,A Year by the Sea: Thoughts of an Unfinished Woman,Joan Anderson,2000,Broadway Books,Young Adult,56,9
 380,Though I walk through the valley,Vance Havner,1974,F. H. Revell,Young Adult,43,8
-381,Victorious Christians You Should Know,Warren W. Wiersbe,1984,Baker Book House,Young Adult,10,3
-382,Life Lessons: Book Of Hebrews,Max Lucado,1997,W Publishing Group,Historical Fiction,59,1
+381,Victorious Christians You Should Know,Warren W. Wiersbe,1984,Baker Books.Book House,Young Adult,10,3
+382,Life Lessons: Books.Book Of Hebrews,Max Lucado,1997,W Publishing Group,Historical Fiction,59,1
 383,Inside out,Lawrence J Crabb,1988,NavPress,Fantasy,52,7
 384,Son Rise: The Miracle Continues,Barry Neil Kaufman,1994,Pub Group West,Thriller,56,2
 385,Unveiled at Last,Bob Sjogren,1988,YWAM Publishing,Romance,11,6
@@ -389,10 +389,10 @@ ISBN,Book-Title,Book-Author,Year-Of-Publication,Publisher,Genre,Price,Items in S
 388,House of Stairs,William Sleator,1991,Puffin Books,Thriller,26,6
 389,The Little Prince,Antoine de Saint-ExupÃ©ry,1968,Harcourt,Biography,25,4
 390,Jonathan Livingston Seagull,Richard Bach,1976,Avon,Horror,50,4
-391,The Crystal Handbook,Kevin Sullivan,1996,Signet Book,Romance,16,6
-392,Simple Wicca (Simple Wisdom Book),Michele Morgan,2002,Castle Books,Science Fiction,12,5
-393,"The Complete Book of Incense, Oils &amp; Brews (Llewellyn's Practical Magick)","Scott, Cunningham",1989,Llewellyn Publications,Horror,52,1
-394,"The Western Mysteries: An Encyclopedic Guide to the Sacred Languages &amp; Magickal Systems of the World : The Key of It All, Book II (Key of It All)",David Allen Hulse,2000,Llewellyn Publications,Science Fiction,32,6
+391,The Crystal Handbook,Kevin Sullivan,1996,Signet Books.Book,Romance,16,6
+392,Simple Wicca (Simple Wisdom Books.Book),Michele Morgan,2002,Castle Books,Science Fiction,12,5
+393,"The Complete Books.Book of Incense, Oils &amp; Brews (Llewellyn's Practical Magick)","Scott, Cunningham",1989,Llewellyn Publications,Horror,52,1
+394,"The Western Mysteries: An Encyclopedic Guide to the Sacred Languages &amp; Magickal Systems of the World : The Key of It All, Books.Book II (Key of It All)",David Allen Hulse,2000,Llewellyn Publications,Science Fiction,32,6
 395,Astral Travel for Beginners (For Beginners),Richard Webster,1998,Llewellyn Publications,Mystery,53,1
 396,New Perspectives: Runes,Bernard King,2000,Harper Collins - UK,Biography,56,4
 397,Rosie'S Walk,Pat Hutchins,1971,Aladdin,Young Adult,13,1
@@ -457,7 +457,7 @@ ISBN,Book-Title,Book-Author,Year-Of-Publication,Publisher,Genre,Price,Items in S
 456,Dating Big Bird,Laura Zigman,2000,Dial Books,Thriller,20,8
 457,The Firm,John Grisham,1992,Bantam Dell Publishing Group,Biography,23,2
 458,Murder at the Kennedy Center (Capital Crime Mysteries),Margaret Truman,1990,Fawcett Books,Thriller,28,4
-459,"Guinness World Records 2000 (Guinness Book of Records, 2000)",Nic Kynaston,2000,Bantam Books,Young Adult,57,8
+459,"Guinness World Records 2000 (Guinness Books.Book of Records, 2000)",Nic Kynaston,2000,Bantam Books,Young Adult,57,8
 460,Forever Amber Brown (Amber Brown (Paperback)),Paula Danziger,1997,Jump at the Sun,Self-help,16,5
 461,Philip Jose Farmer's The Dungeon,Richard A. Lupoff,2003,I Books,Historical Fiction,30,7
 462,Pool of Radiance: The Ruins of Myth Drannor (Forgotten Realms),Carrie Bebris,2001,Wizards of the Coast,Science Fiction,55,3
@@ -482,9 +482,9 @@ ISBN,Book-Title,Book-Author,Year-Of-Publication,Publisher,Genre,Price,Items in S
 481,Oryx and Crake,Margaret Atwood,2003,Nan A. Talese,Science Fiction,51,9
 482,Sophie's World: A Novel About the History of Philosophy (Berkeley Signature Edition),Jostein Gaarder,1997,Berkley Publishing Group,Fantasy,60,8
 483,Black and Blue,ANNA QUINDLEN,1999,Dell,Thriller,49,1
-484,Le Divorce (William Abrahams Book),Diane Johnson,1997,Plume Books,Young Adult,56,2
+484,Le Divorce (William Abrahams Books.Book),Diane Johnson,1997,Plume Books,Young Adult,56,2
 485,The Face,DEAN KOONTZ,2003,Bantam,Horror,35,3
-486,She's Come Undone (Oprah's Book Club),Wally Lamb,1998,Pocket,Biography,50,5
+486,She's Come Undone (Oprah's Books.Book Club),Wally Lamb,1998,Pocket,Biography,50,5
 487,Falling Leaves: The True Story of an Unwanted Chinese Daughter,Adeline Yen Mah,1999,Broadway Books,Historical Fiction,37,8
 488,Nickel and Dimed: On (Not) Getting By in America,Barbara Ehrenreich,2002,Owl Books,Self-help,51,8
 489,"The Game of Kings (Lymond Chronicles, 1)",DOROTHY DUNNETT,1997,Vintage,Biography,26,8
@@ -526,9 +526,9 @@ ISBN,Book-Title,Book-Author,Year-Of-Publication,Publisher,Genre,Price,Items in S
 525,Last Blue: Poems,Gerald Stern,2000,W.W. Norton &amp; Company,Mystery,14,9
 526,The Cat Who Wasn't There,Lilian Jackson Braun,1992,Putnam Pub Group,Biography,25,9
 527,Isle of Dogs,Patricia Daniels Cornwell,2001,Putnam Publishing Group,Horror,47,2
-528,Light a Penny Candle,Maeve Binchy,2001,Signet Book,Biography,59,7
+528,Light a Penny Candle,Maeve Binchy,2001,Signet Books.Book,Biography,59,7
 529,The Blue Last: A Richard Jury Mystery (Richard Jury Mysteries (Paperback)),Martha Grimes,2002,Onyx Books,Self-help,50,8
-530,Turn of the Screw and Short N,Henry James,1978,Signet Book,Historical Fiction,53,6
+530,Turn of the Screw and Short N,Henry James,1978,Signet Books.Book,Historical Fiction,53,6
 531,The Country of the Pointed Firs (Dover Thrift Editions),Sarah Orne Jewett,1994,Dover Publications,Fantasy,52,7
 532,Early Poems (Dover Thrift Editions),William Carlos Williams,1997,Dover Publications,Self-help,12,4
 533,Barchester Towers (Oxford Pocket Classics),Anthony Trollope,1986,Random House Value Publishing,Mystery,26,1
@@ -546,7 +546,7 @@ ISBN,Book-Title,Book-Author,Year-Of-Publication,Publisher,Genre,Price,Items in S
 545,The Gizmo,Paul Jennings,1995,Puffin,Historical Fiction,57,9
 546,The Last Best Hope of Earth: Abraham Lincoln and the Promise of America,"Mark E., Jr. Neely",1993,Harvard University Press,Young Adult,49,6
 547,Organic Chemistry (Saunders Golden Sunburst Series),Stephen J. Weininger,1994,Saunders College Publishing,Self-help,43,2
-548,Secrets of St. John's Wort: A Lynn Sonberg Book,Larry Katzenstein,1998,St. Martin's Press,Young Adult,52,6
+548,Secrets of St. John's Wort: A Lynn Sonberg Books.Book,Larry Katzenstein,1998,St. Martin's Press,Young Adult,52,6
 549,Diet for a Poisoned Planet: How to Choose Safe Foods for You and Your Family,David Steinman,1992,Ballantine Books,Mystery,59,10
 550,"Punished by Rewards: The Trouble With Gold Stars, Incentive Plans, A'S, Praise, and Other Bribes",Alfie Kohn,1995,Houghton Mifflin,Thriller,36,5
 551,Montessori Today: A Comprehensive Approach to Education from Birth to Adulthood,Paula Polk Lillard,1996,Schocken Books,Historical Fiction,14,1
@@ -565,7 +565,7 @@ ISBN,Book-Title,Book-Author,Year-Of-Publication,Publisher,Genre,Price,Items in S
 564,Life of Pi,Yann Martel,2003,Harvest Books,Thriller,33,8
 565,Rules of the Wild,Francesca Marciano,1998,Random House Inc,Fantasy,18,7
 566,Three Junes,JULIA GLASS,2003,Anchor,Young Adult,56,9
-567,Back Roads,Tawni O'Dell,2001,Signet Book,Mystery,45,8
+567,Back Roads,Tawni O'Dell,2001,Signet Books.Book,Mystery,45,8
 568,In Her Shoes : A Novel,Jennifer Weiner,2002,Atria Books,Biography,26,1
 569,The Kiss,Danielle Steel,2001,Delacorte Press,Science Fiction,29,1
 570,Home Spun: A Collection,Leon Hale,1997,Winedale Publishing,Thriller,14,10
@@ -578,7 +578,7 @@ ISBN,Book-Title,Book-Author,Year-Of-Publication,Publisher,Genre,Price,Items in S
 577,Brewing Up a Storm: A John Thatcher Mystery,Emma Lathen,1996,St Martins Pr,Historical Fiction,18,3
 578,Strangers,Dean R. Koontz,2002,Berkley Publishing Group,Fantasy,20,4
 579,Milk and Honey (Peter Decker/Rina Lazarus Novels),Faye Kellerman,2002,Avon,Mystery,28,9
-580,The Deep End of the Ocean (Oprah's Book Club),Jacquelyn Mitchard,1999,Penguin Books,Horror,21,8
+580,The Deep End of the Ocean (Oprah's Books.Book Club),Jacquelyn Mitchard,1999,Penguin Books,Horror,21,8
 581,Night Tales,Nora Roberts,2000,Silhouette,Horror,27,9
 582,A Thousand Acres (Ballantine Reader's Circle),JANE SMILEY,1992,Ballantine Books,Historical Fiction,49,4
 583,Chopping Spree,DIANE MOTT DAVIDSON,2002,Bantam,Thriller,40,5
@@ -592,7 +592,7 @@ ISBN,Book-Title,Book-Author,Year-Of-Publication,Publisher,Genre,Price,Items in S
 591,Warlock : A Novel of Ancient Egypt,Wilbur Smith,2002,St. Martin's Paperbacks,Romance,25,4
 592,The Teacher from the Black Lagoon,Mike Thaler,1989,Scholastic,Young Adult,37,5
 593,The Partner,John Grisham,1997,Doubleday Books,Thriller,35,2
-594,Primal Scream,Michael Slade,1998,Signet Book,Horror,40,5
+594,Primal Scream,Michael Slade,1998,Signet Books.Book,Horror,40,5
 595,Chosen Prey,John Sandford,2004,Berkley Publishing Group,Fantasy,59,9
 596,Guilty as Sin,TAMI HOAG,1997,Bantam,Romance,26,4
 597,Night Sins,TAMI HOAG,1995,Bantam,Science Fiction,17,4
@@ -607,7 +607,7 @@ ISBN,Book-Title,Book-Author,Year-Of-Publication,Publisher,Genre,Price,Items in S
 606,And Never Let Her Go : Thomas Capano: The Deadly Seducer,Ann Rule,2000,Pocket,Thriller,20,5
 607,Not a Day Goes By : A Novel,E. LYNN HARRIS,2001,Anchor,Fantasy,50,6
 608,Sun Signs,Linda Goodman,1981,Bantam Doubleday Dell,Young Adult,21,2
-609,"The Vampire Lestat (Vampire Chronicles, Book II)",ANNE RICE,1986,Ballantine Books,Young Adult,29,7
+609,"The Vampire Lestat (Vampire Chronicles, Books.Book II)",ANNE RICE,1986,Ballantine Books,Young Adult,29,7
 610,The Mummy or Ramses the Damned,Anne Rice,1991,Ballantine Books,Science Fiction,27,10
 611,HIS LITTLE WOMEN : HIS LITTLE WOMEN,Judith Rossner,1991,Pocket,Historical Fiction,26,6
 612,Her Mother's Daughter,Marilyn French,1990,Ballantine Books,Romance,49,7
@@ -617,7 +617,7 @@ ISBN,Book-Title,Book-Author,Year-Of-Publication,Publisher,Genre,Price,Items in S
 616,The Hellfire Club,Peter Straub,1996,Random House Inc,Fantasy,45,2
 617,"The Diary of Jack the Ripper/the Discovery, the Investigation, the Debate",Jack,1993,Hyperion Books,Romance,15,3
 618,Vanished,Danielle Steel,1993,Delacorte Press,Romance,41,4
-619,The Women in His Life (G K Hall Large Print Book Series),Barbara Taylor Bradford,1991,Thorndike Pr,Thriller,34,10
+619,The Women in His Life (G K Hall Large Print Books.Book Series),Barbara Taylor Bradford,1991,Thorndike Pr,Thriller,34,10
 620,The Morning After,Lisa Jackson,2004,Zebra Books,Science Fiction,33,6
 621,Missing Susan,SHARYN MCCRUMB,1992,Ballantine Books,Science Fiction,41,5
 622,Hiding in the Shadows (Shadows Trilogy (Paperback)),Kay Hooper,2000,Bantam Books,Science Fiction,10,1
@@ -630,7 +630,7 @@ ISBN,Book-Title,Book-Author,Year-Of-Publication,Publisher,Genre,Price,Items in S
 629,Ralph S. Mouse,Beverly Cleary,2000,Scholastic,Romance,41,1
 630,"The First Journey (Animorphs. Alternamorphs, 1)",K. A. Applegate,1999,Apple Signature (Scholastic),Science Fiction,15,6
 631,How Do Dinosaurs Learn to Read,Jane Yolen,2003,"Scholastic, Inc.",Horror,11,5
-632,My First Book about Space (Golden Look-Look Books (Paperback)),Dinah L. Moche,1997,Golden Books,Mystery,43,10
+632,My First Books.Book about Space (Golden Look-Look Books (Paperback)),Dinah L. Moche,1997,Golden Books,Mystery,43,10
 633,You Be the Jury #02,Marvin Miller,1989,Scholastic,Historical Fiction,40,10
 634,Comic Characters,Craig Boldman,1983,Golden Books,Science Fiction,47,8
 635,The Time Machine (Troll Illustrated Classics),H. G. Wells,1992,Troll Communications Llc,Horror,44,7
@@ -651,12 +651,12 @@ ISBN,Book-Title,Book-Author,Year-Of-Publication,Publisher,Genre,Price,Items in S
 650,Socks (Cleary Reissue),Beverly Cleary,1990,HarperTrophy,Young Adult,39,5
 651,"The Pet Shop Mystery (Boxcar Children Special (Paper), No 7)",Gertrude Chandler Warner,1996,Albert Whitman &amp; Company,Romance,38,4
 652,In the Bleak Midwinter (A Rev. Clare Ferguson Mystery),Julia Spencer-Fleming,2003,St. Martin's Minotaur,Young Adult,53,1
-653,"The Amber Spyglass (His Dark Materials, Book 3)",PHILIP PULLMAN,2001,Del Rey,Self-help,24,10
-654,"The Subtle Knife (His Dark Materials, Book 2)",PHILIP PULLMAN,1998,Del Rey,Young Adult,21,1
-655,"The Golden Compass (His Dark Materials, Book 1)",PHILIP PULLMAN,1998,Knopf Books for Young Readers,Horror,21,10
+653,"The Amber Spyglass (His Dark Materials, Books.Book 3)",PHILIP PULLMAN,2001,Del Rey,Self-help,24,10
+654,"The Subtle Knife (His Dark Materials, Books.Book 2)",PHILIP PULLMAN,1998,Del Rey,Young Adult,21,1
+655,"The Golden Compass (His Dark Materials, Books.Book 1)",PHILIP PULLMAN,1998,Knopf Books for Young Readers,Horror,21,10
 656,Eyeshot,Lynn S. Hightower,1997,Harper Mass Market Paperbacks (Mm),Fantasy,60,2
 657,"If Ever I Return, Pretty Peggy-O",Sharyn McCrumb,1991,Fawcett Books,Science Fiction,38,4
-658,The Rosewood Casket,Sharyn McCrumb,1997,Signet Book,Historical Fiction,21,7
+658,The Rosewood Casket,Sharyn McCrumb,1997,Signet Books.Book,Historical Fiction,21,7
 659,The Amazing Mrs. Pollifax,Dorothy Gilman,1992,Fawcett Books,Romance,27,5
 660,Fast Food Nation: The Dark Side of the All-American Meal,Eric Schlosser,2002,Perennial,Self-help,33,5
 661,The Unsung Hero,Suzanne Brockmann,2000,Ivy Books,Biography,30,2
@@ -686,7 +686,7 @@ ISBN,Book-Title,Book-Author,Year-Of-Publication,Publisher,Genre,Price,Items in S
 685,Someone to Watch Over Me : Stories,Richard Bausch,2000,Perennial,Mystery,16,10
 686,Stately Pursuits,Katie Fforde,1999,Griffin Trade Paperback,Biography,58,4
 687,The Pinball Effect: How Renaissance Water Gardens Made the Carburetor Possible-And Other Journeys Through Knowledge (Pinball Effect),James Burke,1996,Little Brown &amp; Co,Young Adult,49,2
-688,"My Father, Dancing (Harvest Book)",Bliss Broyard,2000,Harvest Books,Historical Fiction,59,4
+688,"My Father, Dancing (Harvest Books.Book)",Bliss Broyard,2000,Harvest Books,Historical Fiction,59,4
 689,Women on the Case,Sara Paretsky,1996,Bantam Dell Pub Group,Thriller,39,7
 690,New Cardiff,Charles Webb,2002,Washington Square Press,Young Adult,12,10
 691,Almost: A Novel,Elizabeth Benedict,2002,Mariner Books,Mystery,40,7
@@ -705,7 +705,7 @@ ISBN,Book-Title,Book-Author,Year-Of-Publication,Publisher,Genre,Price,Items in S
 704,OLD MAN AND THE SEA,Ernest Hemingway,1995,Scribner,Historical Fiction,36,7
 705,Diary of a Teenage Girl - Becoming Me : Diary Number 1 (Diary of a Teenage Girl),Melody Carlson,2000,Multnomah,Fantasy,53,8
 706,The Dominant Blonde,Alisa Kwitney,2002,Avon Trade,Romance,12,7
-707,Where the Heart Is (Oprah's Book Club (Paperback)),Billie Letts,1998,Warner Books,Self-help,40,10
+707,Where the Heart Is (Oprah's Books.Book Club (Paperback)),Billie Letts,1998,Warner Books,Self-help,40,10
 708,The Girls' Guide to Hunting and Fishing,Melissa Bank,2000,Penguin Books,Self-help,50,8
 709,Rena's Promise: A Story of Sisters in Auschwitz,Rena Kornreich Gelissen,1996,Beacon Press,Biography,49,1
 710,America the Beautiful: A Novel,Moon Unit Zappa,2001,Touchstone,Biography,34,2
@@ -720,7 +720,7 @@ ISBN,Book-Title,Book-Author,Year-Of-Publication,Publisher,Genre,Price,Items in S
 719,My Name Is Asher Lev,Chaim Potok,1996,Ballantine Books,Self-help,42,7
 720,Waking the Dead,Scott Spencer,2000,Berkley Publishing Group,Fantasy,34,10
 721,Davita's Harp,Chaim Potok,1990,Fawcett Books,Young Adult,38,8
-722,The Book of Lights,Chaim Potok,1997,Fawcett Books,Mystery,36,7
+722,The Books.Book of Lights,Chaim Potok,1997,Fawcett Books,Mystery,36,7
 723,The Mimic Men,V. S. Naipaul,1992,Penguin USA,Historical Fiction,17,10
 724,The Mystic Masseur,V.S. Naipaul,1993,Penguin USA,Self-help,54,9
 725,Regain,Jean Giono,1987,LGF,Historical Fiction,41,9
@@ -752,9 +752,9 @@ ISBN,Book-Title,Book-Author,Year-Of-Publication,Publisher,Genre,Price,Items in S
 751,A Map of the World,Jane Hamilton,1999,Doubleday Books,Horror,12,5
 752,Edge of Danger,Jack Higgins,2001,Putnam Publishing Group,Young Adult,14,10
 753,Bridget Jones : The Edge of Reason,Helen Fielding,2000,Viking Books,Self-help,41,3
-754,Vinegar Hill (Oprah's Book Club (Hardcover)),A. Manette Ansay,1999,HarperCollins,Romance,48,1
-755,The Pilot's Wife : A Novel Tag: Author of the Weight of Water (Oprah's Book Club (Hardcover)),Anita Shreve,1999,"Little, Brown",Romance,11,5
-756,Saving Private Ryan: A Novel,Max Allan Collins,1998,Signet Book,Romance,11,3
+754,Vinegar Hill (Oprah's Books.Book Club (Hardcover)),A. Manette Ansay,1999,HarperCollins,Romance,48,1
+755,The Pilot's Wife : A Novel Tag: Author of the Weight of Water (Oprah's Books.Book Club (Hardcover)),Anita Shreve,1999,"Little, Brown",Romance,11,5
+756,Saving Private Ryan: A Novel,Max Allan Collins,1998,Signet Books.Book,Romance,11,3
 757,Big Trouble,Dave Barry,2002,Berkley Publishing Group,Young Adult,20,5
 758,Snow Falling on Cedars,David Guterson,1994,Harcourt,Thriller,51,10
 759,Skipping Christmas,JOHN GRISHAM,2001,Doubleday,Historical Fiction,58,3
@@ -794,12 +794,12 @@ ISBN,Book-Title,Book-Author,Year-Of-Publication,Publisher,Genre,Price,Items in S
 793,LAKE NEWS : A Novel,Barbara Delinsky,1999,Simon &amp; Schuster,Fantasy,47,5
 794,Liar's Game,Eric Jerome Dickey,2000,Dutton Books,Horror,13,6
 795,Out of the Blue,Sally Mandel,2000,Ballantine Books,Thriller,51,8
-796,Voice of the Eagle,Linda Lay Shuler,1993,Signet Book,Thriller,16,7
+796,Voice of the Eagle,Linda Lay Shuler,1993,Signet Books.Book,Thriller,16,7
 797,The Kingdom by the Sea: A Journey Around Great Britain,Paul Theroux,1984,Pocket Books,Young Adult,28,9
 798,Shattered Uk,Dick Francis,0,Michael Joseph Ltd,Romance,12,10
 799,The Proud and the Free,Janet Dailey,1995,Warner Vision,Romance,14,7
 800,Shoah,Claude Lanzmann,1985,Random House Inc,Romance,17,7
-801,"The Bad Beginning (A Series of Unfortunate Events, Book 1)",Lemony Snicket,1999,HarperCollins,Historical Fiction,41,10
+801,"The Bad Beginning (A Series of Unfortunate Events, Books.Book 1)",Lemony Snicket,1999,HarperCollins,Historical Fiction,41,10
 802,TERROR FIRMA,Matthew Thomas,2001,Trafalgar Square,Horror,44,7
 803,Le Loup-garou,Boris Vian,1999,LGF,Self-help,44,7
 804,Chronique d'une mort annoncÃ?Â©e,Gabriel Garcia Marquez,1987,LGF,Fantasy,52,1
@@ -810,7 +810,7 @@ ISBN,Book-Title,Book-Author,Year-Of-Publication,Publisher,Genre,Price,Items in S
 809,Scottish Ghosts,Judy Hamilton,1999,Lomond Books,Self-help,19,9
 810,Awful End (Eddie Dickens Trilogy S.),Philip Ardagh,2000,Faber Children's Books,Mystery,41,10
 811,The Wasp Factory,Iain Banks,0,Abacus,Self-help,22,5
-812,George W. Bushisms : The Slate Book of The Accidental Wit and Wisdom of our 43rd President,Jacob Weisberg,2001,Fireside,Fantasy,17,4
+812,George W. Bushisms : The Slate Books.Book of The Accidental Wit and Wisdom of our 43rd President,Jacob Weisberg,2001,Fireside,Fantasy,17,4
 813,The World's Stupidest Laws,David Crombie,2000,Michael O'Mara Books,Science Fiction,23,7
 814,"Of Mice and Men (Steinbeck \Essentials\"")""",John Steinbeck,2001,Penguin Books Ltd,Fantasy,60,5
 815,The World's Stupidest Signs,Michael O'Mara,2000,Michael O'Mara Books,Mystery,52,5
@@ -827,8 +827,8 @@ ISBN,Book-Title,Book-Author,Year-Of-Publication,Publisher,Genre,Price,Items in S
 826,CantilÃ¨nes en gelÃ©e ; Barnum's digest ; Vingt poÃ¨mes inÃ©dits (10/18 [i.e. Dix/dix-huit] ; 517),Boris Vian,1978,Union gÃ©nÃ©rale d'Ã©ditions,Young Adult,19,5
 827,Glasgow Zen,Alan Spence,2002,Canongate Books Ltd,Thriller,26,10
 828,Totally Muffins Cookbook (Totally Cookbooks),Helene Siegel,1995,Celestial Arts,Fantasy,45,9
-829,Tigger's Little Book of Diet and Exercise,E.H. Shepard,2002,Egmont Childrens Books,Horror,33,5
-830,Eeyore's Little Book of Gloom,Alan Alexander Milne,1999,Routledge,Thriller,50,6
+829,Tigger's Little Books.Book of Diet and Exercise,E.H. Shepard,2002,Egmont Childrens Books,Horror,33,5
+830,Eeyore's Little Books.Book of Gloom,Alan Alexander Milne,1999,Routledge,Thriller,50,6
 831,The Adventures of Dougal,Eric Thompson,1998,Bloomsbury Publishing PLC,Biography,43,1
 832,Amy and Isabelle,Elizabeth Strout,1999,Random House Inc,Self-help,37,5
 833,"Rule of the Bone : Novel, A",Russell Banks,1996,Perennial,Mystery,54,7
@@ -849,7 +849,7 @@ ISBN,Book-Title,Book-Author,Year-Of-Publication,Publisher,Genre,Price,Items in S
 848,The Second Coming of Curly Red,Jody Seay,1999,Firebrand Books,Mystery,49,1
 849,Night Mares,Manda Scott,1999,Crimeline,Biography,36,1
 850,Hen's Teeth,Manda Scott,1999,Bantam Books,Self-help,39,9
-851,The Door to December,Dean R. Koontz,1994,Signet Book,Young Adult,55,3
+851,The Door to December,Dean R. Koontz,1994,Signet Books.Book,Young Adult,55,3
 852,"No Shirt, No Shoes, No Problem!",Jeff Foxworthy,1997,Warner Books (Mm),Young Adult,56,4
 853,The Scions of Shannara (Heritage of Shannara (Paperback)),Terry Brooks,1993,Del Rey Books,Historical Fiction,18,6
 854,Star Wars the Rebel Dawn: The Han Solo Trilogy (Star Wars: Han Solo Trilogy (Paperback)),A.C. Crispin,1998,Spectra Books,Science Fiction,33,9
@@ -884,8 +884,8 @@ ISBN,Book-Title,Book-Author,Year-Of-Publication,Publisher,Genre,Price,Items in S
 883,Sudden Mischief (Spenser Mysteries (Hardcover)),Robert B. Parker,1998,Putnam Pub Group,Thriller,47,5
 884,Elements of Programming With Perl,Andrew L. Johnson,1999,Manning Publications,Young Adult,28,6
 885,To Catch a Cat,Marian Babson,2002,St. Martin's Minotaur,Biography,12,2
-886,"People of the Wolf (The First North Americans series, Book 1)",W. Michael Gear,1992,Tor Books,Horror,37,5
-887,The Door to December,Dean R. Koontz,2002,Signet Book,Fantasy,58,9
+886,"People of the Wolf (The First North Americans series, Books.Book 1)",W. Michael Gear,1992,Tor Books,Horror,37,5
+887,The Door to December,Dean R. Koontz,2002,Signet Books.Book,Fantasy,58,9
 888,College Majors and Careers: A Resource Guide for Effective Life Planning (College Majors and Careers),Paul Phifer,1999,Ferguson Publishing Company,Thriller,23,10
 889,Smilla's Sense of Snow,Peter Hoeg,1997,Island,Self-help,34,7
 890,The Grass Is Always Greener over the Septic Tank,Erma Bombeck,1988,Fawcett Books,Fantasy,10,8
@@ -901,9 +901,9 @@ ISBN,Book-Title,Book-Author,Year-Of-Publication,Publisher,Genre,Price,Items in S
 900,The Silver Chair (full color) (Narnia),C. S. Lewis,2000,HarperTrophy,Romance,52,4
 901,The Magician's Nephew (Narnia),C. S. Lewis,1994,HarperTrophy,Romance,44,2
 902,"Circles in the Stream (Avalon: Web of Magic, 1)",Shelly R. Roberts,2001,Scholastic,Fantasy,17,10
-903,High Wizardry: The Third Book in the Young Wizards Series,Diane Duane,2001,Magic Carpet Books,Self-help,31,2
-904,Deep Wizardry: The Second Book in the Young Wizards Series,Diane Duane,2001,Magic Carpet Books,Thriller,18,9
-905,So You Want to Be a Wizard: The First Book in the Young Wizards Series,Diane Duane,2001,Magic Carpet Books,Self-help,34,3
+903,High Wizardry: The Third Books.Book in the Young Wizards Series,Diane Duane,2001,Magic Carpet Books,Self-help,31,2
+904,Deep Wizardry: The Second Books.Book in the Young Wizards Series,Diane Duane,2001,Magic Carpet Books,Thriller,18,9
+905,So You Want to Be a Wizard: The First Books.Book in the Young Wizards Series,Diane Duane,2001,Magic Carpet Books,Self-help,34,3
 906,Going for Great (Ag Fiction (American Girl)),Carolee Brockmann,1999,Pleasant Company Publications,Thriller,28,8
 907,"All That Glitters (Avalon, 2)",Rachel Roberts,2001,Scholastic,Self-help,25,2
 908,"Cry of the Wolf (Avalon, 3)",Rachel Roberts,2001,Scholastic,Historical Fiction,25,8
@@ -916,7 +916,7 @@ ISBN,Book-Title,Book-Author,Year-Of-Publication,Publisher,Genre,Price,Items in S
 915,The Hitchhiker's Guide to the Galaxy,Douglas Adams,1995,Ballantine Books,Biography,43,9
 916,The Giver (21st Century Reference),LOIS LOWRY,1994,Laure Leaf,Romance,58,8
 917,The Heavenly Man: The Remarkable True Story of Chinese Christian Brother Yun,Paul Hattaway,2003,Monarch Books,Horror,13,9
-918,The Little Book of Chocolate (Little Book Of...(Flammarion)),Alain Stella,2001,Flammarion,Biography,18,9
+918,The Little Books.Book of Chocolate (Little Books.Book Of...(Flammarion)),Alain Stella,2001,Flammarion,Biography,18,9
 919,Das Schlampenbuch. ErzÃ?Â¤hlungen. ( neue frau).,Milena Moser,1993,Rowohlt Tb.,Young Adult,35,9
 920,Die zwei Gesichter des Januars.,Patricia Highsmith,1974,Diogenes Verlag,Fantasy,18,4
 921,Nacht Ã?Â¼ber den Wassern.,Ken Follett,1994,LÃ?Â¼bbe,Romance,58,7
@@ -924,13 +924,13 @@ ISBN,Book-Title,Book-Author,Year-Of-Publication,Publisher,Genre,Price,Items in S
 923,A Man Rides Through (Man Rides Through),Stephen Donaldson,1990,Del Rey Books,Self-help,14,6
 924,Mirror of Her Dreams (Mordant's Need),STEPHEN R. DONALDSON,1987,Del Rey,Biography,32,9
 925,Reader,Bernhard Schlink,0,Phoenix Books,Self-help,10,4
-926,The Dead Zone,Stephen King,2004,Signet Book,Science Fiction,19,1
+926,The Dead Zone,Stephen King,2004,Signet Books.Book,Science Fiction,19,1
 927,The Diary of Ellen Rimbauer: My Life at Rose Red,Ellen Rimbauer,2002,Hyperion Press,Young Adult,28,4
 928,A New Germany in a New Europe,Todd Herzog,2000,Routledge,Young Adult,39,3
 929,"Belonging in the Two Berlins : Kin, State, Nation (Cambridge Studies in Social and Cultural Anthropology)",John Borneman,1992,Cambridge University Press,Science Fiction,52,3
 930,The Great Depression : America 1929-1941,ROBERT S. MCELVAINE,1993,Three Rivers Press,Biography,59,8
 931,Lady of the Shroud,Bram Stoker,1989,Amereon Limited,Self-help,29,4
-932,"Dark Tide I: Onslaught (Star Wars: The New Jedi Order, Book 2)",Michael A. Stackpole,2000,Del Rey Books,Science Fiction,28,4
+932,"Dark Tide I: Onslaught (Star Wars: The New Jedi Order, Books.Book 2)",Michael A. Stackpole,2000,Del Rey Books,Science Fiction,28,4
 933,LONG DARK TEA TIME OF THE SOUL,Douglas Adams,1990,Pocket,Romance,53,6
 934,The Return of Simple,Langston Hughes,1995,Hill &amp; Wang,Young Adult,56,7
 935,Half Moon Street (Charlotte &amp; Thomas Pitt Novels (Paperback)),Anne Perry,2001,Ballantine Books,Horror,16,5
@@ -957,22 +957,26 @@ ISBN,Book-Title,Book-Author,Year-Of-Publication,Publisher,Genre,Price,Items in S
 957,Wall Street's Picks for 2000: An Insider's Guide to the Year's Best Stocks &amp; Mutual Funds (Wall Street's Picks),Kirk Kazanjian,1999,Dearborn Financial Publishing,Young Adult,53,2
 958,Poetics of the New American Poetry,Donald Merriam Allen,1974,Grove Press,Fantasy,20,6
 959,Patriot Games,Tom Clancy,1992,Berkley Publishing Group,Young Adult,45,1
+<<<<<<< HEAD:out/production/Book Store/books.csv
 960,Dead Men Do Tell Tales: The Strange and Fascinating Cases of a Forensic Anthropologist,William Maples,1995,Panel Street Books,Horror,33,4
+=======
+960,Dead Men Do Tell Tales: The Strange and Fascinating Cases of a Forensic Anthropologist,William Maples,1995,Warehouse.Main Street Books,Horror,33,4
+>>>>>>> master:Books/books.csv
 961,Moonlighting: 148 Great Ways to Make Money on the Side,Carl Hausman,1991,Harpercollins,Thriller,44,3
 962,Amanda Miranda,Richard Peck,1981,Harper Mass Market Paperbacks (Mm),Historical Fiction,44,7
 963,Chasing the Dime,Michael Connelly,2003,Warner Books,Historical Fiction,35,7
 964,Tender Triumph (Sonnet Books),Judith McNaught,1991,Pocket,Science Fiction,28,1
 965,The Cat Who Tailed a Thief,Lilian Jackson Braun,1998,Jove Books,Young Adult,44,6
 966,Guilt,John T. Lescroart,1998,Island,Horror,28,2
-967,On Secret Service,John Jakes,2001,Signet Book,Young Adult,20,4
+967,On Secret Service,John Jakes,2001,Signet Books.Book,Young Adult,20,4
 968,Charming Billy,Alice McDermott,1999,Delta,Young Adult,55,6
 969,All the Days of My Life,Hilary Bailey,1986,Fawcett Books,Romance,58,4
 970,The Dinner Party,Howard Fast,1991,Dell Publishing Company,Historical Fiction,14,1
-971,A Palette for Murder: Murder She Wrote (Murder She Wrote (Paperback)),Jessica Fletcher,1996,Signet Book,Young Adult,23,2
+971,A Palette for Murder: Murder She Wrote (Murder She Wrote (Paperback)),Jessica Fletcher,1996,Signet Books.Book,Young Adult,23,2
 972,Golden Cup,Belva Plain,1987,Dell,Self-help,37,7
 973,Murder at the Library of Congress (Capital Crimes (Paperback)),Margaret Truman,2001,Fawcett Books,Self-help,36,7
 974,No Safe Place,RICHARD NORTH PATTERSON,1999,Ballantine Books,Self-help,30,5
-975,Thorns of Truth,Eileen Goudge,1999,Signet Book,Historical Fiction,37,2
+975,Thorns of Truth,Eileen Goudge,1999,Signet Books.Book,Historical Fiction,37,2
 976,Granny Dan,DANIELLE STEEL,2000,"Random House, Inc.",Fantasy,57,5
 977,Border Bride,Arnette Lamb,1993,Pocket,Science Fiction,33,7
 978,The Penwyth Curse,Catherine Coulter,2004,Jove Books,Historical Fiction,15,10
@@ -1008,7 +1012,7 @@ ISBN,Book-Title,Book-Author,Year-Of-Publication,Publisher,Genre,Price,Items in S
 1008,Other worlds: The comical history of the states and empires of the moon and sun (Science fiction master series),Cyrano de Bergerac,1976,New English Library,Fantasy,23,9
 1009,Introduction to Fire Prevention (5th Edition),James C. Robertson,2000,Pearson Education,Romance,19,5
 1010,To Catch A Sheik  (Desert Brides),Teresa Southwick,2003,Silhouette,Horror,59,8
-1011,The Awakening and Selected Stories of Kate Chopin (Signet Classic),Kate Chopin,1995,Signet Book,Thriller,40,4
+1011,The Awakening and Selected Stories of Kate Chopin (Signet Classic),Kate Chopin,1995,Signet Books.Book,Thriller,40,4
 1012,Ordinary People,Judith Guest,1993,Penguin Books,Fantasy,34,3
 1013,The Rainmaker,JOHN GRISHAM,1996,Dell,Biography,17,7
 1014,"On The Tycoon's Terms   Do Not Disturb! (Harlequin Presents, 2348)",Sandra Field,2003,Harlequin,Fantasy,19,5
@@ -1025,7 +1029,7 @@ ISBN,Book-Title,Book-Author,Year-Of-Publication,Publisher,Genre,Price,Items in S
 1025,The Phantom Tollbooth,Norton Juster,1993,Yearling Books,Self-help,44,9
 1026,Dances With Wolves,Michael Blake,1990,Fawcett Books,Self-help,13,4
 1027,The House With a Clock in Its Walls,John Bellairs,1993,Puffin Books,Fantasy,43,9
-1028,Hoot (Newbery Honor Book),CARL HIAASEN,2002,Knopf Books for Young Readers,Horror,42,9
+1028,Hoot (Newbery Honor Books.Book),CARL HIAASEN,2002,Knopf Books for Young Readers,Horror,42,9
 1029,Catnap : A Midnight Louie Mystery (A Midnight Louie Mystery),Carole Nelson Douglas,1993,Forge Books,Romance,31,9
 1030,The Princess Bride: S Morgenstern's Classic Tale of True Love and High Adventure,WILLIAM GOLDMAN,1987,Del Rey,Science Fiction,37,6
 1031,A Dangerous Place: California's Unsettling Fate (Images of America),Marc Reisner,2003,Pantheon Books,Biography,56,5
@@ -1101,10 +1105,10 @@ ISBN,Book-Title,Book-Author,Year-Of-Publication,Publisher,Genre,Price,Items in S
 1101,The House of the Spirits,Isabel Allende,1986,Bantam Books,Romance,58,3
 1102,Where the Sidewalk Ends : Poems and Drawings,Shel Silverstein,1974,HarperCollins,Self-help,27,7
 1103,Interpreter of Maladies,Jhumpa Lahiri,1999,Houghton Mifflin Co,Mystery,42,8
-1104,Glorious Country: Food Crafts Decorating,Liz Trigg,1995,Natl Book Network,Fantasy,42,2
+1104,Glorious Country: Food Crafts Decorating,Liz Trigg,1995,Natl Books.Book Network,Fantasy,42,2
 1105,Loving,Charles Sullivan,1992,Harry N Abrams,Self-help,28,6
 1106,Divine Secrets of the Ya-Ya Sisterhood: A Novel,Rebecca Wells,1997,Perennial,Biography,47,5
-1107,She's Come Undone (Oprah's Book Club (Paperback)),Wally Lamb,1996,Washington Square Press,Young Adult,41,8
+1107,She's Come Undone (Oprah's Books.Book Club (Paperback)),Wally Lamb,1996,Washington Square Press,Young Adult,41,8
 1108,JITTERBUG PERFUME,TOM ROBBINS,1985,Bantam,Romance,55,7
 1109,STONES FROM THE RIVER,Ursula Hegi,1997,Simon &amp; Schuster,Biography,45,5
 1110,Clarissa (abridged),Samuel Richardson,1962,Houghton Mifflin Company,Young Adult,12,6
@@ -1139,20 +1143,20 @@ ISBN,Book-Title,Book-Author,Year-Of-Publication,Publisher,Genre,Price,Items in S
 1139,The Silent Storm: Scholastic Edition,Sherry Garland,1996,Harcourt,Self-help,42,4
 1140,Black Rainbow,Barbara Michaels,1994,Berkley Publishing Group,Historical Fiction,35,2
 1141,The Demon-Haunted World: Science As a Candle in the Dark,Carl Sagan,1997,Ballantine Books,Thriller,13,6
-1142,"Teen Love:  On Relationships, A Book for Teenagers",Kimberly Kirberger,1999,Health Communications,Biography,51,2
+1142,"Teen Love:  On Relationships, A Books.Book for Teenagers",Kimberly Kirberger,1999,Health Communications,Biography,51,2
 1143,On The Verge (Red Dress Ink (Paperback)),Ariella Papa,2002,Red Dress Ink,Mystery,39,9
 1144,Chaser: A Novel in E-Mails,Michael J. Rosen,2002,Candlewick Press (MA),Fantasy,49,5
 1145,Cool Women,Dawn Chipman,1997,Girl Press,Romance,39,7
 1146,Welcome to My Planet: Where English Is Sometimes Spoken,Shannon Olson,2001,Penguin Books,Young Adult,15,6
 1147,A STRING OF CHANCES (String of Chances Nrf),Phyllis Reynolds Naylor,1982,Atheneum,Historical Fiction,18,4
-1148,"Frankenstein Or, the Modern Prometheus",Mary Wollstonecraft Shelley,1994,Signet Book,Fantasy,43,6
+1148,"Frankenstein Or, the Modern Prometheus",Mary Wollstonecraft Shelley,1994,Signet Books.Book,Fantasy,43,6
 1149,World of Pies : A Novel,Karen Stolz,2001,Hyperion,Historical Fiction,28,10
 1150,Love: A User's Guide,CLARE NAYLOR,1999,Ballantine Books,Fantasy,25,10
 1151,The Perks of Being a Wallflower,Stephen Chbosky,1999,MTV,Science Fiction,25,3
 1152,Patapim e patapam (Le formiche),Antonio Albanese,1994,Baldini&amp;Castoldi,Science Fiction,32,10
 1153,Dragons of Summer Flame,Margaret Weis,2002,Wizards of the Coast,Romance,47,9
 1154,DANCING AT THE RASCAL FAIR,Ivan Doig,1996,Scribner,Historical Fiction,19,2
-1155,Daughter of Fortune : A Novel (Oprah's Book Club (Hardcover)),Isabel Allende,1999,HarperCollins,Fantasy,42,1
+1155,Daughter of Fortune : A Novel (Oprah's Books.Book Club (Hardcover)),Isabel Allende,1999,HarperCollins,Fantasy,42,1
 1156,"A Beautiful Mind : A Biography of John Forbes Nash, Jr.",Sylvia Nasar,1998,Simon &amp; Schuster,Horror,58,6
 1157,The Bridegroom: Stories (Great Reads),Ha Jin,2000,Pantheon Books,Historical Fiction,31,2
 1158,Kiss the Dust,Elizabeth Laird,1994,Puffin Books,Science Fiction,56,7
@@ -1169,8 +1173,8 @@ ISBN,Book-Title,Book-Author,Year-Of-Publication,Publisher,Genre,Price,Items in S
 1169,Entdecke den Schamanen in dir. Reise in die innere Welt des Alltags.,Christopher Weidner,2003,"Droemersche Verlagsanstalt Th. Knaur Nachf., GmbH &amp; Co.",Self-help,46,10
 1170,Das Meer und kleine Fische.,Terry Pratchett,2000,Heyne,Fantasy,49,4
 1171,Sofies Welt. Roman Ã?Â¼ber die Geschichte der Philosophie.,Jostein Gaarder,1999,Dtv,Biography,44,4
-1172,The Book of Lost Tales 2 (The History of Middle-Earth - Volume 2),J.R.R. TOLKIEN,1992,Del Rey,Fantasy,37,4
-1173,The Book of Lost Tales 1 (The History of Middle-Earth - Volume 1),J. R. R. Tolkien,1992,Del Rey Books,Young Adult,41,2
+1172,The Books.Book of Lost Tales 2 (The History of Middle-Earth - Volume 2),J.R.R. TOLKIEN,1992,Del Rey,Fantasy,37,4
+1173,The Books.Book of Lost Tales 1 (The History of Middle-Earth - Volume 1),J. R. R. Tolkien,1992,Del Rey Books,Young Adult,41,2
 1174,Waking Up Screaming: Haunting Tales of Terror,H. P. Lovecraft,2003,Del Rey Books,Historical Fiction,35,7
 1175,Dharma Bums,Jack Kerouac,1991,Penguin Books,Mystery,48,1
 1176,American Gods,Neil Gaiman,2002,HarperTorch,Young Adult,60,2
@@ -1186,9 +1190,9 @@ ISBN,Book-Title,Book-Author,Year-Of-Publication,Publisher,Genre,Price,Items in S
 1186,"One Tree (Donaldson, Stephen R. Second Chronicles of Thomas Covenant, Bk. 2.)",Stephen R. Donaldson,1982,Ballantine Books,Self-help,51,7
 1187,White Gold Wielder Chronicles 3 (Second Chronicles of Thomas Covenant),Stephen R Donaldson,1984,Ballantine Books,Self-help,54,5
 1188,Wounded Land (Second Chronicles of Thomas Covenant),Stephen R. Donaldson,1981,Del Rey Books,Romance,59,3
-1189,"The Power That Preserves (The Chronicles of Thomas Covenant the Unbeliever, Book Three)",Stephen R. Donaldson,1979,Del Rey Books,Science Fiction,59,7
+1189,"The Power That Preserves (The Chronicles of Thomas Covenant the Unbeliever, Books.Book Three)",Stephen R. Donaldson,1979,Del Rey Books,Science Fiction,59,7
 1190,Illearth War / Thomas Covenant #02 (Chronicles of Thomas Covenant the Unbeliever),Stephen Donaldson,1978,Ballantine Books,Horror,44,5
-1191,"Lord Foul's Bane (The Chronicles of Thomas Covenant the Unbeliever, Book One)",Stephen R. Donaldson,1978,Del Rey Books,Thriller,42,5
+1191,"Lord Foul's Bane (The Chronicles of Thomas Covenant the Unbeliever, Books.Book One)",Stephen R. Donaldson,1978,Del Rey Books,Thriller,42,5
 1192,Killing Mister Watson,Peter Matthiessen,1991,Vintage Books USA,Self-help,31,5
 1193,Exocet,Jack Higgins,1984,Penguin Putnam~mass,Horror,56,3
 1194,The Crib,Paul Kent,1987,Bantam Books,Horror,53,3
@@ -1319,7 +1323,7 @@ ISBN,Book-Title,Book-Author,Year-Of-Publication,Publisher,Genre,Price,Items in S
 1320,Elfstones of Shannara,Terry Brooks,1990,Del Rey Books,Biography,12,3
 1321,Sword of Shannara,Terry Brooks,1980,Ballantine Books,Young Adult,56,4
 1322,"Ogre, Ogre",Piers Anthony,1982,Del Rey Books,Mystery,16,6
-1323,The Stand: Complete and Uncut,Stephen King,1991,Signet Book,Horror,27,5
+1323,The Stand: Complete and Uncut,Stephen King,1991,Signet Books.Book,Horror,27,5
 1324,Lonesome Dove,Larry McMurtry,1988,Pocket,Historical Fiction,56,8
 1325,Shopaholic Takes Manhattan (Summer Display Opportunity),Sophie Kinsella,2002,Delta,Biography,43,7
 1326,Confessions of a Shopaholic (Summer Display Opportunity),SOPHIE KINSELLA,2001,Delta,Historical Fiction,35,5
@@ -1346,15 +1350,15 @@ ISBN,Book-Title,Book-Author,Year-Of-Publication,Publisher,Genre,Price,Items in S
 1347,Having Everything,John L'Heureux,1999,Pub Group West,Young Adult,53,10
 1348,Nothin' but Good Times Ahead,Molly Ivins,1993,Random House Inc,Young Adult,24,2
 1349,Hunting Badger,Tony Hillerman,1999,HarperCollins Publishers,Historical Fiction,22,10
-1350,The Education of Little Tree (A Zia Book),Forrest Carter,1986,University of New Mexico Press,Mystery,14,9
+1350,The Education of Little Tree (A Zia Books.Book),Forrest Carter,1986,University of New Mexico Press,Mystery,14,9
 1351,The Island of the Day Before,Umberto Eco,1996,Penguin Books,Self-help,34,10
 1352,Darwin's Radio,Greg Bear,2000,Ballantine Books,Fantasy,22,8
 1353,Good Omens,Neil Gaiman,1996,Ace Books,Self-help,53,4
 1354,Il Dio Delle Piccole Cose,Arundhati Roy,2002,Distribooks Inc,Fantasy,10,3
-1355,The Songcatcher: A Ballad Novel,Sharyn McCrumb,2002,Signet Book,Biography,43,7
+1355,The Songcatcher: A Ballad Novel,Sharyn McCrumb,2002,Signet Books.Book,Biography,43,7
 1356,Message in a Bottle,Nicholas Sparks,1999,Warner Vision,Young Adult,19,1
 1357,Fatal Voyage,Kathy Reichs,2002,Pocket,Mystery,36,10
-1358,Praying for Sleep,Jeffery Deaver,1995,Signet Book,Young Adult,25,1
+1358,Praying for Sleep,Jeffery Deaver,1995,Signet Books.Book,Young Adult,25,1
 1359,Flashback,Nevada Barr,2003,Putnam Publishing Group,Self-help,15,4
 1360,Red Square,Martin Cruz Smith,1993,Ballantine Books,Self-help,46,2
 1361,Pearl in the Mist (Landry),V.C. Andrews,1994,Pocket,Historical Fiction,31,9
@@ -1375,14 +1379,14 @@ ISBN,Book-Title,Book-Author,Year-Of-Publication,Publisher,Genre,Price,Items in S
 1376,Operating Instructions: A Journal of My Son's First Year,Anne Lamott,1994,Ballantine Books,Science Fiction,32,2
 1377,Jewel,Bret Lott,1999,Washington Square Press,Historical Fiction,13,10
 1378,Their Eyes Were Watching God: A Novel,Zora Neale Hurston,1990,Perennial,Mystery,57,7
-1379,"Wild Magic (Fool's Gold, Book 2)",Jude Fisher,2003,Daw Books,Young Adult,16,4
+1379,"Wild Magic (Fool's Gold, Books.Book 2)",Jude Fisher,2003,Daw Books,Young Adult,16,4
 1380,The Satanic Verses,Salman Rushdie,1992,Distributors,Historical Fiction,56,4
 1381,Shadowmancer,G. P. Taylor,2004,Putnam Publishing Group,Young Adult,11,1
 1382,Notes From a Small Planet,Bill Bryson,0,Bantam Doubleday Dell,Biography,26,10
 1383,DINOSAUR PLANET 2 SURVIVORS,ANNE MCCAFFREY,1996,Time Warner Books UK,Romance,21,4
 1384,The Grapes of Wrath: John Steinbeck Centennial Edition (1902-2002),John Steinbeck,2002,Penguin Books,Romance,51,8
-1385,"The Amber Spyglass (His Dark Materials, Book 3)",Philip Pullman,2000,Scholastic Press,Thriller,55,5
-1386,"The Subtle Knife (His Dark Materials, Book 2)",Philip Pullman,1998,Scholastic Point,Fantasy,21,4
+1385,"The Amber Spyglass (His Dark Materials, Books.Book 3)",Philip Pullman,2000,Scholastic Press,Thriller,55,5
+1386,"The Subtle Knife (His Dark Materials, Books.Book 2)",Philip Pullman,1998,Scholastic Point,Fantasy,21,4
 1387,Northern Lights (His Dark Materials S.),Philip Pullman,1998,Scholastic Point,Mystery,49,3
 1388,A Prayer for Owen Meany,John Irving,1990,Ballantine Books,Self-help,32,6
 1389,Away from It All,Judy Astley,2003,Trafalgar Square,Self-help,25,1
@@ -1403,13 +1407,13 @@ ISBN,Book-Title,Book-Author,Year-Of-Publication,Publisher,Genre,Price,Items in S
 1404,Only The River Runs Free : A Novel (Galway Chronicles (Paperback)),Bodie Thoene,2003,WestBow Press,Horror,10,3
 1405,Only the Wind Remembers,Marlo Schalesky,2003,Moody Publishers,Young Adult,24,4
 1406,True Notebooks (Alex Awards (Awards)),MARK SALZMAN,2003,Knopf,Science Fiction,11,10
-1407,The No. 1 Ladies' Detective Agency (Today Show Book Club #8),Alexander McCall Smith,2003,Anchor,Young Adult,21,8
+1407,The No. 1 Ladies' Detective Agency (Today Show Books.Book Club #8),Alexander McCall Smith,2003,Anchor,Young Adult,21,8
 1408,Driving Mr. Albert: A Trip Across America With Einstein's Brain,Michael Paterniti,2001,Delta,Fantasy,18,4
-1409,French Lieutenant's Woman,John Fowles,1996,Signet Book,Fantasy,10,8
+1409,French Lieutenant's Woman,John Fowles,1996,Signet Books.Book,Fantasy,10,8
 1410,The Clearing: A Mystery,Dorothy Reynolds Miller,1998,Yearling Books,Mystery,14,6
 1411,Shopgirl,Steve Martin,2001,Hyperion,Horror,52,5
 1412,Kitchen,Banana Yoshimoto,1994,Washington Square Press,Self-help,10,3
-1413,Museum of Science Book of Answers &amp; Questions,Ann Rae Jonas,1996,Adams Media Corp,Horror,53,4
+1413,Museum of Science Books.Book of Answers &amp; Questions,Ann Rae Jonas,1996,Adams Media Corp,Horror,53,4
 1414,How in the World?: A Fascinating Journey Through the World of Human Ingenuity,Readers Digest,1990,Readers Digest,Romance,47,9
 1415,The Power of Myth (Illustrated Edition),Joseph Campbell,1988,Doubleday Books,Fantasy,39,1
 1416,Crescent City,Belva Plain,1984,Delacorte Press,Fantasy,29,6
@@ -1427,12 +1431,12 @@ ISBN,Book-Title,Book-Author,Year-Of-Publication,Publisher,Genre,Price,Items in S
 1428,Sacred Journey of the Peaceful Warrior,Dan Millman,1991,H.J. Kramer,Fantasy,52,2
 1429,Chicken Soup for the Mother's Soul (Chicken Soup for the Soul Series (Paper)),Jack Canfield,1997,Health Communications,Romance,31,9
 1430,The Kitchen God's Wife,Amy Tan,1992,Ivy Books,Romance,22,8
-1431,Adventures of Huckleberry Finn (Signet Classics (Paperback)),Mark Twain,1997,Signet Book,Horror,40,5
+1431,Adventures of Huckleberry Finn (Signet Classics (Paperback)),Mark Twain,1997,Signet Books.Book,Horror,40,5
 1432,The Silmarillion,J.R.R. TOLKIEN,1985,Del Rey,Biography,37,7
 1433,Teen Angst? Naaah . . . A Quasi-autobiography,Ned Vizzini,2002,Laurel-Leaf Books,Science Fiction,24,2
 1434,Speak,Laurie Halse Anderson,2001,Speak,Self-help,42,7
 1435,Kerosene,Chris Wooding,2002,Push,Historical Fiction,57,4
-1436,Songs in Ordinary Time (Oprah's Book Club (Paperback)),Mary McGarry Morris,1996,Penguin Books,Mystery,37,1
+1436,Songs in Ordinary Time (Oprah's Books.Book Club (Paperback)),Mary McGarry Morris,1996,Penguin Books,Mystery,37,1
 1437,Exploring Inner and Outer Space: A Scientist's Perspective on Personal and Planetary Transformation,Brian O'Leary,1989,North Atlantic Books,Fantasy,11,6
 1438,"Miracle in the Void: Free Energy, Ufos and Other Scientific Revelations",Brian O'Leary,1996,Kamapua'a Press,Fantasy,36,3
 1439,The Second Coming of Science: An Intimate Report on the New Science,Brian O'Leary,1992,North Atlantic Books,Biography,50,9
@@ -1440,7 +1444,7 @@ ISBN,Book-Title,Book-Author,Year-Of-Publication,Publisher,Genre,Price,Items in S
 1441,L. Ron Hubbard Presents Writers of the Future (L. Ron Hubbard Presents Writers of the Future),L. Ron Hubbard,1988,Bridge Publications,Thriller,16,10
 1442,The Stone Monkey : A Lincoln Rhyme Novel,Jeffery Deaver,2002,Simon &amp; Schuster,Young Adult,43,8
 1443,Saucer,Stephen Coonts,2003,St. Martin's Paperbacks,Mystery,11,9
-1444,"Clones (Star Wars: Galaxy of Fear, Book 11)",JOHN WHITMAN,1998,Skylark,Historical Fiction,30,6
+1444,"Clones (Star Wars: Galaxy of Fear, Books.Book 11)",JOHN WHITMAN,1998,Skylark,Historical Fiction,30,6
 1445,Jetzt will ichs wirklich wissen. Mit mentaler Powertechnik Ziele erreichen.,Peter Kummer,2002,Moderne Verlagsges. Mvg,Horror,44,4
 1446,Herr Lehmann. Ein Roman.,Sven Regener,2001,Eichborn,Romance,54,6
 1447,Arnold: An Unauthorized Biography,Wendy Leigh,1990,McGraw-Hill,Thriller,52,9
@@ -1494,4 +1498,4 @@ ISBN,Book-Title,Book-Author,Year-Of-Publication,Publisher,Genre,Price,Items in S
 1495,The Loop,Nicholas Evans,1999,Dell Publishing Company,Horror,52,10
 1496,Emma,Jane Austen,1994,New Amer Library Classics,Fantasy,40,3
 1497,Good in Bed,Jennifer Weiner,2002,Washington Square Press,Thriller,29,1
-1498,Mansfield Park (Signet Classics (Paperback)),Jane Austen,1996,Signet Book,Self-help,15,5
+1498,Mansfield Park (Signet Classics (Paperback)),Jane Austen,1996,Signet Books.Book,Self-help,15,5
