@@ -3,9 +3,7 @@ package GUI;
 import Books.Book;
 
 import javax.swing.*;
-import javax.swing.border.BevelBorder;
-import javax.swing.border.Border;
-import javax.swing.border.EmptyBorder;
+import javax.swing.border.LineBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -21,19 +19,20 @@ public class BookContainer extends JTextArea implements MouseListener {
     private Color highlight, lightHighlight;
     private List<ActionListener> actionListeners;
 
-    public BookContainer(Book book) {
+    public BookContainer(Book book)
+    {
         this.book = book;
         state = BtnState.NORMAL;
         this.setEditable(false);
         this.setLineWrap(true);
         this.setWrapStyleWord(true);
-        this.addMouseListener(this);
-        this.defaultColor = new Color(232, 241, 241);
         this.setBackground(defaultColor);
-        this.setBorder(new EmptyBorder(5, 10, 5, 10));
+        this.setBorder(new LineBorder(new Color(76, 107, 124)));
         this.setPreferredSize(new Dimension(100, 100));
         this.setFont(new Font("book Font", Font.BOLD, 13));
-        this.setText("\""+book.getName()+"\"" + "\n" + "Author: " + book.getAuthor()+"\nPrice ($): "+book.getPrice());
+        this.setText("  \""+book.getName()+"\"" + "\n  " + "Author: " + book.getAuthor()+"\n  Price ($): "+book.getPrice());
+        this.addMouseListener(this);
+        this.defaultColor = new Color(232, 241, 241);
         highlight = new Color(125, 129, 130);
         lightHighlight = new Color(184, 207, 229);
         actionListeners = new ArrayList<>();
@@ -92,7 +91,8 @@ public class BookContainer extends JTextArea implements MouseListener {
     private class BookClickListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            JOptionPane.showMessageDialog(null, book);
+            Checkout.getInstance().setBook(book);
+            Panel.pane.setSelectedIndex(1);
         }
     }
 

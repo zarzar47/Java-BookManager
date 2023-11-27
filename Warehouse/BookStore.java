@@ -2,21 +2,30 @@ package Warehouse;
 
 import Books.Book;
 import DataStructures.BST;
+import DataStructures.DoublyLinkedList;
+import DataStructures.LinkedList;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class BookStore
 {
-    private HashMap<Integer, Book> booklist;
-    private BST[] alphabet;
+    private DoublyLinkedList booklist;
+    private final BST[] alphabet;
+    private HashMap<String, BST> genreList;
+    private HashMap<String, BST> authorList;
+    private LinkedList currentBookList;
     private static BookStore bookStore;
 
     // Constructor
     private BookStore()
     {
         alphabet = new BST[27];
-        booklist = new HashMap<>();
+        booklist = new DoublyLinkedList();
+        genreList = new HashMap<>();
+        authorList = new HashMap<>();
     }
 
     // Instantiation
@@ -30,7 +39,19 @@ public class BookStore
     // Methods
     public void insert(Book book)
     {
-        booklist.put(book.getISBN(), book);
+        booklist.Insert(book);
+
+        //If genre is already present, then add to it, otherwise create new mapping for genre
+        if (!genreList.containsKey(book.getGenre().toUpperCase())){
+            genreList.put(book.getGenre().toUpperCase(), new BST());
+        }
+        genreList.get(book.getGenre().toUpperCase()).insert(book);
+
+        //If author is already present, then add to it, otherwise create new mapping for author
+        if (!authorList.containsKey(book.getAuthor().toUpperCase())){
+            authorList.put(book.getAuthor().toUpperCase(), new BST());
+        }
+        authorList.get(book.getAuthor().toUpperCase()).insert(book);
 
         char name = book.getName().toUpperCase().charAt(0);
 
@@ -48,8 +69,20 @@ public class BookStore
         }
     }
 
+    public String[] listAllGenre()
+    {
+        String[] list =new String[genreList.size()+1];
+        int i = 0;
+        list[i++] = "All";
+        for (Map.Entry<String, BST> set :
+                genreList.entrySet()) {
+            list[i++] = set.getKey();
+        }
+        return list;
+    }
+
     public Book getBook(int ISBN) {
-        return booklist.get(ISBN);
+        return booklist.Search(ISBN);
     }
 
     public Book getBookByName(String name)
@@ -63,16 +96,18 @@ public class BookStore
             return alphabet[26].findName(name).getPointer();
         }
         else
-            if (alphabet[n - 'A'] == null)
-                return null;
-            return alphabet[n - 'A'].findName(name).getPointer();
+        if (alphabet[n - 'A'] == null)
+            return null;
+        return alphabet[n - 'A'].findName(name).getPointer();
     }
 
-    public ArrayList<Book> getBooks(String name){
+    public LinkedList<Book> getBooks(String name)
+    {
         char n = name.toUpperCase().charAt(0);
-        ArrayList<Book> books = new ArrayList<>();
+        LinkedList<Book> books = new LinkedList<>();
 
-        if (!(n >= 'A' && n <= 'Z')){
+        if (!(n >= 'A' && n <= 'Z'))
+        {
             if (alphabet[26] == null)
                 return null;
             alphabet[26].searchAll(books, alphabet[26].getRoot(), name);
@@ -82,7 +117,19 @@ public class BookStore
             return null;
         alphabet[n - 'A'].searchAll(books, alphabet[n - 'A'].getRoot(), name);
         //System.out.println(books.size());
+
+        currentBookList = books;
         return books;
+    }
+
+    public String listGenre(String genre)
+    {
+        return genreList.get(genre.toUpperCase()).LNR(genreList.get(genre.toUpperCase()).getRoot(), "");
+    }
+
+    public String listBooksByAuthor(String author)
+    {
+        return authorList.get(author.toUpperCase()).LNR(authorList.get(author.toUpperCase()).getRoot(), "");
     }
 
     public void listBooks()
@@ -91,5 +138,33 @@ public class BookStore
             System.out.println(alphabet[i]);
     }
 
+    public LinkedList<Book> sortListByPrice()
+    {
+        LinkedList output = new LinkedList();
 
+        LinkedList.ListNode current = currentBookList.getHead();
+        while (current != null)
+        {
+            output.insertPriceAscendingSorted(current.getPointer());
+            current = current.getNext();
+        }
+
+        currentBookList = output;
+        return output;
+    }
+
+    public LinkedList sortListByName()
+    {
+        LinkedList output = new LinkedList();
+
+        LinkedList.ListNode current = currentBookList.getHead();
+        while (current != null)
+        {
+            output.insertNameAscendingSorted(current.getPointer());
+            current = current.getNext();
+        }
+
+        currentBookList = output;
+        return output;
+    }
 }

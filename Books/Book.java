@@ -1,6 +1,7 @@
 package Books;
 
 public class Book implements Comparable<Book>{
+    int popularity;
     int ISBN;
     String name;
     String author;
@@ -11,7 +12,7 @@ public class Book implements Comparable<Book>{
     int inStock;
 
     // Constructor
-    public Book(int ISBN, String name, String author, int Year, String publisher, String genre,float price, int inStock)
+    public Book(int ISBN, String name, String author, int Year, String publisher, String genre,float price, int inStock, int popularity)
     {
         this.ISBN = ISBN;
         this.name = name;
@@ -21,6 +22,7 @@ public class Book implements Comparable<Book>{
         this.genre = genre;
         this.price = price;
         this.inStock = inStock;
+        this.popularity = popularity;
     }
 
     // Methods
@@ -59,7 +61,14 @@ public class Book implements Comparable<Book>{
     // toString
     @Override
     public String toString() {
-        return "ISBN: "+ISBN+", Name: "+name+", Author: "+author+", Publisher: "+publisher+", Genre: "+genre+", Price: "+price+", In stock: "+inStock;
+        return "ISBN: "+ISBN+
+                ", Name: "+name+
+                ", Author: "+author+
+                ", Publisher: "+publisher+
+                ", Genre: "+genre+
+                ", Price: "+price+
+                ", In stock: "+inStock+
+                ", Popularity: "+popularity;
     }
 
     @Override

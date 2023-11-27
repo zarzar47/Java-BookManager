@@ -7,6 +7,8 @@ public class Node
     Node parent;
     Node left;
     Node right;
+    Node next;
+    Node prev;
 
     // Constructor
     public Node(Book data)

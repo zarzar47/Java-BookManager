@@ -62,17 +62,19 @@ public class BST
     }
 
     //Only works with initial substring
-    public void searchAll(ArrayList arr, Node node, String s){
+    public void searchAll(LinkedList arr, Node node, String s)
+    {
         //Go the left subtree and add all matching strings there
-        if (node.left != null) searchAll(arr, node.left, s);
+        if (node.left != null)
+            searchAll(arr, node.left, s);
 
         //If first substring matches, then add to list
-        if (node.getPointer().getName().toUpperCase().startsWith(s.toUpperCase())) {
-            arr.add(node.getPointer());
-        }
+        if (node.getPointer().getName().toUpperCase().startsWith(s.toUpperCase()))
+            arr.insertBook(node.getPointer());
 
         //Go to right subtree and add all matching strings there
-        if (node.right != null) searchAll(arr, node.right, s);
+        if (node.right != null)
+            searchAll(arr, node.right, s);
     }
 
     public void lnr(Node node)
@@ -90,5 +92,15 @@ public class BST
     {
         lnr(root);
         return "";
+    }
+
+    public String LNR(Node root, String s)
+    {
+        if (root.left != null)
+            s = LNR(root.left, s);
+        s+= root.getPointer().toString() + "\n";
+        if (root.right != null)
+            s = LNR(root.right, s);
+        return s;
     }
 }

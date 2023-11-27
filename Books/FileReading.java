@@ -39,7 +39,8 @@ public class FileReading
                 String genre = s[5];
                 float price = Float.parseFloat(s[6].trim());
                 int inStock = Integer.parseInt(s[7].trim());
-                Book book = new Book(ISBN, name, author, Year, publisher, genre, price, inStock);
+                int pop = Integer.parseInt(s[8].trim());
+                Book book = new Book(ISBN, name, author, Year, publisher, genre, price, inStock,pop);
                 bookStore.insert(book);
 
             }
