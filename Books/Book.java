@@ -1,6 +1,6 @@
 package Books;
 
-public class Book implements Comparable<Book>{
+public class Book implements Comparable<Book> {
     int popularity;
     int ISBN;
     String name;
@@ -12,8 +12,7 @@ public class Book implements Comparable<Book>{
     int inStock;
 
     // Constructor
-    public Book(int ISBN, String name, String author, int Year, String publisher, String genre,float price, int inStock, int popularity)
-    {
+    public Book(int ISBN, String name, String author, int Year, String publisher, String genre, float price, int inStock, int popularity) {
         this.ISBN = ISBN;
         this.name = name;
         this.author = author;
@@ -44,7 +43,9 @@ public class Book implements Comparable<Book>{
 
     public String getAuthor() {
         return author;
-    };
+    }
+
+    ;
 
     public String getGenre() {
         return genre;
@@ -61,18 +62,30 @@ public class Book implements Comparable<Book>{
     // toString
     @Override
     public String toString() {
-        return "ISBN: "+ISBN+
-                ", Name: "+name+
-                ", Author: "+author+
-                ", Publisher: "+publisher+
-                ", Genre: "+genre+
-                ", Price: "+price+
-                ", In stock: "+inStock+
-                ", Popularity: "+popularity;
+        return "ISBN: " + ISBN +
+                ", Name: " + name +
+                ", Author: " + author +
+                ", Publisher: " + publisher +
+                ", Genre: " + genre +
+                ", Price: " + price +
+                ", In stock: " + inStock +
+                ", Popularity: " + popularity;
+    }
+
+    public String getDetailsOnly() {
+        return ISBN +
+                "%&" + name +
+                "%&" + author +
+                "%&" + publisher +
+                "%&" + genre +
+                "%&" + price +
+                "%&" + inStock +
+                "%&" + popularity;
     }
 
     @Override
     public int compareTo(Book o) {
         return this.name.compareTo(o.name);
     }
+
 }

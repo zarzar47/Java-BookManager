@@ -91,7 +91,7 @@ public class BookContainer extends JTextArea implements MouseListener {
     private class BookClickListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            Checkout.getInstance().setBook(book);
+            Checkout.getInstance().setDetails(book);
             Panel.pane.setSelectedIndex(1);
         }
     }
@@ -100,6 +100,5 @@ public class BookContainer extends JTextArea implements MouseListener {
         NORMAL,
         HOVERED,
         CLICKED;
-
     }
 }

@@ -10,7 +10,7 @@ import java.awt.event.ActionListener;
 public class Checkout extends JPanel {
     private final JButton buyButton = new JButton();
     private static Checkout buyScreen;
-    JTextArea bookInfo;
+    private JPanel bookPanel;
     private Checkout(){
         initialization();
     }
@@ -26,23 +26,20 @@ public class Checkout extends JPanel {
         return buyScreen;
     }
 
-    public void setBook(Book book){
-        bookInfo.setText(book.toString());
-    }
 
     public void initialization(){
-        bookInfo = new JTextArea("Book details");
-        bookInfo.setPreferredSize(new Dimension(400,500));
-        bookInfo.setVisible(true);
-        bookInfo.setEditable(false);
-        bookInfo.setLineWrap(true);
-        bookInfo.setWrapStyleWord(true);
-        bookInfo.setFont(new Font("Arial", Font.PLAIN, 14));
-        bookInfo.setForeground(Color.BLACK);
-        bookInfo.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-        bookInfo.setBackground(Color.WHITE);
+        bookPanel = new JPanel();
+        bookPanel.setPreferredSize(new Dimension(400,500));
+        bookPanel.setVisible(true);
+//        bookInfo.setEditable(false);
+//        bookInfo.setLineWrap(true);
+//        bookInfo.setWrapStyleWord(true);
+        bookPanel.setFont(new Font("Arial", Font.PLAIN, 14));
+        bookPanel.setForeground(Color.BLACK);
+        bookPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+        bookPanel.setBackground(Color.WHITE);
 
-        this.add(bookInfo);
+        this.add(bookPanel);
 
         buyButton.setText("Buy!");
         buyButton.setPreferredSize(new Dimension(100,50));
@@ -53,6 +50,22 @@ public class Checkout extends JPanel {
             }
         });
         this.add(buyButton);
+    }
+
+    public void setDetails(Book book){
+        String[]  details = book.getDetailsOnly().split("%&");
+        String[] labels = {"ISBN:","Name:","Author:","Publisher:", "Genre:", "Price:", "In stock:", "Popularity:"};
+        for (int i = 0; i < details.length; i++) {
+            bookPanel.add(getCustomText(labels[i]+" "+details[i].trim()));
+        }
+    }
+
+    private JTextField getCustomText(String string){
+        JTextField item = new JTextField();
+        item.setText(string);
+        item.setEditable(false);
+        item.setPreferredSize(new Dimension(bookPanel.getWidth()-10,50));
+        return item;
     }
 
 
