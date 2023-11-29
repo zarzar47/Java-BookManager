@@ -48,4 +48,8 @@ public class DoublyLinkedList {
         }
         return temp.pointer;
     }
+
+    public Book getLatest(){
+        return tail.getPointer();
+    }
 }

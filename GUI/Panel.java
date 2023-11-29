@@ -2,12 +2,15 @@ package GUI;
 
 import Books.Book;
 import DataStructures.LinkedList;
+import DataStructures.Node;
 import Warehouse.*;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
 public class Panel extends java.awt.Panel {
 
@@ -35,7 +38,8 @@ public class Panel extends java.awt.Panel {
         catalogue.add(text_field);
         catalogue.add(searchButton);
         catalogue.add(genreFilter);
-        catalogue.add(authorFilter);
+        catalogue.addKeyListener(new keyReg());
+       // catalogue.add(authorFilter);
         catalogue.add(scrollPane);
 
         pane.addTab("Catalogue",catalogue);
@@ -45,7 +49,7 @@ public class Panel extends java.awt.Panel {
     }
 
     public void Initiation() {
-        genreName = "";
+        genreName = "All";
         authorName = "";
         container = new JPanel();
         container.setVisible(true);
@@ -79,18 +83,6 @@ public class Panel extends java.awt.Panel {
             }
         });
 
-        genreFilter.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                genreList = new JPopupMenu("Message");
-                String[] genres = BookStore.getInstance().listAllGenre();
-                for (int i = 0; i < genres.length; i++) {
-                    genreList.add(new JMenuItem(genres[i]));
-                }
-
-            }
-        });
-
         authorFilter = new JButton();
         authorFilter.setText("Author");
         authorFilter.setPreferredSize(new Dimension(100, 20));
@@ -115,7 +107,8 @@ public class Panel extends java.awt.Panel {
 
     private void showGenrePopup() {
         genreList = new JPopupMenu("Genres");
-        String[] genres = BookStore.getInstance().listAllGenre();
+        genreList.add(new JMenuItem("All"));
+        String[] genres = BookStore.getInstance().getGenres();
         for (int i = 0; i < genres.length; i++) {
             JMenuItem menuItem = new JMenuItem(genres[i]);
             menuItem.addActionListener(new ActionListener() {
@@ -137,13 +130,12 @@ public class Panel extends java.awt.Panel {
     public void performSearch() {
         String bookName = text_field.getText();
         BookStore bookStore = BookStore.getInstance();
-        LinkedList<Book> bookArrayList = bookStore.getBooks(bookName);
+        bookStore.updateList(bookName,genreName);
         container.removeAll();
-        LinkedList<Book>.ListNode temp = bookArrayList.getHead();
+        Node temp = bookStore.getCurrentBookList().getHead();
 
         while (temp != null) {
             BookContainer bookContainer = new BookContainer(temp.getPointer());
-            System.out.println(bookContainer.book);
             container.add(bookContainer);
             temp = temp.getNext();
         }
@@ -152,5 +144,24 @@ public class Panel extends java.awt.Panel {
 
         revalidate();
         repaint();
+    }
+
+    private class keyReg implements KeyListener {
+
+        @Override
+        public void keyTyped(KeyEvent e) {
+
+        }
+
+        @Override
+        public void keyPressed(KeyEvent e) {
+            if (e.getKeyCode() == KeyEvent.VK_ENTER)
+                searchButton.doClick();
+        }
+
+        @Override
+        public void keyReleased(KeyEvent e) {
+
+        }
     }
 }

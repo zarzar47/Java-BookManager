@@ -23,6 +23,11 @@ public class Node
         this.pointer = pointer;
     }
 
+    public Node getNext()
+    {
+        return next;
+    }
+
     public Book getPointer()
     {
         return pointer;

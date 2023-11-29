@@ -42,7 +42,6 @@ public class BST {
         else
             prev.right = new Node(book);
         size++;
-
     }
 
     public Node findName(String name) {
@@ -60,6 +59,10 @@ public class BST {
         return temp;
     }
 
+    public void searchAll(LinkedList<Book> arr,String name){
+        searchAll(arr,root,name);
+    }
+
     //Only works with initial substring
     public void searchAll(LinkedList<Book> arr, Node node, String s) {
         //Go the left subtree and add all matching strings there
@@ -75,19 +78,4 @@ public class BST {
             searchAll(arr, node.right, s);
     }
 
-    public Book[] getList() {
-        count = 0;
-        Book[] bookarray = new Book[size];
-        LNR(root,bookarray);
-        return bookarray;
-    }
-
-    public Book LNR(Node root, Book[] b) {
-        if (root != null) {
-            root.setPointer(LNR(root.left, b));
-            b[count] = root.getPointer();
-            root.setPointer(LNR(root.right,b));
-        }
-        return null;
-    }
 }

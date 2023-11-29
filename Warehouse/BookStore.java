@@ -3,6 +3,7 @@ package Warehouse;
 import Books.Book;
 import DataStructures.BST;
 import DataStructures.DoublyLinkedList;
+import DataStructures.DynamicArray;
 import DataStructures.LinkedList;
 
 import java.util.ArrayList;
@@ -10,147 +11,94 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class BookStore
-{
+public class BookStore {
     private DoublyLinkedList booklist;
-    private final BST[] alphabet;
-    private HashMap<String, BST> genreList;
-    private HashMap<String, Book> nameList;
-    private HashMap<String, BST> authorList;
+    private final DynamicArray<BST>[] dataField;
+    //TODO  change HashMap to custom implementation
+    private HashMap<String, Integer> genreList;
     private LinkedList<Book> currentBookList;
     private static BookStore bookStore;
+    private int numOfBooks;
 
     // Constructor
-    private BookStore()
-    {
-        alphabet = new BST[27];
+    private BookStore() {
+        //   alphabet = new BST[27];
+        numOfBooks = 0;
+        currentBookList = new LinkedList<>();
+        dataField = new DynamicArray[27];
         booklist = new DoublyLinkedList();
         genreList = new HashMap<>();
-        authorList = new HashMap<>();
-        nameList =  new HashMap<>();
     }
 
     // Instantiation
-    public static BookStore getInstance()
-    {
+    public static BookStore getInstance() {
         if (bookStore == null)
             bookStore = new BookStore();
         return bookStore;
     }
 
     // Methods
-    public void insert(Book book)
-    {
+    public void insert(Book book) {
+        //TODO make this more presentable
         booklist.Insert(book);
+        Book ref = booklist.getLatest();
+        String genre = ref.getGenre().toUpperCase();
 
-        //If genre is already present, then add to it, otherwise create new mapping for genre
-        if (!genreList.containsKey(book.getGenre().toUpperCase())){
-            genreList.put(book.getGenre().toUpperCase(), new BST());
+        if (!genreList.containsKey(genre)) {
+            genreList.put(genre, genreList.size());
         }
-        genreList.get(book.getGenre().toUpperCase())
-                .insert(book);
 
-        //If author is already present, then add to it, otherwise create new mapping for author
-        if (!authorList.containsKey(book.getAuthor().toUpperCase())){
-            authorList.put(book.getAuthor().toUpperCase(), new BST());
-        }
-        authorList.get(book.getAuthor().toUpperCase())
-                .insert(book);
-
-        char name = book.getName().toUpperCase()
+        int genreInt = genreList.get(genre);
+        char name = ref.getName().toUpperCase()
                 .charAt(0);
 
+        int index;
         if (!(name >= 'A' && name <= 'Z'))  //Not an alphabet, so insert in a completely different tree
-        {
-            if (alphabet[26] == null)
-                alphabet[26] = new BST();
-            alphabet[26].insert(book);
-        } else {
-            if (alphabet[name - 'A'] == null)
-                alphabet[name - 'A'] = new BST();
-            alphabet[name - 'A'].insert(book);
-        }
+            index = 26;
+        else
+            index = name - 'A';
+
+        if (dataField[index] == null)
+            dataField[index] = new DynamicArray<>();
+        if (dataField[index].find(genreInt) == null)
+            dataField[index].insertAt(new BST(), genreInt);
+
+        dataField[index].find(genreInt).insert(ref);
+        numOfBooks++;
     }
 
-    public String[] listAllGenre()
-    {
-        String[] list =new String[genreList.size()+1];
-        int i = 0;
-        list[i++] = "All";
-        for (Map.Entry<String, BST> set :
-                genreList.entrySet()) {
-            list[i++] = set.getKey();
+    public LinkedList<Book> getBooks(String name, String genre) {
+        //TODO make this more presentable
+        LinkedList<Book> list = new LinkedList<>();
+        char letter = name.toUpperCase().charAt(0);
+        if (dataField[letter - 'A'] == null || (!genreList.containsKey(genre.toUpperCase()) && !genre.equalsIgnoreCase("All")))
+            return currentBookList;
+        if (genre.equalsIgnoreCase("All")) {
+            for (int i = 0; i < genreList.size(); i++) {
+                DynamicArray<BST> DArray = dataField[letter - 'A'];
+                DArray.find(i).searchAll(list, name);
+            }
+        } else {
+            int i = genreList.get(genre.toUpperCase());
+            DynamicArray<BST> DArray = dataField[letter - 'A'];
+            DArray.find(i).searchAll(list, name);
         }
+
         return list;
     }
 
-    public Book getBook(String name) {
-        return nameList.get(name);
+    public void updateList(String name, String genre) {
+        currentBookList = getBooks(name, genre);
     }
 
-    public LinkedList<Book> getBooks(String name)
-    {
-        char n = name.toUpperCase().charAt(0);
-        LinkedList<Book> books = new LinkedList<>();
-
-        if (!(n >= 'A' && n <= 'Z'))
-        {
-            if (alphabet[26] == null)
-                return null;
-            alphabet[26].searchAll(books, alphabet[26].getRoot(), name);
-        }
-        else
-        if (alphabet[n - 'A'] == null)
-            return null;
-        alphabet[n - 'A'].searchAll(books, alphabet[n - 'A'].getRoot(), name);
-
-        currentBookList = books;
-        return books;
+    public LinkedList<Book> getCurrentBookList() {
+        return currentBookList;
     }
 
-    public String listGenre(String genre)
-    {
-       // return genreList.get(genre.toUpperCase()).LNR(genreList.get(genre.toUpperCase()).getRoot(), "");
-        return null;
-    }
-
-    public String listBooksByAuthor(String author)
-    {
-     //   return authorList.get(author.toUpperCase()).LNR(authorList.get(author.toUpperCase()).getRoot(), "");
-        return null;
-    }
-
-    public void filterByGenre(String genre){
-          // currentBookList = genreList.get(genre).getList();
-    }
-
-    public LinkedList<Book> sortListByPrice()
-    {
-        LinkedList output = new LinkedList();
-
-        LinkedList.ListNode current = currentBookList.getHead();
-        while (current != null)
-        {
-            output.insertPriceAscendingSorted(current.getPointer());
-            current = current.getNext();
-        }
-
-        currentBookList = output;
-        return output;
-    }
-
-    public LinkedList sortListByName()
-    {
-        LinkedList output = new LinkedList();
-
-        LinkedList.ListNode current = currentBookList.getHead();
-        while (current != null)
-        {
-            output.insertNameAscendingSorted(current.getPointer());
-            current = current.getNext();
-        }
-
-        currentBookList = output;
-        return output;
+    public String[] getGenres() {
+        String[] genres = new String[genreList.size()];
+        //TODO change this to a custom way of implementing Hashing
+        genreList.keySet().toArray(genres);
+        return genres;
     }
 }

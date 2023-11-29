@@ -5,43 +5,14 @@ import java.util.List;
 
 public class LinkedList<E extends Comparable<Book>>
 {
-    public class ListNode
-    {
-        private Book pointer;
-        private ListNode next;
 
-        // Constructor
-        public ListNode(Book book)
-        {
-            this.pointer = book;
-            this.next = null;
-        }
-
-        // Getters
-        public Book getPointer()
-        {
-            return pointer;
-        }
-        public ListNode getNext()
-        {
-            return next;
-        }
-
-        // toString
-        @Override
-        public String toString()
-        {
-            return "" + pointer;
-        }
-    }
-
-    ListNode head;
-    ListNode tail;
+    Node head;
+    Node tail;
 
     // Methods
     public void insertBook(Book book)
     {
-        ListNode newNode = new ListNode(book);
+        Node newNode = new Node(book);
 
         if (head == null && tail == null)
         {
@@ -57,7 +28,7 @@ public class LinkedList<E extends Comparable<Book>>
 
     public void insertPriceAscendingSorted(Book book)
     {
-        ListNode newNode = new ListNode(book);
+        Node newNode = new Node(book);
         if (head == null && tail == null)
         {
             head = newNode;
@@ -65,8 +36,8 @@ public class LinkedList<E extends Comparable<Book>>
             return;
         }
 
-        ListNode current = head;
-        ListNode previous = null;
+        Node current = head;
+        Node previous = null;
 
         while (current != null)
         {
@@ -92,15 +63,15 @@ public class LinkedList<E extends Comparable<Book>>
 
     public void insertNameAscendingSorted(Book book)
     {
-        ListNode newNode = new ListNode(book);
+        Node newNode = new Node(book);
         if (head == null && tail == null) {
             head = newNode;
             tail = newNode;
             return;
         }
 
-        ListNode current = head;
-        ListNode previous = null;
+        Node current = head;
+        Node previous = null;
 
         while (current != null)
         {
@@ -124,13 +95,9 @@ public class LinkedList<E extends Comparable<Book>>
         previous.next = newNode;
     }
 
-    public void insertPopularityAscendingOrder(Book book)
-    {
-
-    }
 
     // Getters
-    public ListNode getHead()
+    public Node getHead()
     {
         return head;
     }
@@ -139,7 +106,7 @@ public class LinkedList<E extends Comparable<Book>>
     @Override
     public String toString()
     {
-        ListNode current = head;
+        Node current = head;
         while (current != null)
         {
             System.out.println((current.pointer.toString()));

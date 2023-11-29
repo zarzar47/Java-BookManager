@@ -21,22 +21,24 @@ public class BookContainer extends JTextArea implements MouseListener {
 
     public BookContainer(Book book)
     {
-        this.book = book;
+        actionListeners = new ArrayList<>();
         state = BtnState.NORMAL;
+        this.book = book;
         this.setEditable(false);
         this.setLineWrap(true);
         this.setWrapStyleWord(true);
-        this.setBackground(defaultColor);
         this.setBorder(new LineBorder(new Color(76, 107, 124)));
         this.setPreferredSize(new Dimension(100, 100));
         this.setFont(new Font("book Font", Font.BOLD, 13));
         this.setText("  \""+book.getName()+"\"" + "\n  " + "Author: " + book.getAuthor()+"\n  Price ($): "+book.getPrice());
+
         this.addMouseListener(this);
-        this.defaultColor = new Color(232, 241, 241);
-        highlight = new Color(125, 129, 130);
-        lightHighlight = new Color(184, 207, 229);
-        actionListeners = new ArrayList<>();
         this.addActionListener(new BookClickListener());
+
+        defaultColor = new Color(231, 231, 231);
+        this.setBackground(defaultColor);
+        highlight = new Color(184, 222, 222);
+        lightHighlight = new Color(186, 215, 212);
     }
 
     @Override
@@ -51,7 +53,7 @@ public class BookContainer extends JTextArea implements MouseListener {
 
     @Override
     public void mousePressed(MouseEvent e) {
-        setBackground(lightHighlight);
+        setBackground(highlight);
         state = BtnState.CLICKED;
         repaint();
     }
