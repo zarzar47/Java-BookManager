@@ -15,8 +15,9 @@ public class BookStore
     private DoublyLinkedList booklist;
     private final BST[] alphabet;
     private HashMap<String, BST> genreList;
+    private HashMap<String, Book> nameList;
     private HashMap<String, BST> authorList;
-    private LinkedList currentBookList;
+    private LinkedList<Book> currentBookList;
     private static BookStore bookStore;
 
     // Constructor
@@ -26,6 +27,7 @@ public class BookStore
         booklist = new DoublyLinkedList();
         genreList = new HashMap<>();
         authorList = new HashMap<>();
+        nameList =  new HashMap<>();
     }
 
     // Instantiation
@@ -45,24 +47,25 @@ public class BookStore
         if (!genreList.containsKey(book.getGenre().toUpperCase())){
             genreList.put(book.getGenre().toUpperCase(), new BST());
         }
-        genreList.get(book.getGenre().toUpperCase()).insert(book);
+        genreList.get(book.getGenre().toUpperCase())
+                .insert(book);
 
         //If author is already present, then add to it, otherwise create new mapping for author
         if (!authorList.containsKey(book.getAuthor().toUpperCase())){
             authorList.put(book.getAuthor().toUpperCase(), new BST());
         }
-        authorList.get(book.getAuthor().toUpperCase()).insert(book);
+        authorList.get(book.getAuthor().toUpperCase())
+                .insert(book);
 
-        char name = book.getName().toUpperCase().charAt(0);
+        char name = book.getName().toUpperCase()
+                .charAt(0);
 
         if (!(name >= 'A' && name <= 'Z'))  //Not an alphabet, so insert in a completely different tree
         {
             if (alphabet[26] == null)
                 alphabet[26] = new BST();
             alphabet[26].insert(book);
-        }
-        else
-        {
+        } else {
             if (alphabet[name - 'A'] == null)
                 alphabet[name - 'A'] = new BST();
             alphabet[name - 'A'].insert(book);
@@ -81,24 +84,8 @@ public class BookStore
         return list;
     }
 
-    public Book getBook(int ISBN) {
-        return booklist.Search(ISBN);
-    }
-
-    public Book getBookByName(String name)
-    {
-        char n = name.toUpperCase().charAt(0);
-
-        if (!(n >= 'A' && n <= 'Z'))
-        {
-            if (alphabet[26] == null)
-                return null;
-            return alphabet[26].findName(name).getPointer();
-        }
-        else
-        if (alphabet[n - 'A'] == null)
-            return null;
-        return alphabet[n - 'A'].findName(name).getPointer();
+    public Book getBook(String name) {
+        return nameList.get(name);
     }
 
     public LinkedList<Book> getBooks(String name)
@@ -116,7 +103,6 @@ public class BookStore
         if (alphabet[n - 'A'] == null)
             return null;
         alphabet[n - 'A'].searchAll(books, alphabet[n - 'A'].getRoot(), name);
-        //System.out.println(books.size());
 
         currentBookList = books;
         return books;
@@ -124,18 +110,18 @@ public class BookStore
 
     public String listGenre(String genre)
     {
-        return genreList.get(genre.toUpperCase()).LNR(genreList.get(genre.toUpperCase()).getRoot(), "");
+       // return genreList.get(genre.toUpperCase()).LNR(genreList.get(genre.toUpperCase()).getRoot(), "");
+        return null;
     }
 
     public String listBooksByAuthor(String author)
     {
-        return authorList.get(author.toUpperCase()).LNR(authorList.get(author.toUpperCase()).getRoot(), "");
+     //   return authorList.get(author.toUpperCase()).LNR(authorList.get(author.toUpperCase()).getRoot(), "");
+        return null;
     }
 
-    public void listBooks()
-    {
-        for (int i = 0; i < alphabet.length; i++)
-            System.out.println(alphabet[i]);
+    public void filterByGenre(String genre){
+          // currentBookList = genreList.get(genre).getList();
     }
 
     public LinkedList<Book> sortListByPrice()

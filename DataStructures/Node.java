@@ -19,6 +19,10 @@ public class Node
         parent = null;
     }
 
+    public void setPointer(Book pointer) {
+        this.pointer = pointer;
+    }
+
     public Book getPointer()
     {
         return pointer;

@@ -55,6 +55,7 @@ public class Checkout extends JPanel {
     public void setDetails(Book book){
         String[]  details = book.getDetailsOnly().split("%&");
         String[] labels = {"ISBN:","Name:","Author:","Publisher:", "Genre:", "Price:", "In stock:", "Popularity:"};
+        bookPanel.removeAll();
         for (int i = 0; i < details.length; i++) {
             bookPanel.add(getCustomText(labels[i]+" "+details[i].trim()));
         }
