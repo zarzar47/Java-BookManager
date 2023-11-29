@@ -38,7 +38,6 @@ public class Panel extends java.awt.Panel {
         catalogue.add(text_field);
         catalogue.add(searchButton);
         catalogue.add(genreFilter);
-        catalogue.addKeyListener(new keyReg());
        // catalogue.add(authorFilter);
         catalogue.add(scrollPane);
 
@@ -65,6 +64,8 @@ public class Panel extends java.awt.Panel {
         text_field = new JTextField();
         text_field.setPreferredSize(new Dimension(300, 20));
         text_field.setName("Enter Book Name");
+        text_field.setFocusable(true);
+        text_field.addKeyListener(new keyReg());
 
         searchButton = new JButton();
         searchButton.setText("Search");
