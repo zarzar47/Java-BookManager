@@ -9,6 +9,7 @@ import java.awt.event.ActionListener;
 
 public class Checkout extends JPanel {
     private final JButton buyButton = new JButton();
+    private final JButton newUserButton = new JButton();
     private static Checkout buyScreen;
     private JPanel bookPanel;
     private Checkout(){
@@ -50,6 +51,18 @@ public class Checkout extends JPanel {
             }
         });
         this.add(buyButton);
+
+        newUserButton.setText("New User");
+        newUserButton.setPreferredSize(new Dimension(100,50));
+        newUserButton.addActionListener(new ActionListener()
+        {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                JOptionPane.showInputDialog("Please enter a password: ");
+            }
+        });
+        this.add(newUserButton);
     }
 
     public void setDetails(Book book){

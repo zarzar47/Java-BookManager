@@ -1,5 +1,7 @@
 package Books;
 
+import java.awt.*;
+
 public class Book implements Comparable<Book> {
     int popularity;
     int ISBN;
@@ -10,9 +12,11 @@ public class Book implements Comparable<Book> {
     String genre;
     float price;
     int inStock;
+    int[] colour = new int[3];
 
     // Constructor
-    public Book(int ISBN, String name, String author, int Year, String publisher, String genre, float price, int inStock, int popularity) {
+    public Book(int ISBN, String name, String author, int Year, String publisher, String genre, float price, int inStock, int popularity)
+    {
         this.ISBN = ISBN;
         this.name = name;
         this.author = author;
@@ -59,6 +63,24 @@ public class Book implements Comparable<Book> {
         return publisher;
     }
 
+    // Method for BookContainerColour
+    public Color setContainerColor()
+    {
+        return switch (this.genre)
+        {
+            case "Science Fiction" -> new Color(210, 170, 150);
+            case "Thriller" -> new Color(70, 200, 90);
+            case "Biography" -> new Color(90, 50, 150);
+            case "Romance" -> new Color(125, 121, 123);
+            case "Horror" -> new Color(160, 60, 221);
+            case "Fantasy" -> new Color(77, 69, 66);
+            case "Mystery" -> new Color(200, 50, 175);
+            case "Young Adult" -> new Color(90, 180, 25);
+            case "Historical Fiction" -> new Color(176, 225, 175);
+            case "Self-Help" -> new Color(213, 123, 99);
+            default -> new Color(50, 50, 50);
+        };
+    }
     // toString
     @Override
     public String toString() {
