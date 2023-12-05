@@ -2,12 +2,14 @@ package GUI;
 
 import Books.Book;
 
+import javax.management.relation.RelationNotification;
 import javax.swing.*;
 import javax.swing.text.NumberFormatter;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.NumberFormat;
+import java.util.Random;
 
 public class Checkout extends JPanel {
     private final JButton buyButton = new JButton();
@@ -65,11 +67,23 @@ public class Checkout extends JPanel {
                 myPanel.add(Box.createHorizontalStrut(15)); // a spacer
                 myPanel.add(new JLabel("Password:"));
                 myPanel.add(yField);
-                int result = JOptionPane.showConfirmDialog(null, myPanel,
-                        "Please Enter ID and password Values", JOptionPane.OK_CANCEL_OPTION);
+                Object[] options = {"Enter","Cancel","New User"};
+                int result = JOptionPane.showOptionDialog(null, myPanel, "Enter a Number",
+                        JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE,
+                        null, options, null);
                 if (result == JOptionPane.OK_OPTION) {
                     System.out.println("ID: " + xField.getText());
                     System.out.println("Password: " + yField.getText());
+                } else if (result == 2) {
+                    JPanel newUserPanel = new JPanel();
+                    JFormattedTextField idField = new JFormattedTextField(numberFormatter);
+                    idField.setText(""+(Math.random()*1000));
+                    idField.setEditable(false);
+                    newUserPanel.setLayout(new GridLayout(5, 0));
+                    newUserPanel.add(new JLabel("ID:"));;
+                    newUserPanel.add(idField);
+                    String pass = JOptionPane.showInputDialog(null,newUserPanel,"Enter your password",JOptionPane.OK_CANCEL_OPTION);
+                    System.out.println("The new password is "+pass);
                 }
                 //String id = JOptionPane.showInputDialog("Please enter your ID");
                 //String pass = JOptionPane.showInputDialog("Please enter your password");
@@ -80,7 +94,7 @@ public class Checkout extends JPanel {
         this.add(buyButton);
     }
 
-    public void setDetails(Book book){
+    public void setDetails(Book book) {
         String[]  details = book.getDetailsOnly().split("%&");
         String[] labels = {"ISBN:","Name:","Author:","Publisher:", "Genre:", "Price:", "In stock:", "Popularity:"};
         bookPanel.removeAll();
@@ -89,7 +103,7 @@ public class Checkout extends JPanel {
         }
     }
 
-    private JTextField getCustomText(String string){
+    private JTextField getCustomText(String string) {
         JTextField item = new JTextField();
         item.setText(string);
         item.setEditable(false);
