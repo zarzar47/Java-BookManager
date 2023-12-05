@@ -27,6 +27,9 @@ public class Panel extends java.awt.Panel {
     boolean filterAuthor;
     String authorName;
     public static JTabbedPane pane;
+    public JCheckBox name, price, popularity;
+    public JTextField sortBy;
+
     public Panel() {
         Initiation();
         pane = new JTabbedPane();
@@ -40,6 +43,14 @@ public class Panel extends java.awt.Panel {
         catalogue.add(genreFilter);
        // catalogue.add(authorFilter);
         catalogue.add(scrollPane);
+        catalogue.add(sortBy);
+
+        catalogue.add(name);
+        catalogue.add(price);
+        catalogue.add(popularity);
+        name.setLayout(new BoxLayout(name, BoxLayout.Y_AXIS));
+        price.setLayout(new BoxLayout(price, BoxLayout.Y_AXIS));
+        popularity.setLayout(new BoxLayout(popularity, BoxLayout.Y_AXIS));
 
         pane.addTab("Catalogue",catalogue);
         pane.addTab("Checkout", Checkout.getInstance());
@@ -57,13 +68,15 @@ public class Panel extends java.awt.Panel {
 
         scrollPane = new JScrollPane(container);
         scrollPane.setWheelScrollingEnabled(true);
-        scrollPane.setPreferredSize(new Dimension(Frame.WIDTH - 100, Frame.HEIGHT - 100));
+        // scrollPane.setBounds(10, 500, Frame.WIDTH - 50, Frame.HEIGHT - 100);
+        scrollPane.setPreferredSize(new Dimension(Frame.WIDTH - 50, Frame.HEIGHT - 100));
         scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
         scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 
         text_field = new JTextField();
         text_field.setPreferredSize(new Dimension(300, 20));
         text_field.setName("Enter Book Name");
+        text_field.setText("Enter Book Name");
         text_field.setFocusable(true);
         text_field.addKeyListener(new keyReg());
 
@@ -100,10 +113,65 @@ public class Panel extends java.awt.Panel {
             }
         });
 
+        name = new JCheckBox("Name");
+        //name.setLayout(new BoxLayout(container, BoxLayout.Y_AXIS));
+        // name.setPreferredSize(new Dimension(60, 20));
+        name.setBackground(Color.LIGHT_GRAY);
+        name.setBounds(100, 50, 10, 10);
+        name.addActionListener(new ActionListener()
+        {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                price.setSelected(false);
+                popularity.setSelected(false);
+            }
+        });
+
+        price = new JCheckBox("Price");
+        // price.setPreferredSize(new Dimension(60, 20));
+        price.setBackground(Color.LIGHT_GRAY);
+        price.setBounds(100, 100, 10, 10);
+        price.addActionListener(new ActionListener()
+        {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                name.setSelected(false);
+                popularity.setSelected(false);
+            }
+        });
+
+        popularity = new JCheckBox("Popularity");
+        // popularity.setPreferredSize(new Dimension(75, 20));
+        popularity.setBackground(Color.LIGHT_GRAY);
+        popularity.setBounds(100, 150, 10, 10);
+        popularity.addActionListener(new ActionListener()
+        {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                name.setSelected(false);
+                price.setSelected(false);
+            }
+        });
+
+        sortBy = new JTextField();
+        sortBy.setPreferredSize(new Dimension(50, 20));
+        sortBy.setEditable(false);
+        sortBy.setText("Sort By: ");
+        sortBy.setBackground(Color.lightGray);
+        text_field.setFocusable(true);
+        // text_field.addKeyListener(new keyReg());
+
+
+
         buyPage = new JPanel();
         buyPage.setVisible(true);
         buyPage.setFocusable(true);
-
+//        pane.add(name);
+//        pane.add(popularity);
+//        pane.add(price);
     }
 
     private void showGenrePopup() {
