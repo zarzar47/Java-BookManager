@@ -3,9 +3,11 @@ package GUI;
 import Books.Book;
 
 import javax.swing.*;
+import javax.swing.text.NumberFormatter;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.NumberFormat;
 
 public class Checkout extends JPanel {
     private final JButton buyButton = new JButton();
@@ -46,8 +48,34 @@ public class Checkout extends JPanel {
         buyButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JOptionPane.showInputDialog("Please enter your address");
+                NumberFormat longFormat = NumberFormat.getIntegerInstance();
+
+                NumberFormatter numberFormatter = new NumberFormatter(longFormat);
+                numberFormatter.setValueClass(Long.class); //optional, ensures you will always get a long value
+                numberFormatter.setAllowsInvalid(false); //this is the key!!
+                numberFormatter.setMinimum(0l); //Optional
+
+                JFormattedTextField xField = new JFormattedTextField(numberFormatter);
+                JTextField yField = new JTextField(10);
+
+                JPanel myPanel = new JPanel();
+                myPanel.setLayout(new GridLayout(5, 0));
+                myPanel.add(new JLabel("ID:"));
+                myPanel.add(xField);
+                myPanel.add(Box.createHorizontalStrut(15)); // a spacer
+                myPanel.add(new JLabel("Password:"));
+                myPanel.add(yField);
+                int result = JOptionPane.showConfirmDialog(null, myPanel,
+                        "Please Enter ID and password Values", JOptionPane.OK_CANCEL_OPTION);
+                if (result == JOptionPane.OK_OPTION) {
+                    System.out.println("ID: " + xField.getText());
+                    System.out.println("Password: " + yField.getText());
+                }
+                //String id = JOptionPane.showInputDialog("Please enter your ID");
+                //String pass = JOptionPane.showInputDialog("Please enter your password");
+                //System.out.println(id + " " + pass);
             }
+
         });
         this.add(buyButton);
     }
