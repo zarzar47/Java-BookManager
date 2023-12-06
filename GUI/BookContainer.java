@@ -9,6 +9,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.image.ImageConsumer;
+import java.awt.image.ImageObserver;
+import java.awt.image.VolatileImage;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -35,8 +38,13 @@ public class BookContainer extends JTextArea implements MouseListener {
         this.addMouseListener(this);
         this.addActionListener(new BookClickListener());
 
-        defaultColor = new Color(231, 231, 231);
+//        if (book.getGenre().equalsIgnoreCase("horror"))
+//            defaultColor = new Color(231, 0, 0);
+//        else
+//            defaultColor = new Color(231, 231, 231);
+        defaultColor = book.setContainerColor();
         this.setBackground(defaultColor);
+
         highlight = new Color(184, 222, 222);
         lightHighlight = new Color(186, 215, 212);
     }
