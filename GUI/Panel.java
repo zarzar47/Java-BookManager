@@ -7,10 +7,7 @@ import Warehouse.*;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
+import java.awt.event.*;
 
 public class Panel extends java.awt.Panel {
 
@@ -71,14 +68,28 @@ public class Panel extends java.awt.Panel {
         // scrollPane.setBounds(10, 500, Frame.WIDTH - 50, Frame.HEIGHT - 100);
         scrollPane.setPreferredSize(new Dimension(Frame.WIDTH - 50, Frame.HEIGHT - 100));
         scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+        scrollPane.getVerticalScrollBar().setPreferredSize(new Dimension(25,0));
         scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+
 
         text_field = new JTextField();
         text_field.setPreferredSize(new Dimension(300, 20));
-        text_field.setName("Enter Book Name");
+        text_field.setName("bookName");
         text_field.setText("Enter Book Name");
         text_field.setFocusable(true);
         text_field.addKeyListener(new keyReg());
+        text_field.addFocusListener(new FocusListener() {
+            @Override
+            public void focusGained(FocusEvent e) {
+                text_field.setText(null);
+            }
+
+            @Override
+            public void focusLost(FocusEvent e) {
+                text_field.setText("Enter Book Name");
+            }
+        });
+
 
         searchButton = new JButton();
         searchButton.setText("Search");
@@ -208,9 +219,6 @@ public class Panel extends java.awt.Panel {
             container.add(bookContainer);
             temp = temp.getNext();
         }
-
-        scrollPane.getVerticalScrollBar().setValue(50);
-
         revalidate();
         repaint();
     }

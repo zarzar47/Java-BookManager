@@ -11,6 +11,7 @@ public class Frame extends JFrame {
     public static void main(String[] args) {
 
         new FileReading();
+
         JFrame frame = new JFrame();
         frame.setTitle("Book Store");
         frame.add(new Panel());

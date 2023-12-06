@@ -54,9 +54,10 @@ public class Checkout extends JPanel {
                 NumberFormat longFormat = NumberFormat.getIntegerInstance();
 
                 NumberFormatter numberFormatter = new NumberFormatter(longFormat);
-                numberFormatter.setValueClass(Long.class); //optional, ensures you will always get a long value
+                numberFormatter.setValueClass(Integer.class); //optional, ensures you will always get a long value
                 numberFormatter.setAllowsInvalid(false); //this is the key!!
-                numberFormatter.setMinimum(0l); //Optional
+                numberFormatter.setMinimum(0); //Optional
+                numberFormatter.setMaximum(3000);
 
                 JFormattedTextField xField = new JFormattedTextField(numberFormatter);
                 JTextField yField = new JTextField(10);
@@ -78,17 +79,15 @@ public class Checkout extends JPanel {
                 } else if (result == 2) {
                     JPanel newUserPanel = new JPanel();
                     JFormattedTextField idField = new JFormattedTextField(numberFormatter);
-                    idField.setText(""+(Math.random()*1000));
+                    idField.setText(""+(Math.random()*1000)+2000);
                     idField.setEditable(false);
                     newUserPanel.setLayout(new GridLayout(5, 0));
-                    newUserPanel.add(new JLabel("ID:"));;
+                    newUserPanel.add(new JLabel("ID:"));
                     newUserPanel.add(idField);
-                    String pass = JOptionPane.showInputDialog(null,newUserPanel,"Enter your password",JOptionPane.OK_CANCEL_OPTION);
+                    newUserPanel.add(new JLabel("Password:"));
+                    String pass = JOptionPane.showInputDialog(null,newUserPanel,"Enter your password");
                     System.out.println("The new password is "+pass);
                 }
-                //String id = JOptionPane.showInputDialog("Please enter your ID");
-                //String pass = JOptionPane.showInputDialog("Please enter your password");
-                //System.out.println(id + " " + pass);
             }
 
         });
