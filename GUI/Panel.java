@@ -81,12 +81,12 @@ public class Panel extends java.awt.Panel {
         text_field.addFocusListener(new FocusListener() {
             @Override
             public void focusGained(FocusEvent e) {
+                if (text_field.getText().equalsIgnoreCase("Enter Book Name"))
                 text_field.setText(null);
             }
 
             @Override
             public void focusLost(FocusEvent e) {
-                text_field.setText("Enter Book Name");
             }
         });
 
