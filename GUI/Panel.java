@@ -49,6 +49,7 @@ public class Panel extends java.awt.Panel {
         price.setLayout(new BoxLayout(price, BoxLayout.Y_AXIS));
         popularity.setLayout(new BoxLayout(popularity, BoxLayout.Y_AXIS));
 
+        //Controlling the clickable Panes
         pane.addTab("Catalogue",catalogue);
         pane.addTab("Checkout", Checkout.getInstance());
 
@@ -177,9 +178,9 @@ public class Panel extends java.awt.Panel {
 
 
 
-        buyPage = new JPanel();
-        buyPage.setVisible(true);
-        buyPage.setFocusable(true);
+//        buyPage = new JPanel();
+//        buyPage.setVisible(true);
+//        buyPage.setFocusable(true);
 //        pane.add(name);
 //        pane.add(popularity);
 //        pane.add(price);

@@ -13,36 +13,33 @@ import java.util.Random;
 
 public class Checkout extends JPanel {
     private final JButton buyButton = new JButton();
-    private final JButton newUserButton = new JButton();
     private static Checkout buyScreen;
     private JPanel bookPanel;
+    private boolean enabled = false;
+
     private Checkout(){
         initialization();
     }
 
     public static Checkout getInstance(){
         if (buyScreen == null) {
+            System.out.println("THis sohuld only be called once");
             buyScreen = new Checkout();
             buyScreen.setPreferredSize(new Dimension(Frame.WIDTH, Frame.HEIGHT-100));
             buyScreen.setBackground(Color.lightGray);
-            buyScreen.setVisible(true);
             buyScreen.setFocusable(true);
+            buyScreen.setVisible(false);
         };
         return buyScreen;
     }
 
-
     public void initialization(){
         bookPanel = new JPanel();
-        bookPanel.setPreferredSize(new Dimension(400,500));
-        bookPanel.setVisible(true);
-//        bookInfo.setEditable(false);
-//        bookInfo.setLineWrap(true);
-//        bookInfo.setWrapStyleWord(true);
+        bookPanel.setPreferredSize(new Dimension(Frame.WIDTH-100,500));
         bookPanel.setFont(new Font("Arial", Font.PLAIN, 14));
         bookPanel.setForeground(Color.BLACK);
         bookPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-        bookPanel.setBackground(Color.WHITE);
+        bookPanel.setBackground(Color.white);
 
         this.add(bookPanel);
 
@@ -91,28 +88,25 @@ public class Checkout extends JPanel {
             }
 
         });
+        buyButton.setVisible(false);
         this.add(buyButton);
-
-        newUserButton.setText("New User");
-        newUserButton.setPreferredSize(new Dimension(100,50));
-        newUserButton.addActionListener(new ActionListener()
-        {
-            @Override
-            public void actionPerformed(ActionEvent e)
-            {
-                JOptionPane.showInputDialog("Please enter a password: ");
-            }
-        });
-        this.add(newUserButton);
     }
 
     public void setDetails(Book book) {
+        if (!enabled)
+            enableElements();
         String[]  details = book.getDetailsOnly().split("%&");
         String[] labels = {"ISBN:","Name:","Author:","Publisher:", "Genre:", "Price:", "In stock:", "Popularity:"};
         bookPanel.removeAll();
         for (int i = 0; i < details.length; i++) {
             bookPanel.add(getCustomText(labels[i]+" "+details[i].trim()));
         }
+        setVisible(true);
+    }
+
+    public void enableElements(){
+        buyButton.setVisible(true);
+        enabled = true;
     }
 
     private JTextField getCustomText(String string) {
