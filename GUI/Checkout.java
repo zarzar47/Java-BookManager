@@ -16,14 +16,12 @@ public class Checkout extends JPanel {
     private static Checkout buyScreen;
     private JPanel bookPanel;
     private boolean enabled = false;
-
     private Checkout(){
         initialization();
     }
 
     public static Checkout getInstance(){
         if (buyScreen == null) {
-            System.out.println("THis sohuld only be called once");
             buyScreen = new Checkout();
             buyScreen.setPreferredSize(new Dimension(Frame.WIDTH, Frame.HEIGHT-100));
             buyScreen.setBackground(Color.lightGray);
@@ -48,43 +46,8 @@ public class Checkout extends JPanel {
         buyButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                NumberFormat longFormat = NumberFormat.getIntegerInstance();
-
-                NumberFormatter numberFormatter = new NumberFormatter(longFormat);
-                numberFormatter.setValueClass(Integer.class); //optional, ensures you will always get a long value
-                numberFormatter.setAllowsInvalid(false); //this is the key!!
-                numberFormatter.setMinimum(0); //Optional
-                numberFormatter.setMaximum(3000);
-
-                JFormattedTextField xField = new JFormattedTextField(numberFormatter);
-                JTextField yField = new JTextField(10);
-
-                JPanel myPanel = new JPanel();
-                myPanel.setLayout(new GridLayout(5, 0));
-                myPanel.add(new JLabel("ID:"));
-                myPanel.add(xField);
-                myPanel.add(Box.createHorizontalStrut(15)); // a spacer
-                myPanel.add(new JLabel("Password:"));
-                myPanel.add(yField);
-                Object[] options = {"Enter","Cancel","New User"};
-                int result = JOptionPane.showOptionDialog(null, myPanel, "Enter a Number",
-                        JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE,
-                        null, options, null);
-                if (result == JOptionPane.OK_OPTION) {
-                    System.out.println("ID: " + xField.getText());
-                    System.out.println("Password: " + yField.getText());
-                } else if (result == 2) {
-                    JPanel newUserPanel = new JPanel();
-                    JFormattedTextField idField = new JFormattedTextField(numberFormatter);
-                    idField.setText(""+(Math.random()*1000)+2000);
-                    idField.setEditable(false);
-                    newUserPanel.setLayout(new GridLayout(5, 0));
-                    newUserPanel.add(new JLabel("ID:"));
-                    newUserPanel.add(idField);
-                    newUserPanel.add(new JLabel("Password:"));
-                    String pass = JOptionPane.showInputDialog(null,newUserPanel,"Enter your password");
-                    System.out.println("The new password is "+pass);
-                }
+                LoginPanel loginPanel = new LoginPanel();
+                JOptionPane.showMessageDialog(Checkout.this,loginPanel);
             }
 
         });

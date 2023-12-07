@@ -77,5 +77,4 @@ public class BST {
         if (node.right != null)
             searchAll(arr, node.right, s);
     }
-
 }

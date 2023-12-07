@@ -75,6 +75,7 @@ public class BookStore {
     public LinkedList<Book> getBooks(String name, String genre) {
         //TODO make this more presentable
         LinkedList<Book> list = new LinkedList<>();
+
         char letter = name.toUpperCase().charAt(0);
         if (dataField[letter - 'A'] == null || (!genreList.containsKey(genre.toUpperCase()) && !genre.equalsIgnoreCase("All")))
             return currentBookList;
