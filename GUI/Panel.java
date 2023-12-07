@@ -207,17 +207,22 @@ public class Panel extends java.awt.Panel {
         genreList.show(genreFilter, 0, genreFilter.getHeight());
     }
 
-    public void performSearch() {
+    public void performSearch()
+    {
         String bookName = text_field.getText();
         BookStore bookStore = BookStore.getInstance();
         bookStore.updateList(bookName,genreName);
         container.removeAll();
-        Node temp = bookStore.getCurrentBookList().getHead();
 
-        while (temp != null) {
-            BookContainer bookContainer = new BookContainer(temp.getPointer());
+        int n = 0;
+        Book temp = bookStore.getCurrentBookList().find(n);
+
+
+        while (temp != null)
+        {
+            BookContainer bookContainer = new BookContainer(temp);
             container.add(bookContainer);
-            temp = temp.getNext();
+            temp = bookStore.getCurrentBookList().find(++n);
         }
         revalidate();
         repaint();

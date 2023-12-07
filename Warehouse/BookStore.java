@@ -14,21 +14,24 @@ import java.io.FileWriter;
 import java.util.HashMap;
 import User.User;
 
-public class BookStore {
+public class BookStore
+{
     private DoublyLinkedList booklist;
     private final DynamicArray<BST>[] dataField;
     //TODO  change HashMap to custom implementation
     private HashMap<String, Integer> genreList;
-    private LinkedList<Book> currentBookList;
+    // private LinkedList<Book> currentBookList;
+    private DynamicArray<Book> currentBookList;
     private static BookStore bookStore;
     private HashMap<Integer, User> userList;
     private int numOfBooks;
 
     // Constructor
-    private BookStore() {
+    private BookStore()
+    {
         //   alphabet = new BST[27];
         numOfBooks = 0;
-        currentBookList = new LinkedList<>();
+        currentBookList = new DynamicArray<>();
         dataField = new DynamicArray[27];
         booklist = new DoublyLinkedList();
         genreList = new HashMap<>();
@@ -36,22 +39,23 @@ public class BookStore {
     }
 
     // Instantiation
-    public static BookStore getInstance() {
+    public static BookStore getInstance()
+    {
         if (bookStore == null)
             bookStore = new BookStore();
         return bookStore;
     }
 
     // Methods
-    public void insert(Book book) {
+    public void insert(Book book)
+    {
         //TODO make this more presentable
         booklist.Insert(book);
         Book ref = booklist.getLatest();
         String genre = ref.getGenre().toUpperCase();
 
-        if (!genreList.containsKey(genre)) {
+        if (!genreList.containsKey(genre))
             genreList.put(genre, genreList.size());
-        }
 
         int genreInt = genreList.get(genre);
         char name = ref.getName().toUpperCase()
@@ -72,18 +76,23 @@ public class BookStore {
         numOfBooks++;
     }
 
-    public LinkedList<Book> getBooks(String name, String genre) {
+    public DynamicArray<Book> getBooks(String name, String genre)
+    {
         //TODO make this more presentable
-        LinkedList<Book> list = new LinkedList<>();
+        DynamicArray<Book> list = new DynamicArray<>();
+
         char letter = name.toUpperCase().charAt(0);
         if (dataField[letter - 'A'] == null || (!genreList.containsKey(genre.toUpperCase()) && !genre.equalsIgnoreCase("All")))
             return currentBookList;
-        if (genre.equalsIgnoreCase("All")) {
-            for (int i = 0; i < genreList.size(); i++) {
+
+        if (genre.equalsIgnoreCase("All"))
+            for (int i = 0; i < genreList.size(); i++)
+            {
                 DynamicArray<BST> DArray = dataField[letter - 'A'];
                 DArray.find(i).searchAll(list, name);
             }
-        } else {
+        else
+        {
             int i = genreList.get(genre.toUpperCase());
             DynamicArray<BST> DArray = dataField[letter - 'A'];
             DArray.find(i).searchAll(list, name);
@@ -92,15 +101,18 @@ public class BookStore {
         return list;
     }
 
-    public void updateList(String name, String genre) {
+    public void updateList(String name, String genre)
+    {
         currentBookList = getBooks(name, genre);
     }
 
-    public LinkedList<Book> getCurrentBookList() {
+    public DynamicArray<Book> getCurrentBookList()
+    {
         return currentBookList;
     }
 
-    public String[] getGenres() {
+    public String[] getGenres()
+    {
         String[] genres = new String[genreList.size()];
         //TODO change this to a custom way of implementing Hashing
         genreList.keySet().toArray(genres);
@@ -109,21 +121,26 @@ public class BookStore {
 
 
 
-    public boolean passwordStrong(String password){
+    public boolean passwordStrong(String password)
+    {
         if (password.length() < 8 || password.length() > 24) return false;
+
         int lowercase = 0;
         int uppercase = 0;
         int number = 0;
-        for (int i = 0; i < password.length(); i++) {
+
+        for (int i = 0; i < password.length(); i++)
+        {
             if (password.charAt(i) >= 'A' && password.charAt(i) <= 'Z') uppercase++;
             else if (password.charAt(i) >= 'a' && password.charAt(i) <= 'z') lowercase++;
             else if (password.charAt(i) >= '0' && password.charAt(i) <= '9') number++;
         }
-        if (lowercase > 0 && uppercase > 0 && number > 0) return true;
-        return false;
+
+        return lowercase > 0 && uppercase > 0 && number > 0;
     }
 
-    public void writeUsersToFile(){
+    public void writeUsersToFile()
+    {
         String filename = "./User/users.txt";
         File file = new File(filename);
         try {
