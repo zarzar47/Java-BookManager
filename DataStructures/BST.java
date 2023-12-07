@@ -4,7 +4,8 @@ import Books.Book;
 
 import java.util.*;
 
-public class BST {
+public class BST
+{
     private Node root;
     private int count = 0;
     private int size = 0;
@@ -59,19 +60,21 @@ public class BST {
         return temp;
     }
 
-    public void searchAll(LinkedList<Book> arr,String name){
+    public void searchAll(DynamicArray<Book> arr,String name)
+    {
         searchAll(arr,root,name);
     }
 
     //Only works with initial substring
-    public void searchAll(LinkedList<Book> arr, Node node, String s) {
+    public void searchAll(DynamicArray<Book> arr, Node node, String s)
+    {
         //Go the left subtree and add all matching strings there
         if (node.left != null)
             searchAll(arr, node.left, s);
 
         //If first substring matches, then add to list
         if (node.getPointer().getName().toUpperCase().startsWith(s.toUpperCase()))
-            arr.insertBook(node.getPointer());
+            arr.insertAt(node.getPointer(), arr.size - 1);
 
         //Go to right subtree and add all matching strings there
         if (node.right != null)
