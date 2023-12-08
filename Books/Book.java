@@ -68,6 +68,10 @@ public class Book implements Comparable<Book> {
     public String getPublisher() {
         return publisher;
     }
+    public void decreaseStock(){
+        if (inStock>0)
+            inStock--;
+    }
 
     // Method for BookContainerColour
     public Color setContainerColor() {
