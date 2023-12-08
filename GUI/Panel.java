@@ -24,7 +24,7 @@ public class Panel extends java.awt.Panel {
     boolean filterAuthor;
     String authorName;
     public static JTabbedPane pane;
-    public JCheckBox name, price, popularity;
+    public JCheckBox name, price, popularity, ascending, descending;
     public JTextField sortBy;
 
     public Panel() {
@@ -45,6 +45,8 @@ public class Panel extends java.awt.Panel {
         catalogue.add(name);
         catalogue.add(price);
         catalogue.add(popularity);
+        catalogue.add(ascending);
+        catalogue.add(descending);
         name.setLayout(new BoxLayout(name, BoxLayout.Y_AXIS));
         price.setLayout(new BoxLayout(price, BoxLayout.Y_AXIS));
         popularity.setLayout(new BoxLayout(popularity, BoxLayout.Y_AXIS));
@@ -168,6 +170,35 @@ public class Panel extends java.awt.Panel {
             {
                 name.setSelected(false);
                 price.setSelected(false);
+                performSearch();
+            }
+        });
+
+        ascending = new JCheckBox("ascending");
+        // popularity.setPreferredSize(new Dimension(75, 20));
+        ascending.setBackground(Color.LIGHT_GRAY);
+        ascending.setBounds(200, 75, 10, 10);
+        ascending.setSelected(true);
+        ascending.addActionListener(new ActionListener()
+        {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                descending.setSelected(false);
+                performSearch();
+            }
+        });
+
+        descending = new JCheckBox("descending");
+        // popularity.setPreferredSize(new Dimension(75, 20));
+        descending.setBackground(Color.LIGHT_GRAY);
+        descending.setBounds(200, 125, 10, 10);
+        descending.addActionListener(new ActionListener()
+        {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                ascending.setSelected(false);
                 performSearch();
             }
         });
