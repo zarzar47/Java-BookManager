@@ -74,13 +74,36 @@ public class LoginPanel extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                String password = JOptionPane.showInputDialog(LoginPanel.this, "Enter new password:");
+                int id = userCredentials.size();
+                JLabel idLabel = new JLabel("Your ID: "+id);
+                JLabel passLabel = new JLabel("Enter Password:");
+                JTextField passField = new JTextField();
+                JLabel address = new JLabel("Enter Address");
+                JTextField addField = new JTextField();
 
-                if (password != null) {
-                    int id = userCredentials.size();
-                    userCredentials.put(id, password);
-                    JOptionPane.showMessageDialog(LoginPanel.this, "New user created successfully! Your ID is:"+id);
-                    UserHash.getInstance().saveNewData(id,password);
+                JPanel detailPanel =new JPanel();
+                detailPanel.setLayout(new BoxLayout(detailPanel,BoxLayout.Y_AXIS));
+                detailPanel.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
+                detailPanel.add(idLabel);
+                detailPanel.add(passLabel);
+                detailPanel.add(passField);
+                detailPanel.add(address);
+                detailPanel.add(addField);
+                JButton done = new JButton("Confirm");
+                final String[] password = {""};
+                done.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        JOptionPane.showMessageDialog(null,"Your account has been made! Please login now");
+                        password[0] = passField.getText();
+                    }
+                });
+
+                detailPanel.add(done);
+                JOptionPane.showOptionDialog(null,detailPanel,"Details",JOptionPane.DEFAULT_OPTION,JOptionPane.PLAIN_MESSAGE,null,new Object[]{},null);
+                if (password[0] != null) {
+                    userCredentials.put(id, password[0]);
+                    UserHash.getInstance().saveNewData(id, password[0]);
                 }
             }
         });
