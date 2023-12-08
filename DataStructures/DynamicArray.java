@@ -110,6 +110,7 @@ public class DynamicArray<T> {
             // arr[k++] = R[j++];
             arr.insertAt(R.find(j++), k++);
     }
+
     public void ascPriceSortHelper(DynamicArray<Book> arr, int l, int m, int u)
     {
         int n1 = m - l + 1;

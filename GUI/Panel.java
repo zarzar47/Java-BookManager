@@ -215,17 +215,13 @@ public class Panel extends java.awt.Panel {
     public void performSearch() {
         String bookName = text_field.getText();
         BookStore bookStore = BookStore.getInstance();
-<<<<<<< HEAD
         bookStore.updateList(bookName,genreName,searchSpecific);
-=======
-        bookStore.updateList(bookName,genreName);
         if (name.isSelected())
             bookStore.ascSortByName();
         else if (price.isSelected())
             bookStore.ascSortByPrice();
         else if (popularity.isSelected())
             bookStore.ascSortByPopularity();
->>>>>>> c44f9fce3659bb9649c05fa6336f36671550f87f
         container.removeAll();
 
         int index = 0;
