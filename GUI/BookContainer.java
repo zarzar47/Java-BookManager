@@ -33,7 +33,7 @@ public class BookContainer extends JTextArea implements MouseListener {
         this.setBorder(new LineBorder(new Color(76, 107, 124)));
         this.setPreferredSize(new Dimension(100, 100));
         this.setFont(new Font("book Font", Font.BOLD, 13));
-        this.setText("  \""+book.getName()+"\"" + "\n  " + "Author: " + book.getAuthor()+"\n  Price ($): "+book.getPrice());
+        this.setText("  \""+book.getName()+"\"" + "\n  " + "Author: " + book.getAuthor()+"\n  Price ($): "+book.getPrice() + "\n Popularity: " + book.getPopularity());
 
         this.addMouseListener(this);
         this.addActionListener(new BookClickListener());

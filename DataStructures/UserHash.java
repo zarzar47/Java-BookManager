@@ -8,11 +8,12 @@ import java.util.HashMap;
 import java.util.Hashtable;
 
 public class UserHash {
+    //TODO make into a custom hash
     private static UserHash userHash;
 
     public Hashtable<Integer, String> userCredentials;
     private UserHash(){
-        userCredentials = FileStorage.readFromCsv("Books/users.csv");
+        userCredentials = FileStorage.readFromCsv("User/users.csv");
     }
     public Hashtable<Integer,String> getUserCredentials() {
         return userCredentials;
@@ -24,6 +25,6 @@ public class UserHash {
     }
 
     public void saveNewData(Integer i,String d){
-        FileStorage.saveToCsv("Books/users.csv",i,d);
+        FileStorage.saveToCsv("User/users.csv",i,d);
     }
 }

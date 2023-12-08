@@ -2,24 +2,26 @@ package Warehouse;
 
 
 import Books.Book;
-import DataStructures.BST;
-import DataStructures.DoublyLinkedList;
-import DataStructures.DynamicArray;
-import DataStructures.LinkedList;
+import DataStructures.*;
 
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.net.IDN;
 import java.util.HashMap;
+
 import User.User;
+
+import javax.swing.*;
 
 public class BookStore {
     private DoublyLinkedList booklist;
     private final DynamicArray<BST>[] dataField;
     //TODO  change HashMap to custom implementation
     private HashMap<String, Integer> genreList;
-    private LinkedList<Book> currentBookList;
+    // private LinkedList<Book> currentBookList;
+    private DynamicArray<Book> currentBookList;
     private static BookStore bookStore;
     private HashMap<Integer, User> userList;
     private int numOfBooks;
@@ -28,7 +30,7 @@ public class BookStore {
     private BookStore() {
         //   alphabet = new BST[27];
         numOfBooks = 0;
-        currentBookList = new LinkedList<>();
+        currentBookList = new DynamicArray<>();
         dataField = new DynamicArray[27];
         booklist = new DoublyLinkedList();
         genreList = new HashMap<>();
@@ -72,7 +74,21 @@ public class BookStore {
         numOfBooks++;
     }
 
-    public LinkedList<Book> getBooks(String name, String genre) {
+    public Book getBook(String name, String genre) {
+        if (name.equalsIgnoreCase(""))
+            return null;
+        char letter = name.toUpperCase().charAt(0);
+        int genreIndex = genreList.get(genre);
+        if (dataField[letter - 'A'] == null || (!genreList.containsKey(genre.toUpperCase()) && !genre.equalsIgnoreCase("All")))
+            return null;
+        Node node = dataField[letter - 'A'].find(genreIndex).findName(name);
+        if (node == null) {
+            return null;
+        }
+        return node.getPointer();
+    }
+
+    public DynamicArray<Book> getBooks(String name, String genre) {
         //TODO make this more presentable
         LinkedList<Book> list = new LinkedList<>();
         if ((name.equals("Enter Book Name") || name.equals("")) && !genre.equalsIgnoreCase("All") && genreList.containsKey(genre.toUpperCase())){
@@ -83,6 +99,8 @@ public class BookStore {
             }
             return list;
         }
+        //DynamicArray<Book> list = new DynamicArray<>();
+
         char letter = name.toUpperCase().charAt(0);
         if (dataField[letter - 'A'] == null || (!genreList.containsKey(genre.toUpperCase()) && !genre.equalsIgnoreCase("All")))
             return currentBookList;
@@ -100,12 +118,40 @@ public class BookStore {
         return list;
     }
 
-    public void updateList(String name, String genre) {
-        currentBookList = getBooks(name, genre);
+    public void updateList(String name, String genre, boolean specificSearch) {
+        if (genre.equals("All") && specificSearch) {
+            JOptionPane.showMessageDialog(null, "Please select a specific genre to search with.");
+            return;
+        }
+        if (specificSearch) {
+            Book book = getBook(name, genre);
+            if (book == null) {
+                JOptionPane.showMessageDialog(null, "Sorry but there was no book with the name "+name);
+                currentBookList.clearAll();
+                return;
+            }
+            currentBookList.clearAll();
+            currentBookList.insert(book);
+        } else {
+            currentBookList = getBooks(name, genre);
+        }
     }
 
-    public LinkedList<Book> getCurrentBookList() {
+    public DynamicArray<Book> getCurrentBookList() {
         return currentBookList;
+    }
+
+    public void ascSortByName()
+    {
+        currentBookList.ascSortByName(currentBookList, 0, currentBookList.getSize() - 1);
+    }
+    public void ascSortByPrice()
+    {
+        currentBookList.ascSortByPrice(currentBookList, 0, currentBookList.getSize() - 1);
+    }
+    public void ascSortByPopularity()
+    {
+        currentBookList.ascSortByPopularity(currentBookList, 0, currentBookList.getSize() - 1);
     }
 
     public String[] getGenres() {
@@ -121,12 +167,20 @@ public class BookStore {
             booklist.delete(isbn);
             //remove form datafield, booklist and currentbooklist
             //dataField[book.getName().toUpperCase().charAt(0) - 'A'].find(genreList.get(book.getGenre().toUpperCase())).
+
+    public boolean passwordStrong(String password) {
+        if (password.length() < 8 || password.length() > 24) return false;
+        int lowercase = 0;
+        int uppercase = 0;
+        int number = 0;
+        for (int i = 0; i < password.length(); i++) {
+            if (password.charAt(i) >= 'A' && password.charAt(i) <= 'Z') uppercase++;
+            else if (password.charAt(i) >= 'a' && password.charAt(i) <= 'z') lowercase++;
+            else if (password.charAt(i) >= '0' && password.charAt(i) <= '9') number++;
         }
     }
 
-
-
-    public void writeUsersToFile(){
+    public void writeUsersToFile() {
         String filename = "./User/users.txt";
         File file = new File(filename);
         try {
@@ -137,7 +191,7 @@ public class BookStore {
             }
             // Write to the file using FileWriter
             FileWriter writer = new FileWriter(file, false); // true for append mode
-            for (User user: userList.values()) {
+            for (User user : userList.values()) {
                 writer.write(user.toString());
                 writer.write("\n");
             }
@@ -160,8 +214,8 @@ public class BookStore {
                         String[] parts = line.split(":");
                         if (parts.length == 4) {
                             // If line contains "User ID", create a new user
-                            int userID = Integer.parseInt(line.split(" ")[2].substring(0, line.split(" ")[2].length()-1));
-                            String password = line.split(" ")[4].substring(0, line.split(" ")[4].length()-1);
+                            int userID = Integer.parseInt(line.split(" ")[2].substring(0, line.split(" ")[2].length() - 1));
+                            String password = line.split(" ")[4].substring(0, line.split(" ")[4].length() - 1);
                             currentUser = new User(userID, password);
                             userList.put(userID, currentUser);
                         } else {
@@ -175,8 +229,7 @@ public class BookStore {
                     }
                 }
             }
-        }
-        catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
