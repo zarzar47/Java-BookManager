@@ -4,6 +4,7 @@ import Books.Book;
 
 import javax.management.relation.RelationNotification;
 import javax.swing.*;
+import javax.swing.border.EmptyBorder;
 import javax.swing.text.NumberFormatter;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -13,9 +14,11 @@ import java.util.Random;
 
 public class Checkout extends JPanel {
     private final JButton buyButton = new JButton();
-    private final JButton newUserButton = new JButton();
     private static Checkout buyScreen;
+    private JScrollPane scrollPane;
     private JPanel bookPanel;
+    private boolean enabled = false;
+    private Book currentBook;
     private Checkout(){
         initialization();
     }
@@ -25,101 +28,76 @@ public class Checkout extends JPanel {
             buyScreen = new Checkout();
             buyScreen.setPreferredSize(new Dimension(Frame.WIDTH, Frame.HEIGHT-100));
             buyScreen.setBackground(Color.lightGray);
-            buyScreen.setVisible(true);
             buyScreen.setFocusable(true);
+            buyScreen.setVisible(false);
         };
         return buyScreen;
     }
 
-
     public void initialization(){
         bookPanel = new JPanel();
-        bookPanel.setPreferredSize(new Dimension(400,500));
-        bookPanel.setVisible(true);
-//        bookInfo.setEditable(false);
-//        bookInfo.setLineWrap(true);
-//        bookInfo.setWrapStyleWord(true);
+        bookPanel.setPreferredSize(new Dimension(Frame.WIDTH-100,500));
         bookPanel.setFont(new Font("Arial", Font.PLAIN, 14));
         bookPanel.setForeground(Color.BLACK);
+        bookPanel.setLayout(new BoxLayout(bookPanel,BoxLayout.Y_AXIS));
         bookPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-        bookPanel.setBackground(Color.WHITE);
+        bookPanel.setBackground(Color.white);
 
-        this.add(bookPanel);
+        scrollPane = new JScrollPane(bookPanel);
+        scrollPane.setWheelScrollingEnabled(true);
+        scrollPane.setPreferredSize(new Dimension(Frame.WIDTH - 50, 500));
+        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+        scrollPane.getVerticalScrollBar().setPreferredSize(new Dimension(25,0));
+        scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+        this.add(scrollPane);
 
         buyButton.setText("Buy!");
         buyButton.setPreferredSize(new Dimension(100,50));
         buyButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                NumberFormat longFormat = NumberFormat.getIntegerInstance();
-
-                NumberFormatter numberFormatter = new NumberFormatter(longFormat);
-                numberFormatter.setValueClass(Integer.class); //optional, ensures you will always get a long value
-                numberFormatter.setAllowsInvalid(false); //this is the key!!
-                numberFormatter.setMinimum(0); //Optional
-                numberFormatter.setMaximum(3000);
-
-                JFormattedTextField xField = new JFormattedTextField(numberFormatter);
-                JTextField yField = new JTextField(10);
-
-                JPanel myPanel = new JPanel();
-                myPanel.setLayout(new GridLayout(5, 0));
-                myPanel.add(new JLabel("ID:"));
-                myPanel.add(xField);
-                myPanel.add(Box.createHorizontalStrut(15)); // a spacer
-                myPanel.add(new JLabel("Password:"));
-                myPanel.add(yField);
-                Object[] options = {"Enter","Cancel","New User"};
-                int result = JOptionPane.showOptionDialog(null, myPanel, "Enter a Number",
-                        JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE,
-                        null, options, null);
-                if (result == JOptionPane.OK_OPTION) {
-                    System.out.println("ID: " + xField.getText());
-                    System.out.println("Password: " + yField.getText());
-                } else if (result == 2) {
-                    JPanel newUserPanel = new JPanel();
-                    JFormattedTextField idField = new JFormattedTextField(numberFormatter);
-                    idField.setText(""+(Math.random()*1000)+2000);
-                    idField.setEditable(false);
-                    newUserPanel.setLayout(new GridLayout(5, 0));
-                    newUserPanel.add(new JLabel("ID:"));
-                    newUserPanel.add(idField);
-                    newUserPanel.add(new JLabel("Password:"));
-                    String pass = JOptionPane.showInputDialog(null,newUserPanel,"Enter your password");
-                    System.out.println("The new password is "+pass);
-                }
+                LoginPanel loginPanel = new LoginPanel();
+                JOptionPane.showOptionDialog(Checkout.this,loginPanel,"Login",JOptionPane.DEFAULT_OPTION,JOptionPane.PLAIN_MESSAGE,null,new Object[]{},null);
             }
 
         });
+        buyButton.setVisible(false);
         this.add(buyButton);
-
-        newUserButton.setText("New User");
-        newUserButton.setPreferredSize(new Dimension(100,50));
-        newUserButton.addActionListener(new ActionListener()
-        {
-            @Override
-            public void actionPerformed(ActionEvent e)
-            {
-                JOptionPane.showInputDialog("Please enter a password: ");
-            }
-        });
-        this.add(newUserButton);
     }
 
     public void setDetails(Book book) {
+        this.currentBook = book;
+        if (!enabled)
+            enableElements();
         String[]  details = book.getDetailsOnly().split("%&");
         String[] labels = {"ISBN:","Name:","Author:","Publisher:", "Genre:", "Price:", "In stock:", "Popularity:"};
         bookPanel.removeAll();
+
+        bookPanel.add(new JLabel("Book Details"));
         for (int i = 0; i < details.length; i++) {
             bookPanel.add(getCustomText(labels[i]+" "+details[i].trim()));
         }
+        bookPanel.add(new JLabel("Reviews"));
+        Object[] reviews = book.getReviewList().toArray();
+        for (int i = 0; i < reviews.length; i++) {
+            bookPanel.add(getCustomText(reviews[i].toString()));
+        }
+        setVisible(true);
     }
 
-    private JTextField getCustomText(String string) {
-        JTextField item = new JTextField();
+    public void enableElements(){
+        buyButton.setVisible(true);
+        enabled = true;
+    }
+
+    private JTextArea getCustomText(String string) {
+        JTextArea item = new JTextArea();
         item.setText(string);
+        item.setLineWrap(true);
+        item.setWrapStyleWord(true);
         item.setEditable(false);
-        item.setPreferredSize(new Dimension(bookPanel.getWidth()-10,50));
+        item.setBorder(BorderFactory.createEmptyBorder(10,40,10,40));
+        item.setFont(new Font("Bonk",Font.BOLD,12));
         return item;
     }
 

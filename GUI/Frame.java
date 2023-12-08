@@ -12,15 +12,18 @@ public class Frame extends JFrame {
 
         new FileReading();
 
-        JFrame frame = new JFrame();
-        frame.setTitle("Book Store");
-        frame.add(new Panel());
-        frame.setResizable(false);
-        frame.setVisible(true);
-        frame.setFocusable(true);
-        frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
-        frame.setSize(WIDTH, HEIGHT);
-        frame.setBackground(Color.white);
-        frame.pack();
+        SwingUtilities.invokeLater(() -> {
+            JFrame frame = new JFrame();
+            frame.setTitle("Book Store");
+            frame.add(new Panel());
+            frame.setResizable(false);
+            frame.setVisible(true);
+            frame.setFocusable(true);
+            frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
+            frame.setSize(WIDTH, HEIGHT);
+            frame.setBackground(Color.white);
+            frame.pack();
+        }
+        );
     }
 }

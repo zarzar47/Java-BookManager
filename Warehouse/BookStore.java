@@ -11,6 +11,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.net.IDN;
 import java.util.HashMap;
 import User.User;
 
@@ -75,6 +76,7 @@ public class BookStore {
     public LinkedList<Book> getBooks(String name, String genre) {
         //TODO make this more presentable
         LinkedList<Book> list = new LinkedList<>();
+
         char letter = name.toUpperCase().charAt(0);
         if (dataField[letter - 'A'] == null || (!genreList.containsKey(genre.toUpperCase()) && !genre.equalsIgnoreCase("All")))
             return currentBookList;

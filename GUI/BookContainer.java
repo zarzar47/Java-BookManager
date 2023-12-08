@@ -97,7 +97,7 @@ public class BookContainer extends JTextArea implements MouseListener {
         @Override
         public void actionPerformed(ActionEvent e) {
             Checkout.getInstance().setDetails(book);
-            Panel.pane.setSelectedIndex(1);
+            Panel.pane.setSelectedIndex(Panel.pane.getTabCount()-1);
         }
     }
 
