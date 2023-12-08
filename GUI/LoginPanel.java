@@ -73,6 +73,7 @@ public class LoginPanel extends JPanel {
         newUserButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
                 String password = JOptionPane.showInputDialog(LoginPanel.this, "Enter new password:");
 
                 if (password != null) {

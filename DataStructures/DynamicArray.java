@@ -10,6 +10,11 @@ public class DynamicArray<T> {
         size=0;
     }
 
+    public void Insert(T data){
+        if (size>=array.length)
+            resize();
+        array[size++] = data;
+    }
     public void insertAt(T data, int i) {
         if (i>=array.length)
             resize(i);
@@ -18,7 +23,7 @@ public class DynamicArray<T> {
     }
 
     private void resize() {
-        resize(0);
+        resize(array.length);
     }
 
     private void resize(int index) {
@@ -35,7 +40,13 @@ public class DynamicArray<T> {
         return array[index];
     }
 
-
+    public T[] toArray(){
+        T[] arr =(T[]) new Object[size];
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = array[i];
+        }
+        return arr;
+    }
     @Override
     public String toString() {
         String s = "";
