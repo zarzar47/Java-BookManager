@@ -75,4 +75,15 @@ public class BST {
         if (node.right != null)
             searchAll(arr, node.right, s);
     }
+
+    public void getList(DynamicArray<Book> books){
+        toList(books, root);
+    }
+
+    public void toList(DynamicArray<Book> books, Node node){
+        if (node == null) return;
+        toList(books, node.left);
+        books.insert(node.pointer);
+        toList(books, node.right);
+    }
 }

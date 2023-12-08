@@ -92,6 +92,15 @@ public class BookStore {
         //TODO make this more presentable
         DynamicArray<Book> list = new DynamicArray<>();
 
+        if ((name.equals("Enter Book Name") || name.equals("")) && !genre.equalsIgnoreCase("All") && genreList.containsKey(genre.toUpperCase())){
+            System.out.println("genre is " + genre);
+            for (int i = 0; i < dataField.length; i++) {
+                if (dataField[i].find(genreList.get(genre.toUpperCase())) != null)
+                    dataField[i].find(genreList.get(genre.toUpperCase())).getList(list);
+            }
+            return list;
+        }
+
         char letter = name.toUpperCase().charAt(0);
         if (dataField[letter - 'A'] == null || (!genreList.containsKey(genre.toUpperCase()) && !genre.equalsIgnoreCase("All")))
             return currentBookList;
