@@ -1,8 +1,5 @@
 package DataStructures;
-
 import Books.Book;
-
-import java.util.Arrays;
 
 public class DynamicArray<T> {
     T[] array;
@@ -15,7 +12,7 @@ public class DynamicArray<T> {
     }
 
     // Methods
-    public void Insert(T data){
+    public void insert(T data){
         if (size>=array.length)
             resize();
         array[size++] = data;
@@ -212,6 +209,12 @@ public class DynamicArray<T> {
             arr[i] = array[i];
         }
         return arr;
+    }
+
+    public void clearAll(){
+        for (int i = 0; i < size; i++) {
+            array[i]=null;
+        }
     }
 
     // toString

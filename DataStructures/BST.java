@@ -2,8 +2,6 @@ package DataStructures;
 
 import Books.Book;
 
-import java.util.*;
-
 public class BST {
     private Node root;
     private int count = 0;
@@ -71,7 +69,7 @@ public class BST {
 
         //If first substring matches, then add to list
         if (node.getPointer().getName().toUpperCase().startsWith(s.toUpperCase()))
-            arr.Insert(node.getPointer());
+            arr.insert(node.getPointer());
 
         //Go to right subtree and add all matching strings there
         if (node.right != null)
