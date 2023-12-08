@@ -32,6 +32,24 @@ public class DoublyLinkedList {
         tail = tail.prev;
     }
 
+    public void delete(int isbn){
+        if (head == null) {
+            System.out.println("There are no books in the database");
+            return;
+        }
+        if(head.pointer.getISBN() == isbn){
+            head = head.next;
+            return;
+        }
+        Node curr = head;
+        while (curr.next.pointer.getISBN() != isbn && curr.next != null){
+            curr = curr.next;
+        }
+        if (curr.next != null){
+            curr.next = curr.next.next;
+        }
+    }
+
     public void display(){
         Node temp = head;
         while (temp!=null) {

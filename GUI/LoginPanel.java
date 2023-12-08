@@ -1,5 +1,6 @@
 package GUI;
 import DataStructures.UserHash;
+import Warehouse.BookStore;
 
 import javax.swing.*;
 import java.awt.*;
@@ -64,6 +65,7 @@ public class LoginPanel extends JPanel {
 
                 if (userCredentials.containsKey(username) && userCredentials.get(username).equals(password)) {
                     JOptionPane.showMessageDialog(LoginPanel.this, "Login successful!");
+                    BookStore.getInstance().buyBook(0);
                 } else {
                     JOptionPane.showMessageDialog(LoginPanel.this, "Invalid username or password. Try again.");
                 }
@@ -76,14 +78,34 @@ public class LoginPanel extends JPanel {
                 String password = JOptionPane.showInputDialog(LoginPanel.this, "Enter new password:");
 
                 if (password != null) {
-                    int id = userCredentials.size();
-                    userCredentials.put(id, password);
-                    JOptionPane.showMessageDialog(LoginPanel.this, "New user created successfully! Your ID is:"+id);
-                    UserHash.getInstance().saveNewData(id,password);
+                    if (!passwordStrong(password)){
+                        JOptionPane.showMessageDialog(LoginPanel.this, "Please enter a strong password with at least one numeric, one lowercase and one upparcase character with minimum length 8");
+                    }
+                    else {
+                        int id = userCredentials.size();
+                        userCredentials.put(id, password);
+                        JOptionPane.showMessageDialog(LoginPanel.this, "New user created successfully! Your ID is:" + id);
+                        UserHash.getInstance().saveNewData(id, password);
+                    }
                 }
             }
         });
 
+
         return loginPanel;
+    }
+
+    public boolean passwordStrong(String password){
+        if (password.length() < 8 || password.length() > 24) return false;
+        int lowercase = 0;
+        int uppercase = 0;
+        int number = 0;
+        for (int i = 0; i < password.length(); i++) {
+            if (password.charAt(i) >= 'A' && password.charAt(i) <= 'Z') uppercase++;
+            else if (password.charAt(i) >= 'a' && password.charAt(i) <= 'z') lowercase++;
+            else if (password.charAt(i) >= '0' && password.charAt(i) <= '9') number++;
+        }
+        if (lowercase > 0 && uppercase > 0 && number > 0) return true;
+        return false;
     }
 }

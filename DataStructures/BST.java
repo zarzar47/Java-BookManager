@@ -77,4 +77,70 @@ public class BST {
         if (node.right != null)
             searchAll(arr, node.right, s);
     }
+
+    public Node find(String key) {
+        Node curr = root;
+        while (curr != null){
+            if (key.equalsIgnoreCase(curr.pointer.getName())){
+                return curr;
+            }
+            else if (key.compareTo(curr.pointer.getName()) > 0){
+                curr = curr.right;
+            }
+            else curr = curr.left;
+        }
+        return null;
+    }
+
+    public void deleteNoChild(Node t, Node p){
+        if ((p.pointer).compareTo(t.pointer) > 0){
+            p.left = null;
+        }
+        else p.right = null;
+    }
+
+    public void deleteOneChild(Node t, Node parent){
+        if ((parent.pointer).compareTo(t.pointer) < 0){
+            if (t.right == null) parent.right = t.left;
+            else parent.right = t.right;
+        }
+        else{
+            if (t.right == null) parent.left = t.left;
+            else parent.left = t.right;
+        }
+    }
+
+    public void delete(String key) {
+        Node t = find(key);
+        if (t.right == null && t.left == null) {
+            deleteNoChild(t, t.parent);
+        } else if (t.right == null || t.left == null){
+            deleteOneChild(t, t.parent);
+        }
+        else{
+            Node n = maximum(t);
+            t.pointer = n.pointer;
+            deleteNoChild(n, n.parent);
+        }
+    }
+
+    public Node maximum(Node r){
+        if (r == null) return null;
+        Node curr = r;
+        while (curr.right != null){
+            curr = curr.right;
+        }
+        return curr;
+    }
+
+    public void getList(LinkedList<Book> books){
+        toList(books, root);
+    }
+
+    public void toList(LinkedList<Book> books, Node node){
+        if (node == null) return;
+        toList(books, node.left);
+        books.insertBook(node.pointer);
+        toList(books, node.right);
+    }
 }
