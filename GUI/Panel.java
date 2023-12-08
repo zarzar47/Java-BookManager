@@ -255,14 +255,13 @@ public class Panel extends java.awt.Panel {
             bookStore.ascSortByPopularity();
         container.removeAll();
 
-        int index = 0;
-        Book temp = bookStore.getCurrentBookList().find(index++);
+        Book[] temp = bookStore.getCurrentBookList().toArray();
 
-        while (temp != null) {
-            BookContainer bookContainer = new BookContainer(temp);
+        for (int i = 0; i < temp.length; i++) {
+            BookContainer bookContainer = new BookContainer(temp[i]);
             container.add(bookContainer);
-            temp = bookStore.getCurrentBookList().find(index++);
         }
+
         revalidate();
         repaint();
     }

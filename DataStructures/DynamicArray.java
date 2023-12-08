@@ -4,10 +4,9 @@ import Books.Book;
 public class DynamicArray<T> {
     T[] array;
     int size;
-
     // Constructor
     public DynamicArray() {
-        array = (T[]) new Object[10];
+        array=(T[]) new Object[10];
         size=0;
     }
 
@@ -17,11 +16,12 @@ public class DynamicArray<T> {
             resize();
         array[size++] = data;
     }
-    public void insertAt(T data, int i) {
-        if (i>=array.length)
+
+    public void insertAt(T data, int i){
+        if (i>= array.length) {
             resize(i);
-        array[i] = data;
-        size++;
+        }
+        array[size++] = data;
     }
 
     private void resize() {
@@ -30,8 +30,9 @@ public class DynamicArray<T> {
 
     private void resize(int index) {
         int diff = index - array.length;
-        size+=diff;
-        T[] newArray = (T[]) new Object[size+diff+5];
+        int newsize = 0;
+        newsize+=diff+5;
+        T[] newArray = (T[]) new Object[newsize];
         for (int i = 0; i < size; i++) {
             newArray[i]=array[i];
         }
@@ -81,10 +82,10 @@ public class DynamicArray<T> {
 
         for (int i = 0; i < n1; ++i)
             // L[i] = arr.find(l + i);
-            L.insertAt(arr.find(l + i), i);
+            L.insert(arr.find(l + i));
         for (int j = 0; j < n2; ++j)
             // R[j] = arr[m + 1 + j];
-            R.insertAt(arr.find(m + 1 + j), j);
+            R.insert(arr.find(m + 1 + j));
 
 
         int i = 0, j = 0;
@@ -97,18 +98,18 @@ public class DynamicArray<T> {
 //            else
 //                arr[k++] = R[j++];
             if (L.find(i).getName().compareTo(R.find(j).getName()) <= 0)
-                arr.insertAt(L.find(i++), k++);
+                arr.insert(L.find(i++));
             else
-                arr.insertAt(R.find(j++), k++);
+                arr.insert(R.find(j++));
         }
 
         while (i < n1)
             // arr[k++] = L[i++];
-            arr.insertAt(L.find(i++), k++);
+            arr.insert(L.find(i++));
 
         while (j < n2)
             // arr[k++] = R[j++];
-            arr.insertAt(R.find(j++), k++);
+            arr.insert(R.find(j++));
     }
 
     public void ascPriceSortHelper(DynamicArray<Book> arr, int l, int m, int u)
@@ -134,9 +135,9 @@ public class DynamicArray<T> {
         while (i < n1 && j < n2)
         {
             if (L[i].getPrice() <= R[j].getPrice())
-                arr.insertAt(L[i++], k++);
+                arr.insert(L[i++]);
             else
-                arr.insertAt(R[j++], k++);
+                arr.insert(R[j++]);
 //            if (L.find(i).getPrice() <= R.find(j).getPrice())
 //                arr.insertAt(L.find(i++), k++);
 //            else
@@ -145,11 +146,11 @@ public class DynamicArray<T> {
 
         while (i < n1)
             // arr[k++] = L[i++];
-            arr.insertAt(L[i++], k++);
+            arr.insert(L[i++]);
 
         while (j < n2)
             // arr[k++] = R[j++];
-            arr.insertAt(R[j++], k++);
+            arr.insert(R[j++]);
     }
     public void ascPopularitySortHelper(DynamicArray<Book> arr, int l, int m, int u)
     {
@@ -174,9 +175,9 @@ public class DynamicArray<T> {
         while (i < n1 && j < n2)
         {
             if (L[i].getPopularity() <= R[j].getPopularity())
-                arr.insertAt(L[i++], k++);
+                arr.insert(L[i++]);
             else
-                arr.insertAt(R[j++], k++);
+                arr.insert(R[j++]);
 //            if (L.find(i).getPrice() <= R.find(j).getPrice())
 //                arr.insertAt(L.find(i++), k++);
 //            else
@@ -185,11 +186,11 @@ public class DynamicArray<T> {
 
         while (i < n1)
             // arr[k++] = L[i++];
-            arr.insertAt(L[i++], k++);
+            arr.insert(L[i++]);
 
         while (j < n2)
             // arr[k++] = R[j++];
-            arr.insertAt(R[j++], k++);
+            arr.insert(R[j++]);
     }
 
 
@@ -213,9 +214,8 @@ public class DynamicArray<T> {
     }
 
     public void clearAll(){
-        for (int i = 0; i < size; i++) {
-            array[i]=null;
-        }
+        System.out.println("bullshit");
+        size = 0;
     }
 
     // toString
