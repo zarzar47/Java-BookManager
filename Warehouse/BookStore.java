@@ -132,6 +132,19 @@ public class BookStore {
         return currentBookList;
     }
 
+    public void ascSortByName()
+    {
+        currentBookList.ascSortByName(currentBookList, 0, currentBookList.getSize() - 1);
+    }
+    public void ascSortByPrice()
+    {
+        currentBookList.ascSortByPrice(currentBookList, 0, currentBookList.getSize() - 1);
+    }
+    public void ascSortByPopularity()
+    {
+        currentBookList.ascSortByPopularity(currentBookList, 0, currentBookList.getSize() - 1);
+    }
+
     public String[] getGenres() {
         String[] genres = new String[genreList.size()];
         //TODO change this to a custom way of implementing Hashing
