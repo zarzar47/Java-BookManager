@@ -105,7 +105,6 @@ public class BookStore {
             DynamicArray<BST> DArray = dataField[letter - 'A'];
             DArray.find(i).searchAll(list, name);
         }
-
         return list;
     }
 

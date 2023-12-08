@@ -21,7 +21,8 @@ public class DynamicArray<T> {
         if (i>= array.length) {
             resize(i);
         }
-        array[size++] = data;
+        array[i] = data;
+        size++;
     }
 
     private void resize() {
@@ -31,7 +32,7 @@ public class DynamicArray<T> {
     private void resize(int index) {
         int diff = index - array.length;
         int newsize = 0;
-        newsize+=diff+5;
+        newsize=size+diff+5;
         T[] newArray = (T[]) new Object[newsize];
         for (int i = 0; i < size; i++) {
             newArray[i]=array[i];

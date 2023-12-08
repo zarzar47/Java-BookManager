@@ -247,18 +247,18 @@ public class Panel extends java.awt.Panel {
         String bookName = text_field.getText();
         BookStore bookStore = BookStore.getInstance();
         bookStore.updateList(bookName,genreName,searchSpecific);
-        if (name.isSelected())
-            bookStore.ascSortByName();
-        else if (price.isSelected())
-            bookStore.ascSortByPrice();
-        else if (popularity.isSelected())
-            bookStore.ascSortByPopularity();
+//        if (name.isSelected())
+//            bookStore.ascSortByName();
+//        else if (price.isSelected())
+//            bookStore.ascSortByPrice();
+//        else if (popularity.isSelected())
+//            bookStore.ascSortByPopularity();
         container.removeAll();
 
-        Book[] temp = bookStore.getCurrentBookList().toArray();
-
+        Object[] temp = bookStore.getCurrentBookList().toArray();
+        System.out.println(temp.length);
         for (int i = 0; i < temp.length; i++) {
-            BookContainer bookContainer = new BookContainer(temp[i]);
+            BookContainer bookContainer = new BookContainer((Book)temp[i]);
             container.add(bookContainer);
         }
 
