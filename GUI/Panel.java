@@ -130,6 +130,7 @@ public class Panel extends java.awt.Panel {
         // name.setPreferredSize(new Dimension(60, 20));
         name.setBackground(Color.LIGHT_GRAY);
         name.setBounds(100, 50, 10, 10);
+        name.setSelected(true);
         name.addActionListener(new ActionListener()
         {
             @Override
@@ -137,6 +138,7 @@ public class Panel extends java.awt.Panel {
             {
                 price.setSelected(false);
                 popularity.setSelected(false);
+                performSearch();
             }
         });
 
@@ -151,6 +153,7 @@ public class Panel extends java.awt.Panel {
             {
                 name.setSelected(false);
                 popularity.setSelected(false);
+                performSearch();
             }
         });
 
@@ -165,6 +168,7 @@ public class Panel extends java.awt.Panel {
             {
                 name.setSelected(false);
                 price.setSelected(false);
+                performSearch();
             }
         });
 
@@ -212,6 +216,12 @@ public class Panel extends java.awt.Panel {
         String bookName = text_field.getText();
         BookStore bookStore = BookStore.getInstance();
         bookStore.updateList(bookName,genreName);
+        if (name.isSelected())
+            bookStore.ascSortByName();
+        else if (price.isSelected())
+            bookStore.ascSortByPrice();
+        else if (popularity.isSelected())
+            bookStore.ascSortByPopularity();
         container.removeAll();
 
         int index = 0;

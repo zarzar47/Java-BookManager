@@ -5,7 +5,7 @@ import DataStructures.DynamicArray;
 import java.awt.*;
 
 public class Book implements Comparable<Book> {
-    int popularity;
+    double popularity;
     int ISBN;
     String name;
     String author;
@@ -53,7 +53,7 @@ public class Book implements Comparable<Book> {
         return author;
     }
 
-    public int getPopularity() {
+    public double getPopularity() {
         return popularity;
     }
 
