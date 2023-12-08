@@ -203,6 +203,7 @@ public class DynamicArray<T> {
         return size;
     }
 
+
     public T[] toArray(){
         T[] arr =(T[]) new Object[size];
         for (int i = 0; i < arr.length; i++) {
@@ -222,7 +223,7 @@ public class DynamicArray<T> {
     public String toString() {
         String s = "";
         for (int i = 0; i < size; i++) {
-            s += array[i] + "-";
+            s += array[i] + "\n";
         }
         return s;
     }
