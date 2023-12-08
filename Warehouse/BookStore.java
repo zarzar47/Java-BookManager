@@ -2,10 +2,7 @@ package Warehouse;
 
 
 import Books.Book;
-import DataStructures.BST;
-import DataStructures.DoublyLinkedList;
-import DataStructures.DynamicArray;
-import DataStructures.LinkedList;
+import DataStructures.*;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -13,7 +10,10 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.net.IDN;
 import java.util.HashMap;
+
 import User.User;
+
+import javax.swing.*;
 
 public class BookStore {
     private DoublyLinkedList booklist;
@@ -73,6 +73,18 @@ public class BookStore {
         numOfBooks++;
     }
 
+    public Book getBook(String name, String genre) {
+        char letter = name.toUpperCase().charAt(0);
+        int genreIndex = genreList.get(genre);
+        if (dataField[letter - 'A'] == null || (!genreList.containsKey(genre.toUpperCase()) && !genre.equalsIgnoreCase("All")))
+            return null;
+        Node node = dataField[letter - 'A'].find(genreIndex).findName(name);
+        if (node == null) {
+            return null;
+        }
+        return node.getPointer();
+    }
+
     public LinkedList<Book> getBooks(String name, String genre) {
         //TODO make this more presentable
         LinkedList<Book> list = new LinkedList<>();
@@ -94,8 +106,23 @@ public class BookStore {
         return list;
     }
 
-    public void updateList(String name, String genre) {
-        currentBookList = getBooks(name, genre);
+    public void updateList(String name, String genre, boolean specificSearch) {
+        if (genre.equals("All") && specificSearch) {
+            JOptionPane.showMessageDialog(null, "Please select a specific genre to search with.");
+            return;
+        }
+        if (specificSearch) {
+            Book book = getBook(name, genre);
+            if (book == null) {
+                JOptionPane.showMessageDialog(null, "Sorry but there was no book with the name "+name);
+                currentBookList.clearAll();
+                return;
+            }
+            currentBookList.clearAll();
+            currentBookList.insertBook(book);
+        } else {
+            currentBookList = getBooks(name, genre);
+        }
     }
 
     public LinkedList<Book> getCurrentBookList() {
@@ -110,8 +137,7 @@ public class BookStore {
     }
 
 
-
-    public boolean passwordStrong(String password){
+    public boolean passwordStrong(String password) {
         if (password.length() < 8 || password.length() > 24) return false;
         int lowercase = 0;
         int uppercase = 0;
@@ -125,7 +151,7 @@ public class BookStore {
         return false;
     }
 
-    public void writeUsersToFile(){
+    public void writeUsersToFile() {
         String filename = "./User/users.txt";
         File file = new File(filename);
         try {
@@ -136,7 +162,7 @@ public class BookStore {
             }
             // Write to the file using FileWriter
             FileWriter writer = new FileWriter(file, false); // true for append mode
-            for (User user: userList.values()) {
+            for (User user : userList.values()) {
                 writer.write(user.toString());
                 writer.write("\n");
             }
@@ -159,8 +185,8 @@ public class BookStore {
                         String[] parts = line.split(":");
                         if (parts.length == 4) {
                             // If line contains "User ID", create a new user
-                            int userID = Integer.parseInt(line.split(" ")[2].substring(0, line.split(" ")[2].length()-1));
-                            String password = line.split(" ")[4].substring(0, line.split(" ")[4].length()-1);
+                            int userID = Integer.parseInt(line.split(" ")[2].substring(0, line.split(" ")[2].length() - 1));
+                            String password = line.split(" ")[4].substring(0, line.split(" ")[4].length() - 1);
                             currentUser = new User(userID, password);
                             userList.put(userID, currentUser);
                         } else {
@@ -174,8 +200,7 @@ public class BookStore {
                     }
                 }
             }
-        }
-        catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

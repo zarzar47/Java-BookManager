@@ -15,13 +15,12 @@ public class Panel extends java.awt.Panel {
     JButton searchButton;
     JButton genreFilter;
     JPopupMenu genreList;
-    JButton authorFilter;
     static JPanel container;
-    JPanel buyPage;
     JScrollPane scrollPane;
-    boolean filterGenre;
+    JToggleButton fullName;
+    boolean searchSpecific = false;
     String genreName;
-    boolean filterAuthor;
+    JLabel genreLabel;
     String authorName;
     public static JTabbedPane pane;
     public JCheckBox name, price, popularity;
@@ -37,8 +36,9 @@ public class Panel extends java.awt.Panel {
         catalogue.setFocusable(true);
         catalogue.add(text_field);
         catalogue.add(searchButton);
+        catalogue.add(fullName);
         catalogue.add(genreFilter);
-       // catalogue.add(authorFilter);
+        catalogue.add(genreLabel);
         catalogue.add(scrollPane);
         catalogue.add(sortBy);
 
@@ -58,6 +58,7 @@ public class Panel extends java.awt.Panel {
 
     public void Initiation() {
         genreName = "All";
+        genreLabel = new JLabel(genreName);
         authorName = "";
         container = new JPanel();
         container.setVisible(true);
@@ -109,15 +110,6 @@ public class Panel extends java.awt.Panel {
             }
         });
 
-        authorFilter = new JButton();
-        authorFilter.setText("Author");
-        authorFilter.setPreferredSize(new Dimension(100, 20));
-        authorFilter.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                authorName = text_field.getText();
-            }
-        });
         searchButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -177,19 +169,27 @@ public class Panel extends java.awt.Panel {
         // text_field.addKeyListener(new keyReg());
 
 
-
-//        buyPage = new JPanel();
-//        buyPage.setVisible(true);
-//        buyPage.setFocusable(true);
-//        pane.add(name);
-//        pane.add(popularity);
-//        pane.add(price);
+        fullName = new JCheckBox();
+        fullName.setText("Specific");
+        fullName.setBackground(Color.lightGray);
+        fullName.addItemListener(new ItemListener() {
+            @Override
+            public void itemStateChanged(ItemEvent e) {
+                searchSpecific = !searchSpecific;
+            }
+        });
     }
 
     private void showGenrePopup() {
         genreList = new JPopupMenu("Genres");
-        genreList.add(new JMenuItem("All"));
-        String[] genres = BookStore.getInstance().getGenres();
+        String[] tempgenres = BookStore.getInstance().getGenres();
+        String[] genres = new String[tempgenres.length+1];
+
+        for (int i = 0; i < tempgenres.length; i++) {
+            genres[i] = tempgenres[i];
+        }
+        genres[genres.length-1] = "All";
+
         for (int i = 0; i < genres.length; i++) {
             JMenuItem menuItem = new JMenuItem(genres[i]);
             menuItem.addActionListener(new ActionListener() {
@@ -197,8 +197,8 @@ public class Panel extends java.awt.Panel {
                 public void actionPerformed(ActionEvent e) {
                     // Handle the selected genre
                     genreName = menuItem.getText();
-                    // Optionally, you can perform some action based on the selected genre
                     System.out.println("Selected Genre: " + genreName);
+                    genreLabel.setText(genreName);
                 }
             });
             genreList.add(menuItem);
@@ -211,7 +211,7 @@ public class Panel extends java.awt.Panel {
     public void performSearch() {
         String bookName = text_field.getText();
         BookStore bookStore = BookStore.getInstance();
-        bookStore.updateList(bookName,genreName);
+        bookStore.updateList(bookName,genreName,searchSpecific);
         container.removeAll();
         Node temp = bookStore.getCurrentBookList().getHead();
 

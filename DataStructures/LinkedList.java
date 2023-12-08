@@ -61,6 +61,9 @@ public class LinkedList<E extends Comparable<Book>>
         previous.next = newNode;
     }
 
+    public void clearAll(){
+        head = null;
+    }
     public void insertNameAscendingSorted(Book book)
     {
         Node newNode = new Node(book);

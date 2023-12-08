@@ -63,7 +63,7 @@ public class LoginPanel extends JPanel {
                 String password = new String(passwordField.getPassword());
 
                 if (userCredentials.containsKey(username) && userCredentials.get(username).equals(password)) {
-                    JOptionPane.showMessageDialog(LoginPanel.this, "Login successful!");
+                    JOptionPane.showMessageDialog(LoginPanel.this, "Login successful! Thank you for Buying our Books!");
                 } else {
                     JOptionPane.showMessageDialog(LoginPanel.this, "Invalid username or password. Try again.");
                 }
