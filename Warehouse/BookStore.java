@@ -90,7 +90,7 @@ public class BookStore {
 
     public DynamicArray<Book> getBooks(String name, String genre) {
         //TODO make this more presentable
-        LinkedList<Book> list = new LinkedList<>();
+        DynamicArray<Book> list = new DynamicArray<>();
         if ((name.equals("Enter Book Name") || name.equals("")) && !genre.equalsIgnoreCase("All") && genreList.containsKey(genre.toUpperCase())){
             System.out.println("yes");
             for (int i = 0; i < dataField.length; i++) {
@@ -99,7 +99,6 @@ public class BookStore {
             }
             return list;
         }
-        //DynamicArray<Book> list = new DynamicArray<>();
 
         char letter = name.toUpperCase().charAt(0);
         if (dataField[letter - 'A'] == null || (!genreList.containsKey(genre.toUpperCase()) && !genre.equalsIgnoreCase("All")))
@@ -161,14 +160,16 @@ public class BookStore {
         return genres;
     }
 
-    public void buyBook(int isbn){
+    public void buyBook(int isbn) {
         Book book = booklist.Search(isbn);
-        if (book.getInStock() == 1){
+        if (book.getInStock() == 1) {
             booklist.delete(isbn);
             //remove form datafield, booklist and currentbooklist
             //dataField[book.getName().toUpperCase().charAt(0) - 'A'].find(genreList.get(book.getGenre().toUpperCase())).
+        }
+    }
 
-    public boolean passwordStrong(String password) {
+    /*public boolean passwordStrong(String password) {
         if (password.length() < 8 || password.length() > 24) return false;
         int lowercase = 0;
         int uppercase = 0;
@@ -178,7 +179,8 @@ public class BookStore {
             else if (password.charAt(i) >= 'a' && password.charAt(i) <= 'z') lowercase++;
             else if (password.charAt(i) >= '0' && password.charAt(i) <= '9') number++;
         }
-    }
+
+    }*/
 
     public void writeUsersToFile() {
         String filename = "./User/users.txt";

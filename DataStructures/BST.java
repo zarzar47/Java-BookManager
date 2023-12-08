@@ -131,14 +131,14 @@ public class BST {
         return curr;
     }
 
-    public void getList(LinkedList<Book> books){
+    public void getList(DynamicArray<Book> books){
         toList(books, root);
     }
 
-    public void toList(LinkedList<Book> books, Node node){
+    public void toList(DynamicArray<Book> books, Node node){
         if (node == null) return;
         toList(books, node.left);
-        books.insertBook(node.pointer);
+        books.insert(node.pointer);
         toList(books, node.right);
     }
 }

@@ -65,8 +65,8 @@ public class DynamicArray<T> {
         if (l < u) {
             int m = l + (u - l)/2;
 
-            ascSortByPrice(arr, l, m);
-            ascSortByPrice(arr, m + 1, u);
+            ascSortByPopularity(arr, l, m);
+            ascSortByPopularity(arr, m + 1, u);
 
             ascPopularitySortHelper(arr, l, m, u);
         }
