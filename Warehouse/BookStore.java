@@ -20,7 +20,8 @@ public class BookStore {
     private final DynamicArray<BST>[] dataField;
     //TODO  change HashMap to custom implementation
     private HashMap<String, Integer> genreList;
-    private LinkedList<Book> currentBookList;
+    // private LinkedList<Book> currentBookList;
+    private DynamicArray<Book> currentBookList;
     private static BookStore bookStore;
     private HashMap<Integer, User> userList;
     private int numOfBooks;
@@ -29,7 +30,7 @@ public class BookStore {
     private BookStore() {
         //   alphabet = new BST[27];
         numOfBooks = 0;
-        currentBookList = new LinkedList<>();
+        currentBookList = new DynamicArray<>();
         dataField = new DynamicArray[27];
         booklist = new DoublyLinkedList();
         genreList = new HashMap<>();
@@ -73,9 +74,9 @@ public class BookStore {
         numOfBooks++;
     }
 
-    public LinkedList<Book> getBooks(String name, String genre) {
+    public DynamicArray<Book> getBooks(String name, String genre) {
         //TODO make this more presentable
-        LinkedList<Book> list = new LinkedList<>();
+        DynamicArray<Book> list = new DynamicArray<>();
 
         char letter = name.toUpperCase().charAt(0);
         if (dataField[letter - 'A'] == null || (!genreList.containsKey(genre.toUpperCase()) && !genre.equalsIgnoreCase("All")))
@@ -98,7 +99,7 @@ public class BookStore {
         currentBookList = getBooks(name, genre);
     }
 
-    public LinkedList<Book> getCurrentBookList() {
+    public DynamicArray<Book> getCurrentBookList() {
         return currentBookList;
     }
 
