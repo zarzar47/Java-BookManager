@@ -213,12 +213,14 @@ public class Panel extends java.awt.Panel {
         BookStore bookStore = BookStore.getInstance();
         bookStore.updateList(bookName,genreName,searchSpecific);
         container.removeAll();
-        Node temp = bookStore.getCurrentBookList().getHead();
+
+        int index = 0;
+        Book temp = bookStore.getCurrentBookList().find(index++);
 
         while (temp != null) {
-            BookContainer bookContainer = new BookContainer(temp.getPointer());
+            BookContainer bookContainer = new BookContainer(temp);
             container.add(bookContainer);
-            temp = temp.getNext();
+            temp = bookStore.getCurrentBookList().find(index++);
         }
         revalidate();
         repaint();

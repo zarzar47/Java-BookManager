@@ -164,7 +164,7 @@ public class Book implements Comparable<Book> {
         reviewList = new DynamicArray<>();
         int numOfReview = (int)(Math.random()*3 + 1);
         for (int i = 0; i < numOfReview; i++) {
-            reviewList.Insert(reviews[(int)(Math.random()*reviews.length)]);
+            reviewList.insert(reviews[(int)(Math.random()*reviews.length)]);
         }
     }
 

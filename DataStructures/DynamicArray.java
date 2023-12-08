@@ -1,7 +1,5 @@
 package DataStructures;
 
-import java.util.Arrays;
-
 public class DynamicArray<T> {
     T[] array;
     int size;
@@ -10,7 +8,7 @@ public class DynamicArray<T> {
         size=0;
     }
 
-    public void Insert(T data){
+    public void insert(T data){
         if (size>=array.length)
             resize();
         array[size++] = data;
@@ -47,6 +45,13 @@ public class DynamicArray<T> {
         }
         return arr;
     }
+
+    public void clearAll(){
+        for (int i = 0; i < size; i++) {
+            array[i]=null;
+        }
+    }
+
     @Override
     public String toString() {
         String s = "";
