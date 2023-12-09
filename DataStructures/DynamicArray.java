@@ -17,6 +17,7 @@ public class DynamicArray<T> {
             resize();
         array[size++] = data;
     }
+
     public void insertAt(T data, int i) {
         if (i>=array.length)
             resize(i);
@@ -30,16 +31,17 @@ public class DynamicArray<T> {
 
     private void resize(int index) {
         int diff = index - array.length;
-        size+=diff;
-        T[] newArray = (T[]) new Object[size+diff+5];
-        for (int i = 0; i < size; i++) {
-            newArray[i]=array[i];
+        size += diff;
+        T[] newArray = (T[]) new Object[size + 5];
+        for (int i = 0; i < array.length; i++) {
+            newArray[i] = array[i];
         }
         array = newArray;
     }
 
     public void ascSortByName(DynamicArray<Book> arr, int l, int u)
     {
+        if (arr.size == 1) return;
         if (l < u) {
             int m = l + (u - l)/2;
 
@@ -51,6 +53,7 @@ public class DynamicArray<T> {
     }
     public void ascSortByPrice(DynamicArray<Book> arr, int l, int u)
     {
+        if (arr.size == 1) return;
         if (l < u) {
             int m = l + (u - l)/2;
 
@@ -62,6 +65,7 @@ public class DynamicArray<T> {
     }
     public void ascSortByPopularity(DynamicArray<Book> arr, int l, int u)
     {
+        if (arr.size == 1) return;
         if (l < u) {
             int m = l + (u - l)/2;
 
@@ -214,6 +218,7 @@ public class DynamicArray<T> {
         for (int i = 0; i < size; i++) {
             array[i]=null;
         }
+        size = 0;
     }
 
     // toString

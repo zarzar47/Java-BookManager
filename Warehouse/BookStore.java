@@ -90,21 +90,26 @@ public class BookStore {
 
     public DynamicArray<Book> getBooks(String name, String genre) {
         //TODO make this more presentable
+        System.out.println(name +" " + genre);
         DynamicArray<Book> list = new DynamicArray<>();
+        if((name.equals("Enter Book Name") || name.equals("")) && genre.equalsIgnoreCase("All")){
+            return currentBookList;
+        }
         if ((name.equals("Enter Book Name") || name.equals("")) && !genre.equalsIgnoreCase("All") && genreList.containsKey(genre.toUpperCase())){
-            System.out.println("yes");
+            System.out.println("genre is " + genre);
             for (int i = 0; i < dataField.length; i++) {
                 if (dataField[i].find(genreList.get(genre.toUpperCase())) != null)
                     dataField[i].find(genreList.get(genre.toUpperCase())).getList(list);
             }
             return list;
         }
-
         char letter = name.toUpperCase().charAt(0);
-        if (dataField[letter - 'A'] == null || (!genreList.containsKey(genre.toUpperCase()) && !genre.equalsIgnoreCase("All")))
+        if (dataField[letter - 'A'] == null || (!genreList.containsKey(genre.toUpperCase()) && !genre.equalsIgnoreCase("All"))) {
             return currentBookList;
+        }
         if (genre.equalsIgnoreCase("All")) {
             for (int i = 0; i < genreList.size(); i++) {
+                System.out.println(letter);
                 DynamicArray<BST> DArray = dataField[letter - 'A'];
                 DArray.find(i).searchAll(list, name);
             }
@@ -168,19 +173,6 @@ public class BookStore {
             //dataField[book.getName().toUpperCase().charAt(0) - 'A'].find(genreList.get(book.getGenre().toUpperCase())).
         }
     }
-
-    /*public boolean passwordStrong(String password) {
-        if (password.length() < 8 || password.length() > 24) return false;
-        int lowercase = 0;
-        int uppercase = 0;
-        int number = 0;
-        for (int i = 0; i < password.length(); i++) {
-            if (password.charAt(i) >= 'A' && password.charAt(i) <= 'Z') uppercase++;
-            else if (password.charAt(i) >= 'a' && password.charAt(i) <= 'z') lowercase++;
-            else if (password.charAt(i) >= '0' && password.charAt(i) <= '9') number++;
-        }
-
-    }*/
 
     public void writeUsersToFile() {
         String filename = "./User/users.txt";

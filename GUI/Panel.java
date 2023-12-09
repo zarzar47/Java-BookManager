@@ -1,6 +1,7 @@
 package GUI;
 
 import Books.Book;
+import DataStructures.DynamicArray;
 import DataStructures.LinkedList;
 import DataStructures.Node;
 import Warehouse.*;
@@ -227,11 +228,13 @@ public class Panel extends java.awt.Panel {
 
         int index = 0;
         Book temp = bookStore.getCurrentBookList().find(index++);
+        DynamicArray<Book> books = bookStore.getCurrentBookList();
 
-        while (temp != null && index < bookStore.getCurrentBookList().getSize()) {
+        while (index < books.getSize() && temp != null) {
+            System.out.println(books.getSize() +" " + index);
             BookContainer bookContainer = new BookContainer(temp);
             container.add(bookContainer);
-            temp = bookStore.getCurrentBookList().find(index++);
+            temp = books.find(index++);
         }
         revalidate();
         repaint();
