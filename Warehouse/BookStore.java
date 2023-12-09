@@ -92,7 +92,18 @@ public class BookStore {
         //TODO make this more presentable
         System.out.println(name +" " + genre);
         DynamicArray<Book> list = new DynamicArray<>();
-        if((name.equals("Enter Book Name") || name.equals("")) && genre.equalsIgnoreCase("All")){
+
+        if ((name.equals("Enter Book Name") || name.equals("")) && !genre.equalsIgnoreCase("All") && genreList.containsKey(genre.toUpperCase())){
+            System.out.println("genre is " + genre);
+            for (int i = 0; i < dataField.length; i++) {
+                if (dataField[i].find(genreList.get(genre.toUpperCase())) != null)
+                    dataField[i].find(genreList.get(genre.toUpperCase())).getList(list);
+            }
+            return list;
+        }
+
+        char letter = name.toUpperCase().charAt(0);
+        if (dataField[letter - 'A'] == null || (!genreList.containsKey(genre.toUpperCase()) && !genre.equalsIgnoreCase("All")))
             return currentBookList;
         }
         if ((name.equals("Enter Book Name") || name.equals("")) && !genre.equalsIgnoreCase("All") && genreList.containsKey(genre.toUpperCase())){
@@ -118,7 +129,6 @@ public class BookStore {
             DynamicArray<BST> DArray = dataField[letter - 'A'];
             DArray.find(i).searchAll(list, name);
         }
-
         return list;
     }
 
@@ -227,63 +237,4 @@ public class BookStore {
             e.printStackTrace();
         }
     }
-
-    /*public void buyBook(int isbn){
-        Scanner in = new Scanner(System.in);
-        System.out.println("enter user ID: ");
-        int id = in.nextInt();
-        System.out.println("Enter password");
-        String password  =in.next();
-        if (!userList.containsKey(id)){
-            System.out.println("User not found, would you like to create a new account?");
-            if (in.next().equalsIgnoreCase("yes")){
-                id = User.getCurrentId();
-                System.out.println("Your ID is: " + id +", please enter your password: ");
-                password = in.next();
-                while (!passwordStrong(password)){
-                    System.out.println("Password not strong, please enter a better password: ");
-                    password = in.next();
-                }
-                userList.put(id, new User(password));
-            }
-        }
-        if (!userList.get(id).authenticatePassword(password)) {
-            System.out.println("Wrong password, access denied");
-        } else {
-            if (booklist.containsKey(isbn)) {
-                if (booklist.get(isbn).isInStock()) {
-                    if (userList.get(id).hasBook(booklist.get(isbn))){
-                        System.out.println("User already has book, cant buy same copy unless you return it.");
-                    }
-                    else {
-                        System.out.println("Transaction successful, happy reading!");
-                        booklist.get(isbn).decrement();
-                        userList.get(id).addBook(booklist.get(isbn));
-                    }
-                } else System.out.println("Sorry, book is out of stock.");
-            } else System.out.println("This isbn doesn't exist.");
-        }
-    }
-
-    public void returnBook(int isbn){
-        Scanner in = new Scanner(System.in);
-        System.out.println("enter user ID: ");
-        int id = in.nextInt();
-        System.out.println("Enter password");
-        String password = in.next();
-        if (!userList.containsKey(id)){
-            System.out.println("User account doesn't exist, please make an account before attempting a transaction.");
-        }else if (!userList.get(id).authenticatePassword(password)) {
-            System.out.println("Wrong password, access denied.");
-        }
-        else {
-            if (booklist.containsKey(isbn)) {
-                if (userList.get(id).hasBook(booklist.get(isbn))){
-                    System.out.println("Return successful, thank you for reading!");
-                    booklist.get(isbn).increment();
-                    userList.get(id).returnBook(booklist.get(isbn));
-                }
-            } else System.out.println("This isbn doesn't exist.");
-        }
-    }*/
 }

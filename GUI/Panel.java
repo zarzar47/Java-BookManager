@@ -24,7 +24,7 @@ public class Panel extends java.awt.Panel {
     JLabel genreLabel;
     String authorName;
     public static JTabbedPane pane;
-    public JCheckBox name, price, popularity;
+    public JCheckBox name, price, popularity, ascending, descending;
     public JTextField sortBy;
 
     public Panel() {
@@ -46,6 +46,8 @@ public class Panel extends java.awt.Panel {
         catalogue.add(name);
         catalogue.add(price);
         catalogue.add(popularity);
+        catalogue.add(ascending);
+        catalogue.add(descending);
         name.setLayout(new BoxLayout(name, BoxLayout.Y_AXIS));
         price.setLayout(new BoxLayout(price, BoxLayout.Y_AXIS));
         popularity.setLayout(new BoxLayout(popularity, BoxLayout.Y_AXIS));
@@ -165,6 +167,35 @@ public class Panel extends java.awt.Panel {
             }
         });
 
+        ascending = new JCheckBox("ascending");
+        // popularity.setPreferredSize(new Dimension(75, 20));
+        ascending.setBackground(Color.LIGHT_GRAY);
+        ascending.setBounds(200, 75, 10, 10);
+        ascending.setSelected(true);
+        ascending.addActionListener(new ActionListener()
+        {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                descending.setSelected(false);
+                performSearch();
+            }
+        });
+
+        descending = new JCheckBox("descending");
+        // popularity.setPreferredSize(new Dimension(75, 20));
+        descending.setBackground(Color.LIGHT_GRAY);
+        descending.setBounds(200, 125, 10, 10);
+        descending.addActionListener(new ActionListener()
+        {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                ascending.setSelected(false);
+                performSearch();
+            }
+        });
+
         sortBy = new JTextField();
         sortBy.setPreferredSize(new Dimension(50, 20));
         sortBy.setEditable(false);
@@ -217,25 +248,41 @@ public class Panel extends java.awt.Panel {
         String bookName = text_field.getText();
         BookStore bookStore = BookStore.getInstance();
         bookStore.updateList(bookName,genreName,searchSpecific);
-        if (name.isSelected())
-            bookStore.ascSortByName();
-        else if (price.isSelected())
-            bookStore.ascSortByPrice();
-        else if (popularity.isSelected())
-            bookStore.ascSortByPopularity();
+        // if (name.isSelected())
+        //     bookStore.ascSortByName();
+        // else if (price.isSelected())
+        //     bookStore.ascSortByPrice();
+        // else if (popularity.isSelected())
+        //     bookStore.ascSortByPopularity();
 
+        // container.removeAll();
+
+        // int index = 0;
+        // Book temp = bookStore.getCurrentBookList().find(index++);
+        // DynamicArray<Book> books = bookStore.getCurrentBookList();
+
+        // while (index < books.getSize() && temp != null) {
+        //     System.out.println(books.getSize() +" " + index);
+        //     BookContainer bookContainer = new BookContainer(temp);
+        //     container.add(bookContainer);
+        //     temp = books.find(index++);
+
+        
+//        if (name.isSelected())
+//            bookStore.ascSortByName();
+//        else if (price.isSelected())
+//            bookStore.ascSortByPrice();
+//        else if (popularity.isSelected())
+//            bookStore.ascSortByPopularity();
         container.removeAll();
 
-        int index = 0;
-        Book temp = bookStore.getCurrentBookList().find(index++);
-        DynamicArray<Book> books = bookStore.getCurrentBookList();
-
-        while (index < books.getSize() && temp != null) {
-            System.out.println(books.getSize() +" " + index);
-            BookContainer bookContainer = new BookContainer(temp);
+        Object[] temp = bookStore.getCurrentBookList().toArray();
+        System.out.println(temp.length);
+        for (int i = 0; i < temp.length; i++) {
+            BookContainer bookContainer = new BookContainer((Book)temp[i]);
             container.add(bookContainer);
-            temp = books.find(index++);
         }
+
         revalidate();
         repaint();
     }
