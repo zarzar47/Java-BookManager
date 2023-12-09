@@ -90,7 +90,6 @@ public class BookStore {
 
     public DynamicArray<Book> getBooks(String name, String genre) {
         //TODO make this more presentable
-        System.out.println(name +" " + genre);
         DynamicArray<Book> list = new DynamicArray<>();
 
         if ((name.equals("Enter Book Name") || name.equals("")) && !genre.equalsIgnoreCase("All") && genreList.containsKey(genre.toUpperCase())){
@@ -105,16 +104,9 @@ public class BookStore {
         char letter = name.toUpperCase().charAt(0);
         if (dataField[letter - 'A'] == null || (!genreList.containsKey(genre.toUpperCase()) && !genre.equalsIgnoreCase("All")))
             return currentBookList;
-        }
-        if ((name.equals("Enter Book Name") || name.equals("")) && !genre.equalsIgnoreCase("All") && genreList.containsKey(genre.toUpperCase())){
-            System.out.println("genre is " + genre);
-            for (int i = 0; i < dataField.length; i++) {
-                if (dataField[i].find(genreList.get(genre.toUpperCase())) != null)
-                    dataField[i].find(genreList.get(genre.toUpperCase())).getList(list);
-            }
-            return list;
-        }
-        char letter = name.toUpperCase().charAt(0);
+
+
+
         if (dataField[letter - 'A'] == null || (!genreList.containsKey(genre.toUpperCase()) && !genre.equalsIgnoreCase("All"))) {
             return currentBookList;
         }
@@ -151,6 +143,22 @@ public class BookStore {
         }
     }
 
+    public String buyBook(int isbn) {
+        Book book = booklist.Search(isbn);
+        if (book.getInStock() == 1) {
+            booklist.delete(isbn);
+            dataField[book.getName().toUpperCase().charAt(0) - 'A'].find(genreList.get(book.getGenre().toUpperCase())).delete(book.getName());
+            //currentBookList
+            //remove form datafield, booklist and currentbooklist
+            //dataField[book.getName().toUpperCase().charAt(0) - 'A'].find(genreList.get(book.getGenre().toUpperCase())).
+        }
+        else{
+            booklist.Search(isbn).decreaseStock();
+            //dataField[book.getName().toUpperCase().charAt(0) - 'A'].find(genreList.get(book.getGenre().toUpperCase())).find(book.getName()).getPointer().decreaseStock();
+        }
+        return "Login successful! Thank you for Buying our Books!";
+    }
+
     public DynamicArray<Book> getCurrentBookList() {
         return currentBookList;
     }
@@ -175,16 +183,9 @@ public class BookStore {
         return genres;
     }
 
-    public void buyBook(int isbn) {
-        Book book = booklist.Search(isbn);
-        if (book.getInStock() == 1) {
-            booklist.delete(isbn);
-            //remove form datafield, booklist and currentbooklist
-            //dataField[book.getName().toUpperCase().charAt(0) - 'A'].find(genreList.get(book.getGenre().toUpperCase())).
-        }
-    }
 
-    public void writeUsersToFile() {
+
+   /* public void writeUsersToFile() {
         String filename = "./User/users.txt";
         File file = new File(filename);
         try {
@@ -236,5 +237,5 @@ public class BookStore {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
+    }*/
 }

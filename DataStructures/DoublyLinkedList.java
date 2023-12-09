@@ -61,7 +61,6 @@ public class DoublyLinkedList {
     public Book Search(int ISBN){
         Node temp = head;
         while (temp.pointer.getISBN() != ISBN) {
-            System.out.println(temp+"<->");
             temp = temp.next;
         }
         return temp.pointer;

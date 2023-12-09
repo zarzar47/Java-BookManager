@@ -1,22 +1,24 @@
 package GUI;
-import DataStructures.UserHash;
+import DataStructures.UserHash;;
+import User.User;
+import DataStructures.intHashMap;
 import Warehouse.BookStore;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Hashtable;
 import java.util.InputMismatchException;
-import java.util.Random;
+import Books.Book;
 
 public class LoginPanel extends JPanel {
+    private Book currentBook;
 
+    private final intHashMap<User> userCredentials;
 
-    private final Hashtable<Integer, String> userCredentials;
-
-    public LoginPanel() {
+    public LoginPanel(Book book) {
         userCredentials = UserHash.getInstance().getUserCredentials();
+        currentBook = book;
         initializeUI();
     }
 
@@ -63,8 +65,9 @@ public class LoginPanel extends JPanel {
                 }
                 String password = new String(passwordField.getPassword());
 
-                if (userCredentials.containsKey(username) && userCredentials.get(username).equals(password)) {
-                    JOptionPane.showMessageDialog(LoginPanel.this, "Login successful! Thank you for Buying our Books!");
+                if (userCredentials.containsKey(username) && userCredentials.get(username).getPassword().equals(password)) {
+                    String s = BookStore.getInstance().buyBook(currentBook.getISBN());
+                    JOptionPane.showMessageDialog(LoginPanel.this, s);
                 } else {
                     JOptionPane.showMessageDialog(LoginPanel.this, "Invalid username or password. Try again.");
                 }
@@ -74,7 +77,6 @@ public class LoginPanel extends JPanel {
         newUserButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
                 // if (password != null) {
                 //     if (!passwordStrong(password)){
                 //         JOptionPane.showMessageDialog(LoginPanel.this, "Please enter a strong password with at least one numeric, one lowercase and one upparcase character with minimum length 8");
@@ -89,8 +91,8 @@ public class LoginPanel extends JPanel {
                 JLabel idLabel = new JLabel("Your ID: "+id);
                 JLabel passLabel = new JLabel("Enter Password:");
                 JTextField passField = new JTextField();
-                JLabel address = new JLabel("Enter Address");
-                JTextField addField = new JTextField();
+//                JLabel address = new JLabel("Enter Address");
+//                JTextField addField = new JTextField();
 
                 JPanel detailPanel =new JPanel();
                 detailPanel.setLayout(new BoxLayout(detailPanel,BoxLayout.Y_AXIS));
@@ -98,27 +100,29 @@ public class LoginPanel extends JPanel {
                 detailPanel.add(idLabel);
                 detailPanel.add(passLabel);
                 detailPanel.add(passField);
-                detailPanel.add(address);
-                detailPanel.add(addField);
+//                detailPanel.add(address);
+//                detailPanel.add(addField);
                 JButton done = new JButton("Confirm");
                 final String[] password = {""};
                 done.addActionListener(new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
-                        JOptionPane.showMessageDialog(null,"Your account has been made! Please login now");
-                        password[0] = passField.getText();
+                        if (passwordStrong(passField.getText())) {
+                            JOptionPane.showMessageDialog(null, "Your account has been made! Please login now");
+                            password[0] = passField.getText();
+                        }
+                        else JOptionPane.showMessageDialog(LoginPanel.this, "Please enter a strong password with at least one numeric, one lowercase and one upparcase character with minimum length 8");
                     }
                 });
 
                 detailPanel.add(done);
                 JOptionPane.showOptionDialog(null,detailPanel,"Details",JOptionPane.DEFAULT_OPTION,JOptionPane.PLAIN_MESSAGE,null,new Object[]{},null);
                 if (password[0] != null) {
-                    userCredentials.put(id, password[0]);
-                    UserHash.getInstance().saveNewData(id, password[0]);
+                    userCredentials.put(id, new User(id, password[0]));
+                    UserHash.getInstance().saveNewData();
                 }
             }
         });
-
 
         return loginPanel;
     }

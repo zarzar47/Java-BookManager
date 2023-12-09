@@ -1,9 +1,6 @@
 package GUI;
 
 import Books.Book;
-import DataStructures.DynamicArray;
-import DataStructures.LinkedList;
-import DataStructures.Node;
 import Warehouse.*;
 
 import javax.swing.*;
@@ -42,6 +39,9 @@ public class Panel extends java.awt.Panel {
         catalogue.add(genreLabel);
         catalogue.add(scrollPane);
         catalogue.add(sortBy);
+        catalogue.setBackground(new Color(229, 146, 190));
+
+        this.setBackground(new Color(166, 17, 99));
 
         catalogue.add(name);
         catalogue.add(price);
@@ -67,6 +67,7 @@ public class Panel extends java.awt.Panel {
         container.setVisible(true);
         container.setFocusable(true);
         container.setLayout(new BoxLayout(container, BoxLayout.Y_AXIS));
+
 
         scrollPane = new JScrollPane(container);
         scrollPane.setWheelScrollingEnabled(true);

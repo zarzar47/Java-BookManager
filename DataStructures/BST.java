@@ -34,18 +34,20 @@ public class BST {
             else
                 temp = temp.right;
         }
+        Node newNode = new Node(book);
 
         if (book.compareTo(prev.pointer) < 0)
-            prev.left = new Node(book);
+            prev.left = newNode;
         else
-            prev.right = new Node(book);
+            prev.right = newNode;
+        newNode.parent = prev;
         size++;
     }
 
     public Node findName(String name) {
         Node temp = root;
 
-        while (temp.pointer.getName().compareTo(name) != 0) {
+        while (!temp.pointer.getName().equalsIgnoreCase(name)) {
             if (name.compareTo(temp.pointer.getName()) < 0)
                 temp = temp.left;
             else

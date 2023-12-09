@@ -34,6 +34,10 @@ public class Checkout extends JPanel {
         return buyScreen;
     }
 
+    public void setCurrentBook(Book book){
+        this.currentBook = book;
+    }
+
     public void initialization(){
         bookPanel = new JPanel();
         bookPanel.setPreferredSize(new Dimension(Frame.WIDTH-100,500));
@@ -56,7 +60,7 @@ public class Checkout extends JPanel {
         buyButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                LoginPanel loginPanel = new LoginPanel();
+                LoginPanel loginPanel = new LoginPanel(currentBook);
                 JOptionPane.showOptionDialog(Checkout.this,loginPanel,"Login",JOptionPane.DEFAULT_OPTION,JOptionPane.PLAIN_MESSAGE,null,new Object[]{},null);
             }
 

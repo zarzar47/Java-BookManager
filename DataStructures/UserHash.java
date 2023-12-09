@@ -11,11 +11,11 @@ public class UserHash {
     //TODO make into a custom hash
     private static UserHash userHash;
 
-    public Hashtable<Integer, String> userCredentials;
+    public intHashMap<User> userCredentials;
     private UserHash(){
-        userCredentials = FileStorage.readFromCsv("User/users.csv");
+        userCredentials = FileStorage.readFromCsv();
     }
-    public Hashtable<Integer,String> getUserCredentials() {
+    public intHashMap<User> getUserCredentials() {
         return userCredentials;
     }
     public static UserHash getInstance(){
@@ -24,7 +24,8 @@ public class UserHash {
         return userHash;
     }
 
-    public void saveNewData(Integer i,String d){
-        FileStorage.saveToCsv("User/users.csv",i,d);
+    public void saveNewData(){
+        System.out.println(userCredentials.size());
+        FileStorage.saveToCsv(userCredentials);
     }
 }

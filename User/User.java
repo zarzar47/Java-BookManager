@@ -4,7 +4,7 @@ import Books.Book;
 
 import java.util.HashMap;
 
-public class User {
+public class User implements Comparable<User>{
     private static int id = 10000;
     private int userID;
     private String password;
@@ -43,6 +43,10 @@ public class User {
         books.remove(book.getISBN());
     }
 
+    public String getPassword() {
+        return password;
+    }
+
     public boolean hasBook(Book book){
         return books.containsKey(book.getISBN());
     }
@@ -50,11 +54,15 @@ public class User {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("User ID: " + userID + ", Password: "  + password + ", Books User has: \n");
-        for (Book book: books.values()
-        ) {
-            sb.append("Name: " + book.getName() + ", Author: " + book.getAuthor() + ", Popularity: " + book.getPopularity() +  ", ISBN: " + book.getISBN() + "\n");
+        for (Book book: books.values() ) {
+            sb.append(book.toString() + "\n");
         }
         return sb.toString();
+    }
+
+    @Override
+    public int compareTo(User o) {
+        return this.userID - o.userID;
     }
 }
 

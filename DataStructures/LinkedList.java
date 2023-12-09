@@ -1,120 +1,137 @@
 package DataStructures;
-import Books.Book;
 
-import java.util.List;
+class GenericNode<T extends Comparable<T>> {
+    T data;
+    GenericNode next;
 
-public class LinkedList<E extends Comparable<Book>>
-{
+    GenericNode(T d){
+        data = d;
+    }
+}
 
-    Node head;
-    Node tail;
+public class LinkedList<T extends Comparable<T>> {
+    GenericNode head;
+    GenericNode tail;
+    int size;
 
-    // Methods
-    public void insertBook(Book book)
-    {
-        Node newNode = new Node(book);
+    public void insertInOrder(T value){ //O(n)
+        if(head == null) head = new GenericNode(value);
+        else if(head.data.compareTo(value) == 0){
+            GenericNode n = new GenericNode(value);
+            n.next = head;
+            head = n;
+        }
+        else if (head.next == null) head.next = new GenericNode(value);
+        else{
+            GenericNode current = head;
+            while(current.next != null && current.next.data.compareTo(value) < 0){
+                current = current.next;
+            }
+            GenericNode n = new GenericNode(value);
+            n.next = current.next;
+            current.next = n;
+        }
+        size++;
+    }
 
-        if (head == null && tail == null)
-        {
+    public int size(){return size;}
+
+    public void insert(T value){
+        GenericNode newNode = new GenericNode(value);
+
+        if (head == null && tail == null){
             head = newNode;
             tail = newNode;
         }
-        else
-        {
+        else{
             tail.next = newNode;
             tail = newNode;
         }
+        size++;
     }
 
-    public void insertPriceAscendingSorted(Book book)
-    {
-        Node newNode = new Node(book);
-        if (head == null && tail == null)
-        {
-            head = newNode;
-            tail = newNode;
-            return;
+    public Comparable get(int index){
+        int i = 0;
+        GenericNode curr = head;
+        while (curr != null && i < index){
+            curr = curr.next;
+            i++;
         }
+        return curr.data;
+    }
 
-        Node current = head;
-        Node previous = null;
+    public boolean find(T data){ //O(n)
+        if(head == null) return false;
+        if (head.data.compareTo(data) == 0 || head.next.data.compareTo(data) == 0) return true;
+        GenericNode current = head;
+        while(current.next != null){
+            if (current.data == data) return true;
+            current = current.next;
+        }
+        return false;
+    }
 
-        while (current != null)
-        {
-            if (newNode.pointer.getPrice() < current.pointer.getPrice())
-            {
-                if (current == head)
-                {
-                    newNode.next = current;
-                    head = newNode;
-                    return;
-                }
-                previous.next = newNode;
-                newNode.next = current;
+    public void clear(){ //O(1)
+        head = tail = null;
+        size = 0;
+    }
+
+    public boolean isEmpty(){ //O(1)
+        return head == null;
+    }
+
+    public void remove(T value){//O(n)
+        if ( head == null ) return ;
+        if ( head.data.compareTo(value) == 0 ) {
+            head = head.next ;
+            size--;
+            return ;
+        }
+        GenericNode current = head ;
+        while ( current.next != null ) {
+            if ( current.next.data.compareTo(value) == 0) {
+                current.next = current.next.next ;
+                size--;
                 return;
             }
-
-            previous = current;
             current = current.next;
         }
-
-        previous.next = newNode;
     }
 
-    public void clearAll(){
-        head = null;
-    }
-    public void insertNameAscendingSorted(Book book)
-    {
-        Node newNode = new Node(book);
-        if (head == null && tail == null) {
-            head = newNode;
-            tail = newNode;
-            return;
+    public void addAll(LinkedList l){//O(n)
+        size += l.size;
+        GenericNode current = head;
+        while (current.next != null) current = current.next;
+        GenericNode t = l.head;
+        while(t != null){
+            current.next = t;
+            current = current.next;
+            t = t.next;
         }
+    }
 
-        Node current = head;
-        Node previous = null;
+    public void reverse(){ //O(n)
+        GenericNode current = head;
+        GenericNode prev = null;
+        GenericNode next = null;
+        while (current != null){
+            next = current.next;
+            current.next = prev;
+            prev = current;
+            current = next;
+        }
+        head = prev;
+    }
 
-        while (current != null)
-        {
-            if (newNode.pointer.getName().compareTo(current.pointer.getName()) < 0)
-            {
-                if (current == head)
-                {
-                    newNode.next = current;
-                    head = newNode;
-                    return;
-                }
-                previous.next = newNode;
-                newNode.next = current;
-                return;
-            }
-
-            previous = current;
+    public String toString() { //O(n)
+        String s = "[";
+        if (head == null) return s;
+        GenericNode current = head;
+        while(current.next != null){
+            s += current.data + ", ";
             current = current.next;
         }
-
-        previous.next = newNode;
-    }
-
-
-    // Getters
-    public Node getHead()
-    {
-        return head;
-    }
-
-    // toString
-    @Override
-    public String toString()
-    {
-        Node current = head;
-        while (current != null)
-        {
-            System.out.println((current.pointer.toString()));
-            current = current.next;
-        }
-        return "\n";
+        s += current.data + "]";
+        return s;
     }
 }
