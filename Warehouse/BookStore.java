@@ -107,9 +107,9 @@ public class BookStore {
 
 
 
-        if (dataField[letter - 'A'] == null || (!genreList.containsKey(genre.toUpperCase()) && !genre.equalsIgnoreCase("All"))) {
-            return currentBookList;
-        }
+//        if (dataField[letter - 'A'] == null || (!genreList.containsKey(genre.toUpperCase()) && !genre.equalsIgnoreCase("All"))) {
+//            return currentBookList;
+//        }
         if (genre.equalsIgnoreCase("All")) {
             for (int i = 0; i < genreList.size(); i++) {
                 System.out.println(letter);
@@ -121,7 +121,9 @@ public class BookStore {
             DynamicArray<BST> DArray = dataField[letter - 'A'];
             DArray.find(i).searchAll(list, name);
         }
-        return list;
+        // Added this line below and changed return statement
+        currentBookList = list;
+        return currentBookList;
     }
 
     public void updateList(String name, String genre, boolean specificSearch) {
@@ -139,6 +141,8 @@ public class BookStore {
             currentBookList.clearAll();
             currentBookList.insert(book);
         } else {
+            // Added the following line
+            // currentBookList.clearAll();
             currentBookList = getBooks(name, genre);
         }
     }
@@ -165,15 +169,21 @@ public class BookStore {
 
     public void ascSortByName()
     {
-        currentBookList.ascSortByName(currentBookList, 0, currentBookList.getSize() - 1);
+        Book[] arr = currentBookList.toArr();
+        currentBookList.ascSortByName(arr, 0, currentBookList.getSize() - 1);
+        currentBookList.toDyArr(arr);
     }
     public void ascSortByPrice()
     {
-        currentBookList.ascSortByPrice(currentBookList, 0, currentBookList.getSize() - 1);
+        Book[] arr = currentBookList.toArr();
+        currentBookList.ascSortByPrice(arr, 0, currentBookList.getSize() - 1);
+        currentBookList.toDyArr(arr);
     }
     public void ascSortByPopularity()
     {
-        currentBookList.ascSortByPopularity(currentBookList, 0, currentBookList.getSize() - 1);
+        Book[] arr = currentBookList.toArr();
+        currentBookList.ascSortByPopularity(arr, 0, currentBookList.getSize() - 1);
+        currentBookList.toDyArr(arr);
     }
 
     public String[] getGenres() {

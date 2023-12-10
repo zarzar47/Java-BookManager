@@ -40,9 +40,10 @@ public class DynamicArray<T> {
         array = newArray;
     }
 
-    public void ascSortByName(DynamicArray<Book> arr, int l, int u)
+    public void ascSortByName(Book[] arr, int l, int u)
     {
-        if (arr.size == 1) return;
+        if (arr.length == 1) return;
+
         if (l < u) {
             int m = l + (u - l)/2;
 
@@ -52,9 +53,10 @@ public class DynamicArray<T> {
             ascStringSortHelper(arr, l, m, u);
         }
     }
-    public void ascSortByPrice(DynamicArray<Book> arr, int l, int u)
+    public void ascSortByPrice(Book[] arr, int l, int u)
     {
-        if (arr.size == 1) return;
+        if (arr.length == 1) return;
+
         if (l < u) {
             int m = l + (u - l)/2;
 
@@ -64,9 +66,10 @@ public class DynamicArray<T> {
             ascPriceSortHelper(arr, l, m, u);
         }
     }
-    public void ascSortByPopularity(DynamicArray<Book> arr, int l, int u)
+    public void ascSortByPopularity(Book[] arr, int l, int u)
     {
-        if (arr.size == 1) return;
+        if (arr.length == 1) return;
+
         if (l < u) {
             int m = l + (u - l)/2;
 
@@ -77,19 +80,17 @@ public class DynamicArray<T> {
         }
     }
 
-    public void ascStringSortHelper(DynamicArray<Book> arr, int l, int m, int u)
+    public void ascStringSortHelper(Book[] arr, int l, int m, int u)
     {
         int n1 = m - l + 1;
         int n2 = u - m;
-        DynamicArray<Book> L = new DynamicArray<>();
-        DynamicArray<Book> R = new DynamicArray<>();
+        Book[] L = new Book[n1];
+        Book[] R = new Book[n2];
 
         for (int i = 0; i < n1; ++i)
-            // L[i] = arr.find(l + i);
-            L.insert(arr.find(l + i));
+            L[i] = arr[l + i];
         for (int j = 0; j < n2; ++j)
-            // R[j] = arr[m + 1 + j];
-            R.insert(arr.find(m + 1 + j));
+            R[j] = arr[m + 1 + j];
 
 
         int i = 0, j = 0;
@@ -97,41 +98,31 @@ public class DynamicArray<T> {
         int k = l;
         while (i < n1 && j < n2)
         {
-//            if (L[i] <= R[j])
-//                arr[k++] = L[i++];
-//            else
-//                arr[k++] = R[j++];
-            if (L.find(i).getName().compareTo(R.find(j).getName()) <= 0)
-                arr.insert(L.find(i++));
+            if (L[i].getName().compareTo(R[j].getName()) <= 0)
+                arr[k++] = L[i++];
             else
-                arr.insert(R.find(j++));
+                arr[k++] = R[j++];
         }
 
         while (i < n1)
-            // arr[k++] = L[i++];
-            arr.insert(L.find(i++));
+            arr[k++] = L[i++];
 
         while (j < n2)
             // arr[k++] = R[j++];
-            arr.insert(R.find(j++));
+            arr[k++] = R[j++];
     }
 
-    public void ascPriceSortHelper(DynamicArray<Book> arr, int l, int m, int u)
+    public void ascPriceSortHelper(Book[] arr, int l, int m, int u)
     {
         int n1 = m - l + 1;
         int n2 = u - m;
-//        DynamicArray<Book> L = new DynamicArray<>();
-//        DynamicArray<Book> R = new DynamicArray<>();
         Book[] L = new Book[n1];
         Book[] R = new Book[n2];
 
         for (int i = 0; i < n1; ++i)
-            L[i] = arr.find(l + i);
-            // L.insertAt(arr.find(l + i), i);
+            L[i] = arr[l + i];
         for (int j = 0; j < n2; ++j)
-            R[j] = arr.find(m + 1 + j);
-            // R.insertAt(arr.find(m + 1 + j), j);
-
+            R[j] = arr[m + 1 + j];
 
         int i = 0, j = 0;
 
@@ -139,38 +130,28 @@ public class DynamicArray<T> {
         while (i < n1 && j < n2)
         {
             if (L[i].getPrice() <= R[j].getPrice())
-                arr.insert(L[i++]);
+                arr[k++] = L[i++];
             else
-                arr.insert(R[j++]);
-//            if (L.find(i).getPrice() <= R.find(j).getPrice())
-//                arr.insertAt(L.find(i++), k++);
-//            else
-//                arr.insertAt(R.find(j++), k++);
+                arr[k++] = R[j++];
         }
 
         while (i < n1)
-            // arr[k++] = L[i++];
-            arr.insert(L[i++]);
+             arr[k++] = L[i++];
 
         while (j < n2)
-            // arr[k++] = R[j++];
-            arr.insert(R[j++]);
+            arr[k++] = R[j++];
     }
-    public void ascPopularitySortHelper(DynamicArray<Book> arr, int l, int m, int u)
+    public void ascPopularitySortHelper(Book[] arr, int l, int m, int u)
     {
         int n1 = m - l + 1;
         int n2 = u - m;
-//        DynamicArray<Book> L = new DynamicArray<>();
-//        DynamicArray<Book> R = new DynamicArray<>();
         Book[] L = new Book[n1];
         Book[] R = new Book[n2];
 
         for (int i = 0; i < n1; ++i)
-            L[i] = arr.find(l + i);
-        // L.insertAt(arr.find(l + i), i);
+            L[i] = arr[l + i];
         for (int j = 0; j < n2; ++j)
-            R[j] = arr.find(m + 1 + j);
-        // R.insertAt(arr.find(m + 1 + j), j);
+            R[j] = arr[m + 1 + j];
 
 
         int i = 0, j = 0;
@@ -179,23 +160,18 @@ public class DynamicArray<T> {
         while (i < n1 && j < n2)
         {
             if (L[i].getPopularity() <= R[j].getPopularity())
-                arr.insert(L[i++]);
+                arr[k++] = L[i++];
             else
-                arr.insert(R[j++]);
-//            if (L.find(i).getPrice() <= R.find(j).getPrice())
-//                arr.insertAt(L.find(i++), k++);
-//            else
-//                arr.insertAt(R.find(j++), k++);
+                arr[k++] = R[j++];
         }
 
         while (i < n1)
-            // arr[k++] = L[i++];
-            arr.insert(L[i++]);
+            arr[k++] = L[i++];
 
         while (j < n2)
-            // arr[k++] = R[j++];
-            arr.insert(R[j++]);
+            arr[k++] = R[j++];
     }
+
 
 
 
@@ -210,11 +186,24 @@ public class DynamicArray<T> {
 
 
     public T[] toArray(){
-        T[] arr =(T[]) new Object[size];
-        for (int i = 0; i < arr.length; i++) {
-            arr[i] = array[i];
-        }
+        T[] arr = (T[]) new Object[size];
+        for (int i = 0; i < arr.length; i++)
+            arr[i] = this.array[i];
         return arr;
+    }
+
+    public Book[] toArr()
+    {
+        Book[] arr = new Book[size];
+        for (int i = 0; i < arr.length; i++)
+            arr[i] = (Book) this.array[i];
+        return arr;
+    }
+
+    public void toDyArr(T[] arr)
+    {
+        this.clearAll();
+        for (T t : arr) this.insert(t);
     }
 
     public void clearAll(){

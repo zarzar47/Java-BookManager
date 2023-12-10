@@ -1,6 +1,7 @@
 package GUI;
 
 import Books.Book;
+import DataStructures.DynamicArray;
 import Warehouse.*;
 
 import javax.swing.*;
@@ -245,47 +246,51 @@ public class Panel extends java.awt.Panel {
         genreList.show(genreFilter, 0, genreFilter.getHeight());
     }
 
-    public void performSearch() {
+    public void performSearch()
+    {
         String bookName = text_field.getText();
         BookStore bookStore = BookStore.getInstance();
-        bookStore.updateList(bookName,genreName,searchSpecific);
-        // if (name.isSelected())
-        //     bookStore.ascSortByName();
-        // else if (price.isSelected())
-        //     bookStore.ascSortByPrice();
-        // else if (popularity.isSelected())
-        //     bookStore.ascSortByPopularity();
-
+        bookStore.updateList(bookName, genreName, searchSpecific);
         // container.removeAll();
+//         if (name.isSelected())
+//             bookStore.ascSortByName();
+//         else if (price.isSelected())
+//             bookStore.ascSortByPrice();
+//         else if (popularity.isSelected())
+//             bookStore.ascSortByPopularity();
+//
+//         container.removeAll();
+//
+//        int index = 0;
+//        Book temp = bookStore.getCurrentBookList().find(index++);
+//        DynamicArray<Book> books = bookStore.getCurrentBookList();
+//
+//        while (index < books.getSize() && temp != null)
+//        {
+//            System.out.println(books.getSize() + " " + index);
+//            BookContainer bookContainer = new BookContainer(temp);
+//            container.add(bookContainer);
+//            temp = books.find(index++);
+//        }
 
-        // int index = 0;
-        // Book temp = bookStore.getCurrentBookList().find(index++);
-        // DynamicArray<Book> books = bookStore.getCurrentBookList();
-
-        // while (index < books.getSize() && temp != null) {
-        //     System.out.println(books.getSize() +" " + index);
-        //     BookContainer bookContainer = new BookContainer(temp);
-        //     container.add(bookContainer);
-        //     temp = books.find(index++);
-
-        
-//        if (name.isSelected())
-//            bookStore.ascSortByName();
-//        else if (price.isSelected())
-//            bookStore.ascSortByPrice();
-//        else if (popularity.isSelected())
-//            bookStore.ascSortByPopularity();
+        if (name.isSelected() && !searchSpecific)
+               bookStore.ascSortByName();
+        if (price.isSelected() && !searchSpecific)
+            bookStore.ascSortByPrice();
+        else if (popularity.isSelected() && !searchSpecific)
+            bookStore.ascSortByPopularity();
         container.removeAll();
 
         Object[] temp = bookStore.getCurrentBookList().toArray();
         System.out.println(temp.length);
-        for (int i = 0; i < temp.length; i++) {
-            BookContainer bookContainer = new BookContainer((Book)temp[i]);
+        for (Object o : temp)
+        {
+            BookContainer bookContainer = new BookContainer((Book) o);
             container.add(bookContainer);
         }
 
-        revalidate();
-        repaint();
+            revalidate();
+            repaint();
     }
 
     private class keyReg implements KeyListener {

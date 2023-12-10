@@ -4,7 +4,7 @@ import DataStructures.DynamicArray;
 
 import java.awt.*;
 
-public class Book implements Comparable<Book> {
+public class Book  implements Comparable<Book> {
     int popularity;
     int ISBN;
     String name;
