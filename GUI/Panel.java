@@ -25,6 +25,9 @@ public class Panel extends java.awt.Panel {
     public JCheckBox name, price, popularity, ascending, descending;
     public JTextField sortBy;
 
+    private Color background;
+    private Color frontground;
+
     public Panel() {
         Initiation();
         pane = new JTabbedPane();
@@ -40,9 +43,14 @@ public class Panel extends java.awt.Panel {
         catalogue.add(genreLabel);
         catalogue.add(scrollPane);
         catalogue.add(sortBy);
-        catalogue.setBackground(new Color(229, 146, 190));
 
-        this.setBackground(new Color(166, 17, 99));
+        if (true)
+        {
+            catalogue.setBackground(new Color(0, 67, 200));
+            this.setBackground(new Color(76, 176, 99));
+        }
+        catalogue.setBackground(new Color(229, 146, 190));
+        this.setBackground(new Color(0, 170, 99));
 
         catalogue.add(name);
         catalogue.add(price);
@@ -256,6 +264,8 @@ public class Panel extends java.awt.Panel {
         String bookName = text_field.getText();
         BookStore bookStore = BookStore.getInstance();
         bookStore.updateList(bookName, genreName, searchSpecific);
+        System.out.println(genreName);
+        changeColours(genreName);
         // container.removeAll();
 //         if (name.isSelected())
 //             bookStore.ascSortByName();
@@ -282,7 +292,6 @@ public class Panel extends java.awt.Panel {
             bookStore.setAscending(true);
         else
             bookStore.setAscending(false);
-
         if (name.isSelected() && !searchSpecific)
                bookStore.ascSortByName();
         else if (price.isSelected() && !searchSpecific)
@@ -303,6 +312,22 @@ public class Panel extends java.awt.Panel {
             repaint();
     }
 
+    private void changeColours(String genre)
+    {
+        switch(genre)
+        {
+            case "All":
+            {
+                this.setBackground(new Color(76, 176, 99));
+                break;
+            }
+            case "HORROR":
+            {
+                this.setBackground(new Color(200, 0, 0));
+                break;
+            }
+        }
+    }
     private class keyReg implements KeyListener {
 
         @Override
