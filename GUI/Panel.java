@@ -265,8 +265,6 @@ public class Panel extends java.awt.Panel {
             BookStore bookStore = BookStore.getInstance();
             bookStore.updateList(bookName, genreName, searchSpecific);
             // container.removeAll();
-            BookStore bookStore = BookStore.getInstance();
-            bookStore.updateList(bookName, genreName, searchSpecific);
             System.out.println(genreName);
             changeColours(genreName);
         // container.removeAll();
