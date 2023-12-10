@@ -32,6 +32,7 @@ public class Panel extends java.awt.Panel {
         Initiation();
         pane = new JTabbedPane();
         JPanel catalogue = new JPanel();
+        // catalogue.setSize(new Dimension(Frame.WIDTH - 50, Frame.HEIGHT - 25));
         catalogue.setPreferredSize(new Dimension(Frame.WIDTH, Frame.HEIGHT));
         catalogue.setBackground(Color.lightGray);
         catalogue.setVisible(true);
@@ -44,13 +45,8 @@ public class Panel extends java.awt.Panel {
         catalogue.add(scrollPane);
         catalogue.add(sortBy);
 
-        if (true)
-        {
-            catalogue.setBackground(new Color(0, 67, 200));
-            this.setBackground(new Color(76, 176, 99));
-        }
-        catalogue.setBackground(new Color(229, 146, 190));
-        this.setBackground(new Color(0, 170, 99));
+        this.setBackground(new Color(76, 176, 99));
+        catalogue.setBackground(new Color(247, 221, 237));
 
         catalogue.add(name);
         catalogue.add(price);
@@ -321,9 +317,54 @@ public class Panel extends java.awt.Panel {
                 this.setBackground(new Color(76, 176, 99));
                 break;
             }
+            case "SCIENCE FICTION":
+            {
+                this.setBackground(new Color(0, 0, 0));
+                break;
+            }
+            case "THRILLER":
+            {
+                this.setBackground(new Color(5, 30, 255));
+                break;
+            }
+            case "BIOGRAPHY":
+            {
+                this.setBackground(new Color(130, 150, 200));
+                break;
+            }
+            case "ROMANCE":
+            {
+                this.setBackground(new Color(255, 0, 0));
+                break;
+            }
             case "HORROR":
             {
-                this.setBackground(new Color(200, 0, 0));
+                this.setBackground(new Color(70, 40, 50));
+                break;
+            }
+            case "FANTASY":
+            {
+                this.setBackground(new Color(100, 35, 100));
+                break;
+            }
+            case "MYSTERY":
+            {
+                this.setBackground(new Color(30, 30, 250));
+                break;
+            }
+            case "YOUNG ADULT":
+            {
+                this.setBackground(new Color(40, 225, 250));
+                break;
+            }
+            case "HISTORICAL FICTION":
+            {
+                this.setBackground(new Color(170, 225, 250));
+                break;
+            }
+            case "SELF-HELP":
+            {
+                this.setBackground(new Color(125, 255, 135));
                 break;
             }
         }
