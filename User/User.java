@@ -36,6 +36,7 @@ public class User implements Comparable<User>{
     }
 
     public void addBook(Book book){
+        if(book == null) return;
         books.put(book.getISBN(), book);
     }
 
@@ -45,6 +46,10 @@ public class User implements Comparable<User>{
 
     public String getPassword() {
         return password;
+    }
+
+    public int getUserID() {
+        return userID;
     }
 
     public boolean hasBook(Book book){

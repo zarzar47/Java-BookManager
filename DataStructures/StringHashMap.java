@@ -1,10 +1,9 @@
 package DataStructures;
-
-class intValuePair<V extends Comparable<V>>{
-    int key;
+class StringValuePair<V extends Comparable<V>>{
+    String key;
     V value;
 
-    public intValuePair(int key, V value){
+    public StringValuePair(String key, V value){
         this.key = key;
         this.value = value;
     }
@@ -13,24 +12,24 @@ class intValuePair<V extends Comparable<V>>{
         return value;
     }
 
-    public int getKey() {
+    public String getKey() {
         return key;
     }
 }
 
-public class intHashMap<V extends Comparable<V>>{
-    intValuePair[] table;
+public class StringHashMap<V extends Comparable<V>> {
+    StringValuePair[] table;
     int occupied;
 
-    public intHashMap() {
-        table = new intValuePair[13];
+    public StringHashMap() {
+        table = new StringValuePair[13];
         occupied = 0;
     }
 
-    public intHashMap(int s) {
+    public StringHashMap(int s) {
         int size = s + (s / 3);
         int newSize = getPrime(size);
-        table = new intValuePair[newSize];
+        table = new StringValuePair[newSize];
         occupied = 0;
     }
 
@@ -48,30 +47,42 @@ public class intHashMap<V extends Comparable<V>>{
         return true;
     }
 
-    private int hash(int key) {
-        //compute hash value by taking mod on key value and return remainder
-        return key % table.length;
+    public int size(){
+        return occupied;
     }
 
-    private int rehash(int key, int i){
+    public int hash(String key) {
+        //compute hash value by taking mod on key value and return remainder
+        long k = 0;
+        for (int i = 0; i < key.length(); i++) {
+            k += key.charAt(0)*(Math.pow(3, i));
+        }
+        return (int)(k%table.length);
+    }
+
+    public int rehash(int key, int i){
         return (key+i) % table.length;
     }
 
     public void resize(){
         int newSize = getPrime(table.length + 10);
-        intValuePair[] newArr = new intValuePair[newSize];
+        StringValuePair[] newArr = new StringValuePair[newSize];
         for (int j = 0; j < table.length; j++) {
             if (table[j] == null) continue;
-            int key = table[j].getKey();
-            int index = key % newSize;
+            String key = table[j].getKey();
+            int index = 0;
+            for (int i = 0; i < key.length(); i++) {
+                index += key.charAt(0)*(Math.pow(3, i));
+            }
+            index = index%newSize;
             if (newArr[index] == null){
-                newArr[index] = new intValuePair(key, table[j].getValue());
+                newArr[index] = new StringValuePair(key, table[j].getValue());
             }
             else {
                 for (int i = 1; i < 11; i++) {
-                    if (newArr[rehash(key, i)] == null){
-                        newArr[rehash(key, i)] = new intValuePair(key, table[j].getValue());
-                        return;
+                    if (newArr[rehash(index, i)] == null){
+                        newArr[rehash(index, i)] = new StringValuePair(key, table[j].getValue());
+                        break;
                     }
                 }
             }
@@ -79,7 +90,7 @@ public class intHashMap<V extends Comparable<V>>{
         table = newArr;
     }
 
-    public void put(int key, V value){
+    public void put(String key, V value){
         if ((occupied+1)/(double)(table.length) > 0.7) {
             System.out.println("Resizing");
             resize();
@@ -87,59 +98,57 @@ public class intHashMap<V extends Comparable<V>>{
 
         int index = hash(key);
         if (table[index] == null){
-            table[index] = new intValuePair(key, value);
+            table[index] = new StringValuePair(key, value);
             occupied++;
         }
         //No duplicate keys allowed
-        else if(table[index].key == key){
+        else if(table[index].key.equals(key)){
             System.out.println("No duplicate keys allowed");
         }
         else {
             for (int i = 1; i < 11; i++) {
-                if (table[rehash(key, i)] == null){
-                    table[rehash(key, i)] = new intValuePair(key, value);
+                if (table[rehash(index, i)] == null){
+                    table[rehash(index, i)] = new StringValuePair(key, value);
                     occupied++;
                     return;
                 }
-                if(table[rehash(key, i)].key == key){
+                if(table[rehash(index, i)].key.equals(key)){
                     System.out.println("No duplicate keys allowed.");
                     return;
                 }
             }
             resize();
         }
+        toString();
     }
 
-    public V get(int key){
+    public V get(String key){
         int index = hash(key);
-        if (table[index] == null) return null;
-        if (table[index].getKey() == key) return (V) table[index].getValue();
+        if (table[index].getKey().equals(key)) return (V) table[index].getValue();
         for (int i = 1; i <= 10; i++) {
-            if (table[rehash(index, i)].getKey() == key) return (V) table[(index + i)% table.length].getValue();
+            if (table[rehash(index, i)].getKey().equals(key))
+                return (V) table[(index + i)% table.length].getValue();
         }
         return null;
     }
 
-    public int size(){
-        return occupied;
-    }
-
-    public LinkedList<V> values(){
-        LinkedList<V> list = new LinkedList<>();
-        for (int i = 0; i < table.length; i++) {
-            if (table[i] != null) list.insert((V)table[i].getValue());
-        }
-        return list;
-    }
-
-    public boolean containsKey(int key){
+    public boolean containsKey(String key){
         int index = hash(key);
         if (table[index] == null) return false;
-        if (table[index].getKey() == key) return true;
+        if (table[index].getKey().equals(key)) return true;
         for (int i = 1; i <= 10; i++) {
-            if (table[rehash(index, i)].getKey() == key) return true;
+            if (table[rehash(index, i)] == null) continue;
+            if (table[rehash(index, i)].getKey().equals(key)) return true;
         }
         return false;
+    }
+
+    public LinkedList<String> keySet(){
+        LinkedList<String> list = new LinkedList<>();
+        for (int i = 0; i < table.length; i++) {
+            if (table[i] != null)  list.insert(table[i].getKey());
+        }
+        return list;
     }
 
     public String toString() {

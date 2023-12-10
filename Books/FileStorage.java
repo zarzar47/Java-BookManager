@@ -5,8 +5,11 @@ import java.io.*;
 import DataStructures.LinkedList;
 import DataStructures.intHashMap;
 import User.User;
-import java.util.Hashtable;
-import java.util.Map;
+import Warehouse.BookStore;
+
+import java.util.regex.Pattern;
+import java.util.regex.Matcher;
+
 
 public class FileStorage {
 
@@ -55,9 +58,17 @@ public class FileStorage {
                             userList.put(userID, currentUser);
                         } else {
                             // If not, assume it's a book line and parse it
-                            String[] bookParts = line.split(" ");
+                            String[] bookParts = line.split(":");
+                            String isbn = extractValue(line, "ISBN: (\\d+)");
+                            String name = extractName(line);
+                            String genre = extractValue(line, "Genre: (.+?),");
+
+                            System.out.println("ISBN: " + isbn);
+                            System.out.println("Name: " + name);
+                            System.out.println("Genre: " + genre);
                             if (currentUser != null) {
-                                //currentUser.addBook(new Book());
+                                currentUser.addBook(BookStore.getInstance().getBook(name.trim(), genre.trim()));
+                                BookStore.getInstance().buyBook(Integer.parseInt(isbn), currentUser.getUserID());
 
                                 //currentUser.addBook(booklist.get(Integer.parseInt(bookParts[bookParts.length-1].trim())));
                                 //booklist.get(Integer.parseInt(bookParts[bookParts.length-1].trim())).decrement();
@@ -72,5 +83,30 @@ public class FileStorage {
 
         return userList;
     }
+
+
+    private static String extractValue(String input, String pattern) {
+        Pattern regex = Pattern.compile(pattern);
+        Matcher matcher = regex.matcher(input);
+
+        if (matcher.find()) {
+            return matcher.group(1);
+        } else {
+            return "Not Found";
+        }
+    }
+
+    private static String extractName(String input) {
+        // The name can contain commas and colons, so we extract everything between "Name:" and the next comma
+        Pattern namePattern = Pattern.compile("Name: (.*?)(?:,|$)");
+        Matcher nameMatcher = namePattern.matcher(input);
+
+        if (nameMatcher.find()) {
+            return nameMatcher.group(1).trim();
+        } else {
+            return "Not Found";
+        }
+    }
+
 
 }

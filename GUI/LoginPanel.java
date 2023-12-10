@@ -65,9 +65,12 @@ public class LoginPanel extends JPanel {
                 }
                 String password = new String(passwordField.getPassword());
 
-                if (userCredentials.containsKey(username) && userCredentials.get(username).getPassword().equals(password)) {
-                    String s = BookStore.getInstance().buyBook(currentBook.getISBN());
+                if (userCredentials.containsKey(username) && userCredentials.get(username).getPassword().equals(password) && !userCredentials.get(username).hasBook(currentBook)) {
+                    String s = BookStore.getInstance().buyBook(currentBook.getISBN(), username);
                     JOptionPane.showMessageDialog(LoginPanel.this, s);
+                    loginButton.setEnabled(false);
+                } else if (userCredentials.containsKey(username) && userCredentials.get(username).getPassword().equals(password) && userCredentials.get(username).hasBook(currentBook)) {
+                    JOptionPane.showMessageDialog(LoginPanel.this, "User already has this book.");
                 } else {
                     JOptionPane.showMessageDialog(LoginPanel.this, "Invalid username or password. Try again.");
                 }
@@ -110,6 +113,7 @@ public class LoginPanel extends JPanel {
                         if (passwordStrong(passField.getText())) {
                             JOptionPane.showMessageDialog(null, "Your account has been made! Please login now");
                             password[0] = passField.getText();
+                            done.setEnabled(false);
                         }
                         else JOptionPane.showMessageDialog(LoginPanel.this, "Please enter a strong password with at least one numeric, one lowercase and one upparcase character with minimum length 8");
                     }
@@ -117,7 +121,7 @@ public class LoginPanel extends JPanel {
 
                 detailPanel.add(done);
                 JOptionPane.showOptionDialog(null,detailPanel,"Details",JOptionPane.DEFAULT_OPTION,JOptionPane.PLAIN_MESSAGE,null,new Object[]{},null);
-                if (password[0] != null) {
+                if (password[0] != null && passwordStrong(password[0])) {
                     userCredentials.put(id, new User(id, password[0]));
                     UserHash.getInstance().saveNewData();
                 }

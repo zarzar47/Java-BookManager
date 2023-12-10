@@ -123,6 +123,17 @@ public class LinkedList<T extends Comparable<T>> {
         head = prev;
     }
 
+    public static String[] toArray(LinkedList<String> list){
+        String[] arr =  new String[list.size()];
+        GenericNode<String> curr = list.head;
+        int i = 0;
+        while(curr != null){
+            arr[i++] =  curr.data;
+            curr = curr.next;
+        }
+        return arr;
+    }
+
     public String toString() { //O(n)
         String s = "[";
         if (head == null) return s;

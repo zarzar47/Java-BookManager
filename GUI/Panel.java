@@ -249,9 +249,13 @@ public class Panel extends java.awt.Panel {
     public void performSearch()
     {
         String bookName = text_field.getText();
-        BookStore bookStore = BookStore.getInstance();
-        bookStore.updateList(bookName, genreName, searchSpecific);
-        // container.removeAll();
+        if (((bookName.equals("Enter Book Name") || bookName.equals("")) && genreName.equalsIgnoreCase("All"))){
+            JOptionPane.showMessageDialog(null, "Please select a genre or a name");
+        }
+        else {
+            BookStore bookStore = BookStore.getInstance();
+            bookStore.updateList(bookName, genreName, searchSpecific);
+            // container.removeAll();
 //         if (name.isSelected())
 //             bookStore.ascSortByName();
 //         else if (price.isSelected())
@@ -273,24 +277,24 @@ public class Panel extends java.awt.Panel {
 //            temp = books.find(index++);
 //        }
 
-        if (name.isSelected() && !searchSpecific)
-               bookStore.ascSortByName();
-        if (price.isSelected() && !searchSpecific)
-            bookStore.ascSortByPrice();
-        else if (popularity.isSelected() && !searchSpecific)
-            bookStore.ascSortByPopularity();
-        container.removeAll();
+            if (name.isSelected() && !searchSpecific)
+                bookStore.ascSortByName();
+            if (price.isSelected() && !searchSpecific)
+                bookStore.ascSortByPrice();
+            else if (popularity.isSelected() && !searchSpecific)
+                bookStore.ascSortByPopularity();
+            container.removeAll();
 
-        Object[] temp = bookStore.getCurrentBookList().toArray();
-        System.out.println(temp.length);
-        for (Object o : temp)
-        {
-            BookContainer bookContainer = new BookContainer((Book) o);
-            container.add(bookContainer);
-        }
+            Object[] temp = bookStore.getCurrentBookList().toArray();
+            System.out.println(temp.length);
+            for (Object o : temp) {
+                BookContainer bookContainer = new BookContainer((Book) o);
+                container.add(bookContainer);
+            }
 
             revalidate();
             repaint();
+        }
     }
 
     private class keyReg implements KeyListener {
