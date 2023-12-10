@@ -2,13 +2,9 @@ package Warehouse;
 
 
 import Books.Book;
+import Books.FileStorage;
 import DataStructures.*;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.net.IDN;
 import java.util.HashMap;
 
 import User.User;
@@ -19,11 +15,12 @@ public class BookStore {
     private DoublyLinkedList booklist;
     private final DynamicArray<BST>[] dataField;
     //TODO  change HashMap to custom implementation
-    private HashMap<String, Integer> genreList;
+    private StringHashMap<Integer> genreList;
     // private LinkedList<Book> currentBookList;
     private DynamicArray<Book> currentBookList;
     private static BookStore bookStore;
-    private HashMap<Integer, User> userList;
+    private intHashMap<User> userList;
+    //private HashMap<Integer, User> userList;
     private boolean ascending;
     private int numOfBooks;
 
@@ -34,8 +31,8 @@ public class BookStore {
         currentBookList = new DynamicArray<>();
         dataField = new DynamicArray[27];
         booklist = new DoublyLinkedList();
-        genreList = new HashMap<>();
-        userList = new HashMap<>();
+        genreList = new StringHashMap<>();
+        userList = new intHashMap<>();
     }
 
     // Instantiation
@@ -54,6 +51,8 @@ public class BookStore {
 
         if (!genreList.containsKey(genre)) {
             genreList.put(genre, genreList.size());
+            System.out.println("Puttin " + genre);
+            System.out.println(genreList.toString());
         }
 
         int genreInt = genreList.get(genre);
@@ -79,7 +78,7 @@ public class BookStore {
         if (name.equalsIgnoreCase(""))
             return null;
         char letter = name.toUpperCase().charAt(0);
-        int genreIndex = genreList.get(genre);
+        int genreIndex = genreList.get(genre.toUpperCase());
         if (dataField[letter - 'A'] == null || (!genreList.containsKey(genre.toUpperCase()) && !genre.equalsIgnoreCase("All")))
             return null;
         Node node = dataField[letter - 'A'].find(genreIndex).findName(name);
@@ -148,19 +147,22 @@ public class BookStore {
         }
     }
 
-    public String buyBook(int isbn) {
+    public String buyBook(int isbn, int id) {
         Book book = booklist.Search(isbn);
-        if (book.getInStock() == 1) {
+        if (book == null) return "Sorry, we dont have this book available";
+        if (book.getInStock() == 0){
+            return "Sorry, we have run out of all the copies for this Book.";
+        }
+        else if (book.getInStock() == 1) {
             booklist.delete(isbn);
             dataField[book.getName().toUpperCase().charAt(0) - 'A'].find(genreList.get(book.getGenre().toUpperCase())).delete(book.getName());
-            //currentBookList
-            //remove form datafield, booklist and currentbooklist
-            //dataField[book.getName().toUpperCase().charAt(0) - 'A'].find(genreList.get(book.getGenre().toUpperCase())).
         }
         else{
             booklist.Search(isbn).decreaseStock();
             //dataField[book.getName().toUpperCase().charAt(0) - 'A'].find(genreList.get(book.getGenre().toUpperCase())).find(book.getName()).getPointer().decreaseStock();
         }
+        UserHash.getInstance().getUserCredentials().get(id).addBook(book);
+        FileStorage.saveToCsv(UserHash.getInstance().userCredentials);
         return "Login successful! Thank you for Buying our Books!";
     }
 
@@ -199,15 +201,16 @@ public class BookStore {
     }
 
     public String[] getGenres() {
-        String[] genres = new String[genreList.size()];
+        String[] genres;
         //TODO change this to a custom way of implementing Hashing
-        genreList.keySet().toArray(genres);
+        genres = LinkedList.toArray(genreList.keySet());
         return genres;
     }
 
+}
 
 
-   /* public void writeUsersToFile() {
+/* public void writeUsersToFile() {
         String filename = "./User/users.txt";
         File file = new File(filename);
         try {
@@ -260,4 +263,3 @@ public class BookStore {
             e.printStackTrace();
         }
     }*/
-}

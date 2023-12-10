@@ -258,10 +258,15 @@ public class Panel extends java.awt.Panel {
     public void performSearch()
     {
         String bookName = text_field.getText();
-        BookStore bookStore = BookStore.getInstance();
-        bookStore.updateList(bookName, genreName, searchSpecific);
-        System.out.println(genreName);
-        changeColours(genreName);
+        if (((bookName.equals("Enter Book Name") || bookName.equals("")) && genreName.equalsIgnoreCase("All"))){
+            JOptionPane.showMessageDialog(null, "Please select a genre or a name");
+        }
+        else {
+            BookStore bookStore = BookStore.getInstance();
+            bookStore.updateList(bookName, genreName, searchSpecific);
+            // container.removeAll();
+            System.out.println(genreName);
+            changeColours(genreName);
         // container.removeAll();
 //         if (name.isSelected())
 //             bookStore.ascSortByName();
@@ -296,16 +301,16 @@ public class Panel extends java.awt.Panel {
             bookStore.ascSortByPopularity();
         container.removeAll();
 
-        Object[] temp = bookStore.getCurrentBookList().toArray();
-        System.out.println(temp.length);
-        for (Object o : temp)
-        {
-            BookContainer bookContainer = new BookContainer((Book) o);
-            container.add(bookContainer);
-        }
+            Object[] temp = bookStore.getCurrentBookList().toArray();
+            System.out.println(temp.length);
+            for (Object o : temp) {
+                BookContainer bookContainer = new BookContainer((Book) o);
+                container.add(bookContainer);
+            }
 
             revalidate();
             repaint();
+        }
     }
 
     private void changeColours(String genre)

@@ -60,9 +60,10 @@ public class DoublyLinkedList {
 
     public Book Search(int ISBN){
         Node temp = head;
-        while (temp.pointer.getISBN() != ISBN) {
+        while (temp != null && temp.pointer.getISBN() != ISBN) {
             temp = temp.next;
         }
+        if (temp == null) return null;
         return temp.pointer;
     }
 
