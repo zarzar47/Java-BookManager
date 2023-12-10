@@ -133,6 +133,7 @@ public class Panel extends java.awt.Panel {
             @Override
             public void actionPerformed(ActionEvent e)
             {
+                name.setSelected(true);
                 price.setSelected(false);
                 popularity.setSelected(false);
                 performSearch();
@@ -148,6 +149,7 @@ public class Panel extends java.awt.Panel {
             @Override
             public void actionPerformed(ActionEvent e)
             {
+                price.setSelected(true);
                 name.setSelected(false);
                 popularity.setSelected(false);
                 performSearch();
@@ -163,6 +165,7 @@ public class Panel extends java.awt.Panel {
             @Override
             public void actionPerformed(ActionEvent e)
             {
+                popularity.setSelected(true);
                 name.setSelected(false);
                 price.setSelected(false);
                 performSearch();
@@ -179,6 +182,7 @@ public class Panel extends java.awt.Panel {
             @Override
             public void actionPerformed(ActionEvent e)
             {
+                ascending.setSelected(true);
                 descending.setSelected(false);
                 performSearch();
             }
@@ -193,6 +197,7 @@ public class Panel extends java.awt.Panel {
             @Override
             public void actionPerformed(ActionEvent e)
             {
+                descending.setSelected(true);
                 ascending.setSelected(false);
                 performSearch();
             }
@@ -273,9 +278,14 @@ public class Panel extends java.awt.Panel {
 //            temp = books.find(index++);
 //        }
 
+        if (ascending.isSelected() && !searchSpecific)
+            bookStore.setAscending(true);
+        else
+            bookStore.setAscending(false);
+
         if (name.isSelected() && !searchSpecific)
                bookStore.ascSortByName();
-        if (price.isSelected() && !searchSpecific)
+        else if (price.isSelected() && !searchSpecific)
             bookStore.ascSortByPrice();
         else if (popularity.isSelected() && !searchSpecific)
             bookStore.ascSortByPopularity();

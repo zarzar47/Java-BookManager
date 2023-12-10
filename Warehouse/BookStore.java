@@ -24,6 +24,7 @@ public class BookStore {
     private DynamicArray<Book> currentBookList;
     private static BookStore bookStore;
     private HashMap<Integer, User> userList;
+    private boolean ascending;
     private int numOfBooks;
 
     // Constructor
@@ -167,22 +168,33 @@ public class BookStore {
         return currentBookList;
     }
 
+
+    public boolean isAscending()
+    {
+        return ascending;
+    }
+
+    public void setAscending(boolean ascending)
+    {
+        this.ascending = ascending;
+    }
+
     public void ascSortByName()
     {
         Book[] arr = currentBookList.toArr();
-        currentBookList.ascSortByName(arr, 0, currentBookList.getSize() - 1);
+        currentBookList.ascSortByName(arr, 0, currentBookList.getSize() - 1, ascending);
         currentBookList.toDyArr(arr);
     }
     public void ascSortByPrice()
     {
         Book[] arr = currentBookList.toArr();
-        currentBookList.ascSortByPrice(arr, 0, currentBookList.getSize() - 1);
+        currentBookList.ascSortByPrice(arr, 0, currentBookList.getSize() - 1, ascending);
         currentBookList.toDyArr(arr);
     }
     public void ascSortByPopularity()
     {
         Book[] arr = currentBookList.toArr();
-        currentBookList.ascSortByPopularity(arr, 0, currentBookList.getSize() - 1);
+        currentBookList.ascSortByPopularity(arr, 0, currentBookList.getSize() - 1, ascending);
         currentBookList.toDyArr(arr);
     }
 
