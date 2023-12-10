@@ -25,10 +25,14 @@ public class Panel extends java.awt.Panel {
     public JCheckBox name, price, popularity, ascending, descending;
     public JTextField sortBy;
 
+    private Color background;
+    private Color frontground;
+
     public Panel() {
         Initiation();
         pane = new JTabbedPane();
         JPanel catalogue = new JPanel();
+        // catalogue.setSize(new Dimension(Frame.WIDTH - 50, Frame.HEIGHT - 25));
         catalogue.setPreferredSize(new Dimension(Frame.WIDTH, Frame.HEIGHT));
         catalogue.setBackground(Color.lightGray);
         catalogue.setVisible(true);
@@ -40,9 +44,9 @@ public class Panel extends java.awt.Panel {
         catalogue.add(genreLabel);
         catalogue.add(scrollPane);
         catalogue.add(sortBy);
-        catalogue.setBackground(new Color(229, 146, 190));
 
-        this.setBackground(new Color(166, 17, 99));
+        this.setBackground(new Color(76, 176, 99));
+        catalogue.setBackground(new Color(247, 221, 237));
 
         catalogue.add(name);
         catalogue.add(price);
@@ -133,6 +137,7 @@ public class Panel extends java.awt.Panel {
             @Override
             public void actionPerformed(ActionEvent e)
             {
+                name.setSelected(true);
                 price.setSelected(false);
                 popularity.setSelected(false);
                 performSearch();
@@ -148,6 +153,7 @@ public class Panel extends java.awt.Panel {
             @Override
             public void actionPerformed(ActionEvent e)
             {
+                price.setSelected(true);
                 name.setSelected(false);
                 popularity.setSelected(false);
                 performSearch();
@@ -163,6 +169,7 @@ public class Panel extends java.awt.Panel {
             @Override
             public void actionPerformed(ActionEvent e)
             {
+                popularity.setSelected(true);
                 name.setSelected(false);
                 price.setSelected(false);
                 performSearch();
@@ -179,6 +186,7 @@ public class Panel extends java.awt.Panel {
             @Override
             public void actionPerformed(ActionEvent e)
             {
+                ascending.setSelected(true);
                 descending.setSelected(false);
                 performSearch();
             }
@@ -193,6 +201,7 @@ public class Panel extends java.awt.Panel {
             @Override
             public void actionPerformed(ActionEvent e)
             {
+                descending.setSelected(true);
                 ascending.setSelected(false);
                 performSearch();
             }
@@ -256,6 +265,11 @@ public class Panel extends java.awt.Panel {
             BookStore bookStore = BookStore.getInstance();
             bookStore.updateList(bookName, genreName, searchSpecific);
             // container.removeAll();
+            BookStore bookStore = BookStore.getInstance();
+            bookStore.updateList(bookName, genreName, searchSpecific);
+            System.out.println(genreName);
+            changeColours(genreName);
+        // container.removeAll();
 //         if (name.isSelected())
 //             bookStore.ascSortByName();
 //         else if (price.isSelected())
@@ -277,13 +291,17 @@ public class Panel extends java.awt.Panel {
 //            temp = books.find(index++);
 //        }
 
-            if (name.isSelected() && !searchSpecific)
-                bookStore.ascSortByName();
-            if (price.isSelected() && !searchSpecific)
-                bookStore.ascSortByPrice();
-            else if (popularity.isSelected() && !searchSpecific)
-                bookStore.ascSortByPopularity();
-            container.removeAll();
+        if (ascending.isSelected() && !searchSpecific)
+            bookStore.setAscending(true);
+        else
+            bookStore.setAscending(false);
+        if (name.isSelected() && !searchSpecific)
+               bookStore.ascSortByName();
+        else if (price.isSelected() && !searchSpecific)
+            bookStore.ascSortByPrice();
+        else if (popularity.isSelected() && !searchSpecific)
+            bookStore.ascSortByPopularity();
+        container.removeAll();
 
             Object[] temp = bookStore.getCurrentBookList().toArray();
             System.out.println(temp.length);
@@ -297,6 +315,67 @@ public class Panel extends java.awt.Panel {
         }
     }
 
+    private void changeColours(String genre)
+    {
+        switch(genre)
+        {
+            case "All":
+            {
+                this.setBackground(new Color(76, 176, 99));
+                break;
+            }
+            case "SCIENCE FICTION":
+            {
+                this.setBackground(new Color(0, 0, 0));
+                break;
+            }
+            case "THRILLER":
+            {
+                this.setBackground(new Color(5, 30, 255));
+                break;
+            }
+            case "BIOGRAPHY":
+            {
+                this.setBackground(new Color(130, 150, 200));
+                break;
+            }
+            case "ROMANCE":
+            {
+                this.setBackground(new Color(255, 0, 0));
+                break;
+            }
+            case "HORROR":
+            {
+                this.setBackground(new Color(70, 40, 50));
+                break;
+            }
+            case "FANTASY":
+            {
+                this.setBackground(new Color(100, 35, 100));
+                break;
+            }
+            case "MYSTERY":
+            {
+                this.setBackground(new Color(30, 30, 250));
+                break;
+            }
+            case "YOUNG ADULT":
+            {
+                this.setBackground(new Color(40, 225, 250));
+                break;
+            }
+            case "HISTORICAL FICTION":
+            {
+                this.setBackground(new Color(170, 225, 250));
+                break;
+            }
+            case "SELF-HELP":
+            {
+                this.setBackground(new Color(125, 255, 135));
+                break;
+            }
+        }
+    }
     private class keyReg implements KeyListener {
 
         @Override

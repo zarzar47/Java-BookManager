@@ -40,47 +40,47 @@ public class DynamicArray<T> {
         array = newArray;
     }
 
-    public void ascSortByName(Book[] arr, int l, int u)
+    public void ascSortByName(Book[] arr, int l, int u, boolean ascending)
     {
         if (arr.length == 1) return;
 
         if (l < u) {
             int m = l + (u - l)/2;
 
-            ascSortByName(arr, l, m);
-            ascSortByName(arr, m + 1, u);
+            ascSortByName(arr, l, m, ascending);
+            ascSortByName(arr, m + 1, u, ascending);
 
-            ascStringSortHelper(arr, l, m, u);
+            ascStringSortHelper(arr, l, m, u, ascending);
         }
     }
-    public void ascSortByPrice(Book[] arr, int l, int u)
+    public void ascSortByPrice(Book[] arr, int l, int u, boolean ascending)
     {
         if (arr.length == 1) return;
 
         if (l < u) {
             int m = l + (u - l)/2;
 
-            ascSortByPrice(arr, l, m);
-            ascSortByPrice(arr, m + 1, u);
+            ascSortByPrice(arr, l, m, ascending);
+            ascSortByPrice(arr, m + 1, u, ascending);
 
-            ascPriceSortHelper(arr, l, m, u);
+            ascPriceSortHelper(arr, l, m, u, ascending);
         }
     }
-    public void ascSortByPopularity(Book[] arr, int l, int u)
+    public void ascSortByPopularity(Book[] arr, int l, int u, boolean ascending)
     {
         if (arr.length == 1) return;
 
         if (l < u) {
             int m = l + (u - l)/2;
 
-            ascSortByPopularity(arr, l, m);
-            ascSortByPopularity(arr, m + 1, u);
+            ascSortByPopularity(arr, l, m, ascending);
+            ascSortByPopularity(arr, m + 1, u, ascending);
 
-            ascPopularitySortHelper(arr, l, m, u);
+            ascPopularitySortHelper(arr, l, m, u, ascending);
         }
     }
 
-    public void ascStringSortHelper(Book[] arr, int l, int m, int u)
+    public void ascStringSortHelper(Book[] arr, int l, int m, int u, boolean ascending)
     {
         int n1 = m - l + 1;
         int n2 = u - m;
@@ -96,13 +96,28 @@ public class DynamicArray<T> {
         int i = 0, j = 0;
 
         int k = l;
-        while (i < n1 && j < n2)
+
+        if (ascending)
         {
-            if (L[i].getName().compareTo(R[j].getName()) <= 0)
-                arr[k++] = L[i++];
-            else
-                arr[k++] = R[j++];
+            while (i < n1 && j < n2)
+            {
+                if (L[i].getName().compareTo(R[j].getName()) <= 0)
+                    arr[k++] = L[i++];
+                else
+                    arr[k++] = R[j++];
+            }
         }
+        else
+        {
+            while (i < n1 && j < n2)
+            {
+                if (L[i].getName().compareTo(R[j].getName()) > 0)
+                    arr[k++] = L[i++];
+                else
+                    arr[k++] = R[j++];
+            }
+        }
+
 
         while (i < n1)
             arr[k++] = L[i++];
@@ -112,7 +127,7 @@ public class DynamicArray<T> {
             arr[k++] = R[j++];
     }
 
-    public void ascPriceSortHelper(Book[] arr, int l, int m, int u)
+    public void ascPriceSortHelper(Book[] arr, int l, int m, int u, boolean ascending)
     {
         int n1 = m - l + 1;
         int n2 = u - m;
@@ -125,14 +140,27 @@ public class DynamicArray<T> {
             R[j] = arr[m + 1 + j];
 
         int i = 0, j = 0;
-
         int k = l;
-        while (i < n1 && j < n2)
+
+        if (ascending)
         {
-            if (L[i].getPrice() <= R[j].getPrice())
-                arr[k++] = L[i++];
-            else
-                arr[k++] = R[j++];
+            while (i < n1 && j < n2)
+            {
+                if (L[i].getPrice() <= R[j].getPrice())
+                    arr[k++] = L[i++];
+                else
+                    arr[k++] = R[j++];
+            }
+        }
+        else
+        {
+            while (i < n1 && j < n2)
+            {
+                if (L[i].getPrice() > R[j].getPrice())
+                    arr[k++] = L[i++];
+                else
+                    arr[k++] = R[j++];
+            }
         }
 
         while (i < n1)
@@ -141,7 +169,7 @@ public class DynamicArray<T> {
         while (j < n2)
             arr[k++] = R[j++];
     }
-    public void ascPopularitySortHelper(Book[] arr, int l, int m, int u)
+    public void ascPopularitySortHelper(Book[] arr, int l, int m, int u, boolean ascending)
     {
         int n1 = m - l + 1;
         int n2 = u - m;
@@ -155,14 +183,27 @@ public class DynamicArray<T> {
 
 
         int i = 0, j = 0;
-
         int k = l;
-        while (i < n1 && j < n2)
+
+        if (ascending)
         {
-            if (L[i].getPopularity() <= R[j].getPopularity())
-                arr[k++] = L[i++];
-            else
-                arr[k++] = R[j++];
+            while (i < n1 && j < n2)
+            {
+                if (L[i].getPopularity() <= R[j].getPopularity())
+                    arr[k++] = L[i++];
+                else
+                    arr[k++] = R[j++];
+            }
+        }
+        else
+        {
+            while (i < n1 && j < n2)
+            {
+                if (L[i].getPopularity() > R[j].getPopularity())
+                    arr[k++] = L[i++];
+                else
+                    arr[k++] = R[j++];
+            }
         }
 
         while (i < n1)
