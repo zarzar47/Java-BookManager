@@ -37,16 +37,46 @@ public class BookContainer extends JTextArea implements MouseListener {
 
         this.addMouseListener(this);
         this.addActionListener(new BookClickListener());
-        defaultColor = new Color(231, 231, 231);;
-        this.setBackground(defaultColor);
 
-        highlight = new Color(184, 222, 222);
-        lightHighlight = new Color(186, 215, 212);
+        defaultColor = new Color(200, 210, 250);
+        this.setBackground(new Color(200, 210, 250));
+        highlight = new Color(200, 210, 250);
+        lightHighlight = new Color(250, 221, 121);
     }
 
     @Override
     public Color getSelectionColor() {
         return getBackground();
+    }
+
+    public Color getHighlight()
+    {
+        return highlight;
+    }
+
+    public void setHighlight(Color highlight)
+    {
+        this.highlight = highlight;
+    }
+
+    public Color getLightHighlight()
+    {
+        return lightHighlight;
+    }
+
+    public void setLightHighlight(Color lightHighlight)
+    {
+        this.lightHighlight = lightHighlight;
+    }
+
+    public Color getDefaultColor()
+    {
+        return defaultColor;
+    }
+
+    public void setDefaultColor(Color defaultColor)
+    {
+        this.defaultColor = defaultColor;
     }
 
     @Override

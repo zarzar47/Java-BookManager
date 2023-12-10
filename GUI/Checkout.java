@@ -70,7 +70,9 @@ public class Checkout extends JPanel {
     }
 
     public void setDetails(Book book) {
-        this.currentBook = book;
+        currentBook = book;
+        // changeColours(book.getGenre().toUpperCase());
+
         if (!enabled)
             enableElements();
         String[]  details = book.getDetailsOnly().split("%&");
@@ -87,6 +89,68 @@ public class Checkout extends JPanel {
             bookPanel.add(getCustomText(reviews[i].toString()));
         }
         setVisible(true);
+    }
+
+    private void changeColours(String genre)
+    {
+        switch(genre)
+        {
+            case "All":
+            {
+                bookPanel.setBackground(new Color(76, 176, 99));
+                break;
+            }
+            case "SCIENCE FICTION":
+            {
+                bookPanel.setBackground(new Color(0, 0, 0));
+                break;
+            }
+            case "THRILLER":
+            {
+                bookPanel.setBackground(new Color(5, 30, 255));
+                break;
+            }
+            case "BIOGRAPHY":
+            {
+                bookPanel.setBackground(new Color(130, 150, 200));
+                break;
+            }
+            case "ROMANCE":
+            {
+                bookPanel.setBackground(new Color(255, 0, 0));
+                break;
+            }
+            case "HORROR":
+            {
+                bookPanel.setBackground(new Color(70, 40, 50));
+                break;
+            }
+            case "FANTASY":
+            {
+                bookPanel.setBackground(new Color(100, 35, 100));
+                break;
+            }
+            case "MYSTERY":
+            {
+                bookPanel.setBackground(new Color(30, 30, 250));
+                break;
+            }
+            case "YOUNG ADULT":
+            {
+                bookPanel.setBackground(new Color(40, 225, 250));
+                break;
+            }
+            case "HISTORICAL FICTION":
+            {
+                bookPanel.setBackground(new Color(170, 225, 250));
+                break;
+            }
+            case "SELF-HELP":
+            {
+                bookPanel.setBackground(new Color(125, 255, 135));
+                break;
+            }
+        }
     }
 
     public void enableElements(){
