@@ -40,6 +40,10 @@ public class BookStore {
         userList = UserHash.getUsers();
     }
 
+    public intHashMap<User> getUsers(){
+        return userList;
+    }
+
     // Instantiation
     public static BookStore getInstance() {
         if (bookStore == null)

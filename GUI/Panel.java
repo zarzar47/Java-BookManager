@@ -103,6 +103,9 @@ public class Panel extends java.awt.Panel {
 
 
         searchButton = new JButton();
+        searchButton.setBackground(new Color(208, 124, 194));
+        searchButton.setFocusPainted(false);
+        searchButton.setBorder(new RoundedButton(20));
         searchButton.setText("Search");
         searchButton.setPreferredSize(new Dimension(100, 20));
 

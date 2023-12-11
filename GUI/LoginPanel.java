@@ -17,7 +17,7 @@ public class LoginPanel extends JPanel {
     private final intHashMap<User> userCredentials;
 
     public LoginPanel(Book book) {
-        userCredentials = UserHash.getInstance().getUserCredentials();
+        userCredentials = UserHash.getUsers();
         currentBook = book;
         initializeUI();
     }
@@ -67,14 +67,14 @@ public class LoginPanel extends JPanel {
 
                 if (userCredentials.size() == 0){
                     JOptionPane.showMessageDialog(LoginPanel.this, "No users exist, please make an account first.");
-                }
-                else if (userCredentials.containsKey(username) && userCredentials.get(username).getPassword().equals(password) && !userCredentials.get(username).hasBook(currentBook)) {
+                }else if (userCredentials.containsKey(username) && userCredentials.get(username).getPassword().equals(password) && userCredentials.get(username).hasBook(currentBook)) {
+                    JOptionPane.showMessageDialog(LoginPanel.this, "User already has this book.");
+                } else if (userCredentials.containsKey(username) && userCredentials.get(username).getPassword().equals(password) && !userCredentials.get(username).hasBook(currentBook)) {
                     String s = BookStore.getInstance().buyBook(currentBook.getISBN(), username);
+                    userCredentials.get(username).addBook(currentBook);
                     JOptionPane.showMessageDialog(LoginPanel.this, s);
                     loginButton.setEnabled(false);
-                } else if (userCredentials.containsKey(username) && userCredentials.get(username).getPassword().equals(password) && userCredentials.get(username).hasBook(currentBook)) {
-                    JOptionPane.showMessageDialog(LoginPanel.this, "User already has this book.");
-                } else {
+                }  else {
                     JOptionPane.showMessageDialog(LoginPanel.this, "Invalid username or password. Try again.");
                 }
             }

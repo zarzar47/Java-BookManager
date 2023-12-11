@@ -1,10 +1,5 @@
 User ID: 0, Password: Abcdefg1, Books User has: 
-ISBN: 1202, Name: Trading Places, Author: Fern Michaels, Publisher: Pocket Star, Genre: Biography, Price: 44.0, In stock: 6, Popularity: 4
-ISBN: 10, Name: Where You'll Find Me: And Other Stories, Author: Ann Beattie, Publisher: Scribner, Genre: Biography, Price: 15.0, In stock: 5, Popularity: 1
-
-User ID: 1, Password: Abcdefg1, Books User has: 
-ISBN: 1202, Name: Trading Places, Author: Fern Michaels, Publisher: Pocket Star, Genre: Biography, Price: 44.0, In stock: 6, Popularity: 4
-
-User ID: 2, Password: Abcdefg1, Books User has: 
-ISBN: 587, Name: The Straw Men, Author: Michael Marshall, Publisher: Jove Books, Genre: Historical Fiction, Price: 21.0, In stock: 1, Popularity: 7
+ISBN: 871, Name: Trixie Belden and the Mystery Off Glen Road (Mystery Off Glen Road), Author: Julie Campbell, Publisher: Random House Childrens Books, Genre: Biography, Price: 47.0, In stock: 1, Popularity: 2
+ISBN: 1329, Name: Uncle Tungsten: Memories of a Chemical Boyhood, Author: Oliver W. Sacks, Publisher: Vintage Books USA, Genre: Biography, Price: 49.0, In stock: 7, Popularity: 3
+ISBN: 162, Name: Wish You Well, Author: David Baldacci, Publisher: Warner Books, Genre: Fantasy, Price: 51.0, In stock: 3, Popularity: 10
 
