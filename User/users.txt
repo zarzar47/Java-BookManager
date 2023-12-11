@@ -1,0 +1,10 @@
+User ID: 0, Password: Abcdefg1, Books User has: 
+ISBN: 1202, Name: Trading Places, Author: Fern Michaels, Publisher: Pocket Star, Genre: Biography, Price: 44.0, In stock: 6, Popularity: 4
+ISBN: 10, Name: Where You'll Find Me: And Other Stories, Author: Ann Beattie, Publisher: Scribner, Genre: Biography, Price: 15.0, In stock: 5, Popularity: 1
+
+User ID: 1, Password: Abcdefg1, Books User has: 
+ISBN: 1202, Name: Trading Places, Author: Fern Michaels, Publisher: Pocket Star, Genre: Biography, Price: 44.0, In stock: 6, Popularity: 4
+
+User ID: 2, Password: Abcdefg1, Books User has: 
+ISBN: 587, Name: The Straw Men, Author: Michael Marshall, Publisher: Jove Books, Genre: Historical Fiction, Price: 21.0, In stock: 1, Popularity: 7
+

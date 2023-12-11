@@ -15,17 +15,22 @@ public class UserHash {
     private UserHash(){
         userCredentials = FileStorage.readFromCsv();
     }
+
+    public static intHashMap<User> getUsers(){
+        return FileStorage.readFromCsv();
+    }
+
     public intHashMap<User> getUserCredentials() {
         return userCredentials;
     }
     public static UserHash getInstance(){
+        System.out.println("yes");
         if (userHash == null)
             userHash = new UserHash();
         return userHash;
     }
 
     public void saveNewData(){
-        System.out.println(userCredentials.size());
         FileStorage.saveToCsv(userCredentials);
     }
 }

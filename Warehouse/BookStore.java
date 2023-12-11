@@ -33,12 +33,18 @@ public class BookStore {
         booklist = new DoublyLinkedList();
         genreList = new StringHashMap<>();
         userList = new intHashMap<>();
+        //userList = UserHash.getUsers();
+    }
+
+    public void setUsers(){
+        userList = UserHash.getUsers();
     }
 
     // Instantiation
     public static BookStore getInstance() {
         if (bookStore == null)
             bookStore = new BookStore();
+//        bookStore.setUsers();
         return bookStore;
     }
 
@@ -51,8 +57,6 @@ public class BookStore {
 
         if (!genreList.containsKey(genre)) {
             genreList.put(genre, genreList.size());
-            System.out.println("Puttin " + genre);
-            System.out.println(genreList.toString());
         }
 
         int genreInt = genreList.get(genre);
@@ -148,6 +152,7 @@ public class BookStore {
     }
 
     public String buyBook(int isbn, int id) {
+        System.out.println("yes");
         Book book = booklist.Search(isbn);
         if (book == null) return "Sorry, we dont have this book available";
         if (book.getInStock() == 0){
@@ -159,11 +164,39 @@ public class BookStore {
         }
         else{
             booklist.Search(isbn).decreaseStock();
-            //dataField[book.getName().toUpperCase().charAt(0) - 'A'].find(genreList.get(book.getGenre().toUpperCase())).find(book.getName()).getPointer().decreaseStock();
         }
-        UserHash.getInstance().getUserCredentials().get(id).addBook(book);
-        FileStorage.saveToCsv(UserHash.getInstance().userCredentials);
+        //UserHash.getInstance().getUserCredentials().get(id).addBook(book);
+        userList.get(id).addBook(book);
+        FileStorage.saveToCsv(userList);
         return "Login successful! Thank you for Buying our Books!";
+    }
+
+    public void addBookToUser(Book book, int id){
+        if (userList.containsKey(id)){
+            userList.get(id).addBook(book);
+            subtractBook(book.getISBN());
+        }
+    }
+
+    public void addUser(User user){
+        if(userList.containsKey(user.getUserID())) return;
+        System.out.println("yes");
+        userList.put(user.getUserID(), user);
+        LinkedList<Book> isbns = user.getBooks().values();
+        for (int i = 0; i < isbns.size(); i++) {
+            subtractBook(((Book)isbns.get(i)).getISBN());
+        }
+    }
+
+    public void subtractBook(int isbn){
+        Book book = booklist.Search(isbn);
+        if (book.getInStock() == 1) {
+            booklist.delete(isbn);
+            dataField[book.getName().toUpperCase().charAt(0) - 'A'].find(genreList.get(book.getGenre().toUpperCase())).delete(book.getName());
+        }
+        else{
+            booklist.Search(isbn).decreaseStock();
+        }
     }
 
     public DynamicArray<Book> getCurrentBookList() {

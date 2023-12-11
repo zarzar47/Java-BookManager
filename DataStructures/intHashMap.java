@@ -92,6 +92,7 @@ public class intHashMap<V extends Comparable<V>>{
         }
         //No duplicate keys allowed
         else if(table[index].key == key){
+            System.out.println(key);
             System.out.println("No duplicate keys allowed");
         }
         else {

@@ -25,7 +25,6 @@ public class FileStorage {
             // Write to the file using FileWriter
             FileWriter writer = new FileWriter(file, false); // true for append mode
             LinkedList<User> users = userList.values();
-            System.out.println(users.size());
             for (int i = 0; i < users.size(); i++) {
                 writer.write(users.get(i).toString());
                 System.out.println(users.get(i));
@@ -56,22 +55,17 @@ public class FileStorage {
                             String password = line.split(" ")[4].substring(0, line.split(" ")[4].length() - 1);
                             currentUser = new User(userID, password);
                             userList.put(userID, currentUser);
+                            BookStore.getInstance().addUser(currentUser);
                         } else {
                             // If not, assume it's a book line and parse it
-                            String[] bookParts = line.split(":");
                             String isbn = extractValue(line, "ISBN: (\\d+)");
                             String name = extractName(line);
                             String genre = extractValue(line, "Genre: (.+?),");
 
                             System.out.println("ISBN: " + isbn);
-                            System.out.println("Name: " + name);
-                            System.out.println("Genre: " + genre);
                             if (currentUser != null) {
                                 currentUser.addBook(BookStore.getInstance().getBook(name.trim(), genre.trim()));
-                                BookStore.getInstance().buyBook(Integer.parseInt(isbn), currentUser.getUserID());
-
-                                //currentUser.addBook(booklist.get(Integer.parseInt(bookParts[bookParts.length-1].trim())));
-                                //booklist.get(Integer.parseInt(bookParts[bookParts.length-1].trim())).decrement();
+                                BookStore.getInstance().addBookToUser(BookStore.getInstance().getBook(name.trim(), genre.trim()), currentUser.getUserID());
                             }
                         }
                     }

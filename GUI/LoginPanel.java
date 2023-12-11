@@ -65,7 +65,10 @@ public class LoginPanel extends JPanel {
                 }
                 String password = new String(passwordField.getPassword());
 
-                if (userCredentials.containsKey(username) && userCredentials.get(username).getPassword().equals(password) && !userCredentials.get(username).hasBook(currentBook)) {
+                if (userCredentials.size() == 0){
+                    JOptionPane.showMessageDialog(LoginPanel.this, "No users exist, please make an account first.");
+                }
+                else if (userCredentials.containsKey(username) && userCredentials.get(username).getPassword().equals(password) && !userCredentials.get(username).hasBook(currentBook)) {
                     String s = BookStore.getInstance().buyBook(currentBook.getISBN(), username);
                     JOptionPane.showMessageDialog(LoginPanel.this, s);
                     loginButton.setEnabled(false);
@@ -124,6 +127,8 @@ public class LoginPanel extends JPanel {
                 if (password[0] != null && passwordStrong(password[0])) {
                     userCredentials.put(id, new User(id, password[0]));
                     UserHash.getInstance().saveNewData();
+                    BookStore.getInstance().addUser(new User(id, password[0]));
+                    //BookStore.getInstance().setUsers();
                 }
             }
         });

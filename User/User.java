@@ -1,25 +1,22 @@
 package User;
 
 import Books.Book;
+import DataStructures.LinkedList;
+import DataStructures.intHashMap;
 
 import java.util.HashMap;
 
 public class User implements Comparable<User>{
-    private static int id = 10000;
+    private static int id = 0;
     private int userID;
     private String password;
-    private HashMap<Integer, Book> books;
+    private intHashMap<Book> books;
 
-    public User(String pass){
-        userID = id++;
-        password = pass;
-        books = new HashMap<>();
-    }
 
     public User(int fileID, String pass){
         password = pass;
         userID = fileID;
-        books = new HashMap<>();
+        books = new intHashMap<>();
         id++;
     }
 
@@ -35,13 +32,13 @@ public class User implements Comparable<User>{
         return id;
     }
 
+    public intHashMap<Book> getBooks(){
+        return books;
+    }
+
     public void addBook(Book book){
         if(book == null) return;
         books.put(book.getISBN(), book);
-    }
-
-    public void returnBook(Book book){
-        books.remove(book.getISBN());
     }
 
     public String getPassword() {
@@ -59,8 +56,9 @@ public class User implements Comparable<User>{
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("User ID: " + userID + ", Password: "  + password + ", Books User has: \n");
-        for (Book book: books.values() ) {
-            sb.append(book.toString() + "\n");
+        LinkedList<Book> isbns = this.getBooks().values();
+        for (int i = 0; i < isbns.size(); i++) {
+            sb.append(isbns.get(i).toString() + "\n");
         }
         return sb.toString();
     }
