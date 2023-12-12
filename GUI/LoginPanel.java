@@ -44,7 +44,9 @@ public class LoginPanel extends JPanel {
         JPasswordField passwordField = new JPasswordField();
 
         JButton loginButton = new JButton("Login");
+        loginButton.setBorder(new RoundedButton(10));
         JButton newUserButton = new JButton("New User");
+        newUserButton.setBorder(new RoundedButton(10));
 
         loginPanel.add(userLabel);
         loginPanel.add(userField);
@@ -52,6 +54,8 @@ public class LoginPanel extends JPanel {
         loginPanel.add(passwordField);
         loginPanel.add(loginButton);
         loginPanel.add(newUserButton);
+
+
 
         loginButton.addActionListener(new ActionListener() {
             @Override
@@ -68,7 +72,14 @@ public class LoginPanel extends JPanel {
                 if (userCredentials.size() == 0){
                     JOptionPane.showMessageDialog(LoginPanel.this, "No users exist, please make an account first.");
                 }else if (userCredentials.containsKey(username) && userCredentials.get(username).getPassword().equals(password) && userCredentials.get(username).hasBook(currentBook)) {
-                    JOptionPane.showMessageDialog(LoginPanel.this, "User already has this book.");
+                    int owned = JOptionPane.showOptionDialog(LoginPanel.this, "User already has this book. Would you like to return this book?", "Book is Owned",
+                            JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, null, null);
+                    if (owned == 0)
+                    {
+                        String s = BookStore.getInstance().removeBook(username, currentBook.getISBN());
+                        userCredentials.get(username).removeBook(currentBook);
+                        JOptionPane.showMessageDialog(LoginPanel.this, s);
+                    }
                 } else if (userCredentials.containsKey(username) && userCredentials.get(username).getPassword().equals(password) && !userCredentials.get(username).hasBook(currentBook)) {
                     String s = BookStore.getInstance().buyBook(currentBook.getISBN(), username);
                     userCredentials.get(username).addBook(currentBook);
@@ -83,22 +94,10 @@ public class LoginPanel extends JPanel {
         newUserButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // if (password != null) {
-                //     if (!passwordStrong(password)){
-                //         JOptionPane.showMessageDialog(LoginPanel.this, "Please enter a strong password with at least one numeric, one lowercase and one upparcase character with minimum length 8");
-                //     }
-                //     else {
-                //         int id = userCredentials.size();
-                //         userCredentials.put(id, password);
-                //         JOptionPane.showMessageDialog(LoginPanel.this, "New user created successfully! Your ID is:" + id);
-                //         UserHash.getInstance().saveNewData(id, password);
-                //     }
                 int id = userCredentials.size();
                 JLabel idLabel = new JLabel("Your ID: "+id);
                 JLabel passLabel = new JLabel("Enter Password:");
                 JTextField passField = new JTextField();
-//                JLabel address = new JLabel("Enter Address");
-//                JTextField addField = new JTextField();
 
                 JPanel detailPanel =new JPanel();
                 detailPanel.setLayout(new BoxLayout(detailPanel,BoxLayout.Y_AXIS));
@@ -106,8 +105,6 @@ public class LoginPanel extends JPanel {
                 detailPanel.add(idLabel);
                 detailPanel.add(passLabel);
                 detailPanel.add(passField);
-//                detailPanel.add(address);
-//                detailPanel.add(addField);
                 JButton done = new JButton("Confirm");
                 final String[] password = {""};
                 done.addActionListener(new ActionListener() {
@@ -128,11 +125,9 @@ public class LoginPanel extends JPanel {
                     userCredentials.put(id, new User(id, password[0]));
                     UserHash.getInstance().saveNewData();
                     BookStore.getInstance().addUser(new User(id, password[0]));
-                    //BookStore.getInstance().setUsers();
                 }
             }
         });
-
         return loginPanel;
     }
 

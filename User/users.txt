@@ -1,5 +1,22 @@
 User ID: 0, Password: Abcdefg1, Books User has: 
-ISBN: 871, Name: Trixie Belden and the Mystery Off Glen Road (Mystery Off Glen Road), Author: Julie Campbell, Publisher: Random House Childrens Books, Genre: Biography, Price: 47.0, In stock: 1, Popularity: 2
+ISBN: 871, Name: Trixie Belden and the Mystery Off Glen Road (Mystery Off Glen Road), Author: Julie Campbell, Publisher: Random House Childrens Books, Genre: Biography, Price: 47.0, In stock: 2, Popularity: 2
 ISBN: 1329, Name: Uncle Tungsten: Memories of a Chemical Boyhood, Author: Oliver W. Sacks, Publisher: Vintage Books USA, Genre: Biography, Price: 49.0, In stock: 7, Popularity: 3
-ISBN: 162, Name: Wish You Well, Author: David Baldacci, Publisher: Warner Books, Genre: Fantasy, Price: 51.0, In stock: 3, Popularity: 10
+ISBN: 162, Name: Wish You Well, Author: David Baldacci, Publisher: Warner Books, Genre: Fantasy, Price: 51.0, In stock: 4, Popularity: 10
+ISBN: 517, Name: The Bean Trees, Author: Barbara Kingsolver, Publisher: Perennial, Genre: Mystery, Price: 50.0, In stock: 5, Popularity: 0
+
+User ID: 1, Password: Abcdefg1, Books User has: 
+ISBN: 845, Name: Love Ruins Everything: A Novel, Author: Karen X. Tulchinsky, Publisher: Press Gang Publishers, Genre: Science Fiction, Price: 53.0, In stock: 2, Popularity: 1
+ISBN: 1150, Name: Love: A User's Guide, Author: CLARE NAYLOR, Publisher: Ballantine Books, Genre: Fantasy, Price: 25.0, In stock: 9, Popularity: 4
+ISBN: 517, Name: The Bean Trees, Author: Barbara Kingsolver, Publisher: Perennial, Genre: Mystery, Price: 50.0, In stock: 5, Popularity: 0
+
+User ID: 2, Password: Abcdefg2, Books User has: 
+ISBN: 517, Name: The Bean Trees, Author: Barbara Kingsolver, Publisher: Perennial, Genre: Mystery, Price: 50.0, In stock: 5, Popularity: 0
+
+User ID: 3, Password: Abcdefg3, Books User has: 
+ISBN: 517, Name: The Bean Trees, Author: Barbara Kingsolver, Publisher: Perennial, Genre: Mystery, Price: 50.0, In stock: 5, Popularity: 0
+
+User ID: 4, Password: Abcdefg4, Books User has: 
+ISBN: 587, Name: The Straw Men, Author: Michael Marshall, Publisher: Jove Books, Genre: Historical Fiction, Price: 21.0, In stock: 0, Popularity: 7
+
+User ID: 5, Password: Abcdefg5, Books User has: 
 

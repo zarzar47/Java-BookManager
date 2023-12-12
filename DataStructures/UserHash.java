@@ -10,21 +10,28 @@ import java.util.Hashtable;
 public class UserHash {
     //TODO make into a custom hash
     private static UserHash userHash;
+    private static boolean read = false;
 
-    public intHashMap<User> userCredentials;
+    public static intHashMap<User> userCredentials;
     private UserHash(){
-        userCredentials = FileStorage.readFromCsv();
+        if (!read){
+            userCredentials = FileStorage.readFromCsv();
+            read = true;
+        }
     }
 
     public static intHashMap<User> getUsers(){
-        return FileStorage.readFromCsv();
+        if (!read) {
+            userCredentials = FileStorage.readFromCsv();
+            read = true;
+        }
+        return userCredentials;
     }
 
     public intHashMap<User> getUserCredentials() {
         return userCredentials;
     }
     public static UserHash getInstance(){
-        System.out.println("yes");
         if (userHash == null)
             userHash = new UserHash();
         return userHash;

@@ -40,7 +40,7 @@ public class DynamicArray<T> {
         array = newArray;
     }
 
-    public void ascSortByName(Book[] arr, int l, int u, boolean ascending)
+    public static void ascSortByName(Book[] arr, int l, int u, boolean ascending)
     {
         if (arr.length == 1) return;
 
@@ -53,7 +53,7 @@ public class DynamicArray<T> {
             ascStringSortHelper(arr, l, m, u, ascending);
         }
     }
-    public void ascSortByPrice(Book[] arr, int l, int u, boolean ascending)
+    public static void ascSortByPrice(Book[] arr, int l, int u, boolean ascending)
     {
         if (arr.length == 1) return;
 
@@ -66,7 +66,7 @@ public class DynamicArray<T> {
             ascPriceSortHelper(arr, l, m, u, ascending);
         }
     }
-    public void ascSortByPopularity(Book[] arr, int l, int u, boolean ascending)
+    public static void ascSortByPopularity(Book[] arr, int l, int u, boolean ascending)
     {
         if (arr.length == 1) return;
 
@@ -80,7 +80,7 @@ public class DynamicArray<T> {
         }
     }
 
-    public void ascStringSortHelper(Book[] arr, int l, int m, int u, boolean ascending)
+    public static void ascStringSortHelper(Book[] arr, int l, int m, int u, boolean ascending)
     {
         int n1 = m - l + 1;
         int n2 = u - m;
@@ -101,7 +101,7 @@ public class DynamicArray<T> {
         {
             while (i < n1 && j < n2)
             {
-                if (L[i].getName().compareTo(R[j].getName()) <= 0)
+                if (L[i].getName().compareToIgnoreCase((R[j].getName())) <= 0)
                     arr[k++] = L[i++];
                 else
                     arr[k++] = R[j++];
@@ -126,8 +126,7 @@ public class DynamicArray<T> {
             // arr[k++] = R[j++];
             arr[k++] = R[j++];
     }
-
-    public void ascPriceSortHelper(Book[] arr, int l, int m, int u, boolean ascending)
+    public static void ascPriceSortHelper(Book[] arr, int l, int m, int u, boolean ascending)
     {
         int n1 = m - l + 1;
         int n2 = u - m;
@@ -169,7 +168,7 @@ public class DynamicArray<T> {
         while (j < n2)
             arr[k++] = R[j++];
     }
-    public void ascPopularitySortHelper(Book[] arr, int l, int m, int u, boolean ascending)
+    public static void ascPopularitySortHelper(Book[] arr, int l, int m, int u, boolean ascending)
     {
         int n1 = m - l + 1;
         int n2 = u - m;

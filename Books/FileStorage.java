@@ -49,7 +49,7 @@ public class FileStorage {
                 while ((line = in.readLine()) != null) {
                     if (!line.isEmpty()) {
                         String[] parts = line.split(":");
-                        if (parts.length == 4) {
+                        if (parts.length <= 4) {
                             // If line contains "User ID", create a new user
                             int userID = Integer.parseInt(line.split(" ")[2].substring(0, line.split(" ")[2].length() - 1));
                             String password = line.split(" ")[4].substring(0, line.split(" ")[4].length() - 1);
@@ -62,7 +62,7 @@ public class FileStorage {
                             String name = extractName(line);
                             String genre = extractValue(line, "Genre: (.+?),");
 
-                            System.out.println("ISBN: " + isbn);
+                            System.out.println("Id: " + currentUser.getUserID() + ", ISBN: " + isbn);
                             if (currentUser != null) {
                                 currentUser.addBook(BookStore.getInstance().getBook(name.trim(), genre.trim()));
                                 BookStore.getInstance().addBookToUser(BookStore.getInstance().getBook(name.trim(), genre.trim()), currentUser.getUserID());

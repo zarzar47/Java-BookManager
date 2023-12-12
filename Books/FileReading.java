@@ -45,6 +45,7 @@ public class FileReading
 
             }
             //bookStore.getSavedUsers();
+            bookStore.setUsers();
         }
         catch (FileNotFoundException e)
         {

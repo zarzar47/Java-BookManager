@@ -111,6 +111,9 @@ public class Panel extends java.awt.Panel {
 
 
         genreFilter = new JButton();
+        genreFilter.setBorder(new RoundedButton(20));
+        genreFilter.setBackground(new Color(91, 222, 153));
+        genreFilter.setFocusPainted(false);
         genreFilter.setText("Genre");
         genreFilter.setPreferredSize(new Dimension(100, 20));
 

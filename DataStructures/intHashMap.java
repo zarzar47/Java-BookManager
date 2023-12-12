@@ -111,6 +111,17 @@ public class intHashMap<V extends Comparable<V>>{
         }
     }
 
+    public void remove(int key) {
+        int index = hash(key);
+        if (table[index] == null) return;
+        if (table[index].getKey() == key) table[index] = null;
+        for (int i = 1; i <= 10; i++) {
+            index = rehash(index, i);
+            if (table[index] == null) return;
+            else if (table[index].getKey() == key)  table[index] = null;
+        }
+    }
+
     public V get(int key){
         int index = hash(key);
         if (table[index] == null) return null;

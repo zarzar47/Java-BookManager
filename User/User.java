@@ -12,7 +12,6 @@ public class User implements Comparable<User>{
     private String password;
     private intHashMap<Book> books;
 
-
     public User(int fileID, String pass){
         password = pass;
         userID = fileID;
@@ -39,6 +38,13 @@ public class User implements Comparable<User>{
     public void addBook(Book book){
         if(book == null) return;
         books.put(book.getISBN(), book);
+    }
+
+    // Added this
+    public void removeBook(Book book) {
+        if (book == null) return;
+        books.remove(book.getISBN());
+
     }
 
     public String getPassword() {

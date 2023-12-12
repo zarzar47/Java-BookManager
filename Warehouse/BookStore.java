@@ -33,7 +33,7 @@ public class BookStore {
         booklist = new DoublyLinkedList();
         genreList = new StringHashMap<>();
         userList = new intHashMap<>();
-        //userList = UserHash.getUsers();
+        // userList = UserHash.getUsers();
     }
 
     public void setUsers(){
@@ -101,7 +101,6 @@ public class BookStore {
         DynamicArray<Book> list = new DynamicArray<>();
 
         if ((name.equals("Enter Book Name") || name.equals("")) && !genre.equalsIgnoreCase("All") && genreList.containsKey(genre.toUpperCase())){
-            System.out.println("genre is " + genre);
             for (int i = 0; i < dataField.length; i++) {
                 if (dataField[i].find(genreList.get(genre.toUpperCase())) != null)
                     dataField[i].find(genreList.get(genre.toUpperCase())).getList(list);
@@ -122,7 +121,12 @@ public class BookStore {
             for (int i = 0; i < genreList.size(); i++) {
                 System.out.println(letter);
                 DynamicArray<BST> DArray = dataField[letter - 'A'];
-                DArray.find(i).searchAll(list, name);
+                try {
+                    DArray.find(i).searchAll(list, name);
+                } catch (NullPointerException e) {
+                    System.out.println("Book not found");
+                //    JOptionPane.showMessageDialog(null,"no book with this starting substring in this genre.");
+                }
             }
         } else {
             int i = genreList.get(genre.toUpperCase());
@@ -156,25 +160,35 @@ public class BookStore {
     }
 
     public String buyBook(int isbn, int id) {
-        System.out.println("yes");
         Book book = booklist.Search(isbn);
         if (book == null) return "Sorry, we dont have this book available";
         if (book.getInStock() == 0){
             return "Sorry, we have run out of all the copies for this Book.";
         }
-        else if (book.getInStock() == 1) {
-            booklist.delete(isbn);
-            dataField[book.getName().toUpperCase().charAt(0) - 'A'].find(genreList.get(book.getGenre().toUpperCase())).delete(book.getName());
-        }
-        else{
-            booklist.Search(isbn).decreaseStock();
-        }
+        booklist.Search(isbn).decreaseStock();
+//        else if (book.getInStock() == 1) {
+//            booklist.delete(isbn);
+//            dataField[book.getName().toUpperCase().charAt(0) - 'A'].find(genreList.get(book.getGenre().toUpperCase())).delete(book.getName());
+//        }
+//        else{
+//            booklist.Search(isbn).decreaseStock();
+//        }
         //UserHash.getInstance().getUserCredentials().get(id).addBook(book);
         userList.get(id).addBook(book);
         FileStorage.saveToCsv(userList);
         return "Login successful! Thank you for Buying our Books!";
     }
 
+    public String removeBook(int id, int isbn)
+    {
+        Book book = booklist.Search(isbn);
+        addBook(isbn);
+        userList.get(id).removeBook(book);
+        FileStorage.saveToCsv(userList);
+        return "The book was successfully removed from your account!";
+    }
+
+    // For Filing
     public void addBookToUser(Book book, int id){
         if (userList.containsKey(id)){
             userList.get(id).addBook(book);
@@ -184,7 +198,6 @@ public class BookStore {
 
     public void addUser(User user){
         if(userList.containsKey(user.getUserID())) return;
-        System.out.println("yes");
         userList.put(user.getUserID(), user);
         LinkedList<Book> isbns = user.getBooks().values();
         for (int i = 0; i < isbns.size(); i++) {
@@ -193,14 +206,19 @@ public class BookStore {
     }
 
     public void subtractBook(int isbn){
-        Book book = booklist.Search(isbn);
-        if (book.getInStock() == 1) {
-            booklist.delete(isbn);
-            dataField[book.getName().toUpperCase().charAt(0) - 'A'].find(genreList.get(book.getGenre().toUpperCase())).delete(book.getName());
-        }
-        else{
-            booklist.Search(isbn).decreaseStock();
-        }
+        //Book book = booklist.Search(isbn);
+        booklist.Search(isbn).decreaseStock();
+//        if (book.getInStock() == 1) {
+//            booklist.delete(isbn);
+//            dataField[book.getName().toUpperCase().charAt(0) - 'A'].find(genreList.get(book.getGenre().toUpperCase())).delete(book.getName());
+//        }
+//        else{
+//            booklist.Search(isbn).decreaseStock();
+//        }
+    }
+
+    public void addBook(int isbn) {
+        booklist.Search(isbn).increaseStock();
     }
 
     public DynamicArray<Book> getCurrentBookList() {
@@ -221,19 +239,19 @@ public class BookStore {
     public void ascSortByName()
     {
         Book[] arr = currentBookList.toArr();
-        currentBookList.ascSortByName(arr, 0, currentBookList.getSize() - 1, ascending);
+        DynamicArray.ascSortByName(arr, 0, currentBookList.getSize() - 1, ascending);
         currentBookList.toDyArr(arr);
     }
     public void ascSortByPrice()
     {
         Book[] arr = currentBookList.toArr();
-        currentBookList.ascSortByPrice(arr, 0, currentBookList.getSize() - 1, ascending);
+        DynamicArray.ascSortByPrice(arr, 0, currentBookList.getSize() - 1, ascending);
         currentBookList.toDyArr(arr);
     }
     public void ascSortByPopularity()
     {
         Book[] arr = currentBookList.toArr();
-        currentBookList.ascSortByPopularity(arr, 0, currentBookList.getSize() - 1, ascending);
+        DynamicArray.ascSortByPopularity(arr, 0, currentBookList.getSize() - 1, ascending);
         currentBookList.toDyArr(arr);
     }
 
