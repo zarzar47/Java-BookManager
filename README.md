@@ -10,8 +10,8 @@ Hey, welcome to our repository. This repo is a project that we created from scra
 We used five Data Structures, each with their own uses:
 - *Linked Lists* - Used for keeping a database, all the references are held in this list, makes insertion and deletion easy
 - *Dynamic Array* - Used for storing the books as well as displaying the current book list based on the users search paramaters, as well as sorting that list according to the user’s need (by name, price, or popularity, either ascending or descending).
-- *Binary Search Trees (BSTs)* -
-- *Hash Maps* -
+- *Binary Search Trees (BSTs)* - Used for storing books, it allows for fast searching and inserting and delete methods.
+- *Hash Maps* - Used for the O(1) searching and retrieving of data. Multiple types of them were implemented throughout our project. 
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 **Storage of Books for Efficient Searching**
